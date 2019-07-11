@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { margin, typography, layout, system, alignSelf } from "styled-system";
-import { buttonStyles } from "styles/custom-utils";
+import { buttonStyles } from "../styles/custom-utils";
 
 const textDecoration = system({
   textDecoration: true

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import iconRepo from './icon-repo'
-import { Box } from '../../internal'
+import Box from '../box'
 
 const SVG = styled.svg`
   fill: currentColor;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { layout, margin, flexbox } from 'styled-system'
-import { colors, space, borders } from 'styles/theme'
+import { colors, space, borders } from '../../styles/theme'
 
 export const InputLabel = styled.label`
   flex-direction: column;

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { variant } from 'styled-system'
-import { Text } from './text'
+import Text from './text'
 
 const headingStyles = variant({
   scale: 'headingStyles',
