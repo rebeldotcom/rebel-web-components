@@ -9,7 +9,7 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "version:patch": "npm version patch && git push",
-    "deploy:patch": "yarn build && yarn version:patch && npm publish"
+    "deploy:patch": "yarn build && yarn version:patch"
   },
   "repository": {
     "type": "git",
