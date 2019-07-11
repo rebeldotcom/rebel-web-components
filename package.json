@@ -1,0 +1,53 @@
+{
+  "name": "@rebeldotcom/components",
+  "version": "0.0.1",
+  "description": "Rebel web components",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "start": "rollup -c -w",
+    "version:patch": "npm version patch && git push",
+    "deploy:patch": "yarn build && yarn version:patch && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rebeldotcom/rebel-web-components.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rebeldotcom/rebel-web-components/issues"
+  },
+  "homepage": "https://github.com/rebeldotcom/rebel-web-components#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "@svgr/rollup": "^4.3.1",
+    "install": "^0.13.0",
+    "npm": "^6.10.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rollup": "^1.16.7",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-url": "^2.2.2",
+    "styled-components": "^4.3.2",
+    "styled-normalize": "^8.0.6",
+    "styled-reset": "^3.0.0",
+    "styled-system": "^5.0.12"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2",
+    "styled-system": "^5.0.12"
+  }
+}

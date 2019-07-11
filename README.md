@@ -1,1 +1,1 @@
-# rebel-web-components
+# rebel-web-ui-shared
