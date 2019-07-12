@@ -26,6 +26,5 @@ export {
   Text,
   ThemeProvider,
   theme,
-  media,
   GlobalStyle
 };

@@ -5,7 +5,7 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 const remify = n => `${n / 10}rem`;
 const pixify = n => `${n}px`;
 
-export const space = [0, 4, 8, 16, 32, 64, 128, 256, 512].map(remify);
+const space = [0, 4, 8, 16, 32, 64, 128, 256, 512].map(remify);
 
 const [none, quarter, half, regular, big, bigger, biggest] = space;
 
@@ -19,7 +19,7 @@ space.biggest = biggest;
 
 // COLORS
 
-export const colors = {
+const colors = {
   white: "#fff",
   whiteDark: "#f7f7f7",
   greyLight: "#d7d7d7",
@@ -71,14 +71,8 @@ export const colors = {
 
 // FONTS
 
-export const fonts = {
+const fonts = {
   default: `"Montserrat", sans-serif`
-};
-
-export const border = {
-  radius: "2px",
-  color: colors.greyLight,
-  dark: "#2d2e33"
 };
 
 // const letterSpacings = {
@@ -99,7 +93,7 @@ const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96].map(remify);
 
 const breakpoints = [600, 900, 1200].map(pixify);
 
-export const borders = [
+const borders = [
   "none",
   `1px solid ${colors.greyDark}`,
   `1px solid ${colors.greyLight}`,
@@ -191,7 +185,7 @@ const headingStyles = [
   }
 ];
 
-export const zIndex = {
+const zIndices = {
   modal: 9999,
   coverPage: 100,
   aboveNavbar: 95,
@@ -200,9 +194,78 @@ export const zIndex = {
   bgImage: -1
 };
 
-export const focus = {
+const focus = {
   color: "#406198",
   style: "box-shadow: 0 0 0 2px #406198;"
+};
+
+const screen = {
+  small: "600px",
+  smallUp: "601px",
+  medium: "992px",
+  mediumUp: "993px",
+  large: "1200px",
+  largeUp: "1201px"
+};
+
+// 1366x768
+// 1920x1080
+// 360x640
+// 1440x900
+// 1536x864
+// 1600x900
+
+const media = {
+  smallLaptop: (...args) => css`
+    @media only screen and (max-width: 700px) and (max-height: 400px) and (orientation: portrait) {
+      ${css(...args)};
+    }
+  `,
+  smallAndDown: (...args) => css`
+    @media only screen and (max-width: ${screen.small}) {
+      ${css(...args)};
+    }
+  `,
+  mediumOnly: (...args) => css`
+    @media only screen and (min-width: ${screen.smallUp}) and (max-width: ${screen.medium}) {
+      ${css(...args)};
+    }
+  `,
+  mediumAndDown: (...args) => css`
+    @media only screen and (max-width: ${screen.medium}) {
+      ${css(...args)};
+    }
+  `,
+  mediumAndUp: (...args) => css`
+    @media only screen and (min-width: ${screen.smallUp}) {
+      ${css(...args)};
+    }
+  `,
+  largeAndDown: (...args) => css`
+    @media only screen and (max-width: ${screen.large}) {
+      ${css(...args)};
+    }
+  `,
+  largeAndUp: (...args) => css`
+    @media only screen and (min-width: ${screen.mediumUp}) {
+      ${css(...args)};
+    }
+  `,
+  veryLarge: (...args) => css`
+    @media only screen and (min-width: ${screen.largeUp}) {
+      ${css(...args)};
+    }
+  `,
+  rotated: (...args) => css`
+    @media only screen and (orientation: landscape) {
+      ${css(...args)};
+    }
+  `,
+  touch: (...args) => css`
+    @media (hover: none) {
+      ${css(...args)};
+    }
+  `
 };
 
 export const theme = {
@@ -216,8 +279,10 @@ export const theme = {
   shadows,
   space,
   textStyles,
-  zIndices: zIndex,
-  radii
+  zIndices,
+  radii,
+  media,
+  focus
 };
 
 export const ThemeProvider = ({ children }) => (
