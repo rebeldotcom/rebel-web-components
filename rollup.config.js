@@ -4,6 +4,7 @@ import external from "rollup-plugin-peer-deps-external";
 import resolve from "rollup-plugin-node-resolve";
 import url from "rollup-plugin-url";
 import svgr from "@svgr/rollup";
+import filesize from 'rollup-plugin-filesize';
 
 import pkg from "./package.json";
 
@@ -49,6 +50,13 @@ module.exports = {
           "ForwardRef"
         ]
       }
-    })
+    }),
+    filesize()
+  ],
+  external: [
+    'styled-components',
+    'react',
+    'react-dom',
+    'styled-system'
   ]
 };
