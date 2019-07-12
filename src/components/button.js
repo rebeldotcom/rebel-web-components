@@ -42,36 +42,35 @@ const StyledButton = styled.button`
   }
 `;
 
-const Button = ({
-  id,
-  onClick,
-  children,
-  ariaLabel,
-  testId,
-  title,
-  disabled,
-  ...rest
-}) => {
-  const handleButtonClick = event => {
-    event.preventDefault();
-    onClick();
-  };
+const Button = React.forwardRef(
+  (
+    { id, onClick, children, ariaLabel, testId, title, disabled, ...rest },
+    ref
+  ) => {
+    const handleButtonClick = event => {
+      event.preventDefault();
+      onClick();
+    };
 
-  return (
-    <StyledButton
-      aria-label={ariaLabel}
-      data-testid={testId}
-      disabled={disabled}
-      id={id}
-      onClick={handleButtonClick}
-      title={title || ariaLabel}
-      type="button"
-      {...rest}
-    >
-      {children}
-    </StyledButton>
-  );
-};
+    return (
+      <StyledButton
+        ref={ref}
+        aria-label={ariaLabel}
+        data-testid={testId}
+        disabled={disabled}
+        id={id}
+        onClick={handleButtonClick}
+        title={title || ariaLabel}
+        type="button"
+        {...rest}
+      >
+        {children}
+      </StyledButton>
+    );
+  }
+);
+
+Button.displayName = "Button";
 
 Button.defaultProps = defaultProps;
 Button.propTypes = propTypes;
