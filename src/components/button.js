@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { margin, layout } from "styled-system";
-import { colors as themeColors } from "../styles/theme";
 import { buttonStyles } from "../styles/custom-utils";
 
 const defaultProps = {
@@ -36,9 +35,9 @@ const StyledButton = styled.button`
 
   &:disabled {
     cursor: not-allowed;
-    border: 1px solid ${themeColors.greyLight} !important;
-    background: ${themeColors.greyLight} !important;
-    color: ${themeColors.greyDarker};
+    border: ${({ theme }) => theme.borders.light} !important;
+    background: ${({ theme }) => theme.colors.greyLight} !important;
+    color: ${({ theme }) => theme.colors.greyDarker};
   }
 `;
 

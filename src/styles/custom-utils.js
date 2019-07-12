@@ -1,4 +1,5 @@
-import { colors as themeColors } from "./theme";
+import { theme } from "./theme";
+const { colors: themeColors } = theme;
 
 const colors = {
   red: {

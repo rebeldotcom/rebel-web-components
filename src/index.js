@@ -10,7 +10,7 @@ import Loader from "./components/loader";
 import Icon from "./components/icon";
 import Input from "./components/input";
 
-import { ThemeProvider, theme, media, GlobalStyle } from "./styles";
+import { ThemeProvider, theme, GlobalStyle } from "./styles";
 
 export {
   Box,

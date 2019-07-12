@@ -102,6 +102,7 @@ const borders = [
 ];
 
 borders.none = borders[0];
+borders.light = borders[2];
 borders.dark = borders[1];
 borders.input = borders[2];
 borders.error = borders[4];
