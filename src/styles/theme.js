@@ -1,3 +1,5 @@
+import React from "react";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
 /* eslint-disable prefer-destructuring */
 // Need to set value since styled-system no longer provides this in v5+
 const remify = n => `${n / 10}rem`;
@@ -202,7 +204,7 @@ export const focus = {
   style: "box-shadow: 0 0 0 2px #406198;"
 };
 
-const theme = {
+export const theme = {
   borders,
   breakpoints,
   colors,
@@ -217,4 +219,6 @@ const theme = {
   radii
 };
 
-export default theme;
+export const ThemeProvider = ({ children }) => (
+  <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
+);
