@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { ThemeProvider as StyledThemeProvider, css } from "styled-components";
 /* eslint-disable prefer-destructuring */
 // Need to set value since styled-system no longer provides this in v5+
 const remify = n => `${n / 10}rem`;
@@ -98,12 +98,13 @@ const borders = [
   `1px solid ${colors.greyDark}`,
   `1px solid ${colors.greyLight}`,
   `1px solid ${colors.white}`,
-  `1px solid ${colors.red}`
+  `1px solid ${colors.red}`,
+  `1px solid ${colors.blackLighter}`
 ];
 
 borders.none = borders[0];
 borders.light = borders[2];
-borders.dark = borders[1];
+borders.dark = borders[5];
 borders.input = borders[2];
 borders.error = borders[4];
 

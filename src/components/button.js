@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { margin, layout } from "styled-system";
+import { margin, layout, alignSelf, position } from "styled-system";
 import { buttonStyles } from "../styles/custom-utils";
 
 const defaultProps = {
   as: "button",
   disabled: false,
-  display: "inline-block",
+  display: "flex",
   testId: "",
   title: ""
 };
@@ -25,6 +25,9 @@ const propTypes = {
 };
 
 const StyledButton = styled.button`
+  align-items: center;
+  justify-content: center;
+
   &:hover {
     cursor: pointer;
   }
@@ -32,6 +35,8 @@ const StyledButton = styled.button`
   ${buttonStyles}
   ${margin}
   ${layout}
+  ${position}
+  ${alignSelf}
 
   &:disabled {
     cursor: not-allowed;
