@@ -66,30 +66,119 @@ const colors = {
   error: "#f04822",
   errorLight: "#ffd1c7",
 
-  facebook: "#3b5998"
+  facebook: "#3b5998",
+
+  primary1: [
+    '#0010A3',
+    '#0013D1',
+    '#0018FF',
+    '#2E42FF',
+    '#5C6CFF',
+    '#8B96FF',
+    '#A2ABFF',
+    '#B9C0FF',
+    '#D4D7F7'
+  ],
+
+  primary2: [
+    '#F58F00',
+    '#FF9600',
+    '#FFA130',
+    '#FFAB4E',
+    '#FFB666',
+    '#FFCC94',
+    '#FFD6A9',
+    '#FFEAD3',
+    '#FFF3E6'
+  ],
+
+  greens: [
+    '#00D66F',
+    '#00E677',
+    '#05F07E',
+    '#43FF90',
+    '#7CFFAA',
+    '#9CFFBE',
+    '#AFFFC9',
+    '#CAFFDB',
+    '#E4FFED'
+  ],
+
+  reds: [
+    '#E00074',
+    '#EB0079',
+    '#FF0082',
+    '#FF4D9B',
+    '#FF7EB4',
+    '#FF94C1',
+    '#FFA9CE',
+    '#FFBFDA',
+    '#FFE5F1'
+  ],
+
+  yellows: [
+    '#F5D800',
+    '#FADD00',
+    '#FFE417',
+    '#FFEA5B',
+    '#FEED72',
+    '#FFEF88',
+    '#FFF29E',
+    '#FFF7C9',
+    '#FFFADD'
+  ],
+
+  purples: [
+    '#370090',
+    '#4700BC',
+    '#6100FF',
+    '#6D14FF',
+    '#853DFC',
+    '#A26BFA',
+    '#C099FF',
+    '#C39EFF',
+    '#EFE5FF'
+  ],
+
+  greys: [
+    '#101428',
+    '#222328',
+    '#38393D',
+    '#4E4F53',
+    '#919191',
+    '#B2B2B4',
+    '#D3D3D4',
+    '#EBEBEB',
+    '#F7F7F7'
+  ]
+
+
 };
 
-// FONTS
+// TYPOGRAPHY
 
 const fonts = {
   default: `"Montserrat", sans-serif`
 };
 
-// const letterSpacings = {
-//   normal: 'normal',
-//   sm: '.2rem',
-//   md: '.3rem',
-//   lg: '.4rem',
-// }
+const letterSpacings = {
+  normal: 0,
+  wide: 2,
+}
+
+const lineHeights = {
+  title: 1.2,
+  body: 1.8,
+}
 
 const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96].map(remify);
 
-// const fontWeights = {
-//   light: 300
-//   normal: 400,
-//   bold: 500,
-//   boldest: 700,
-// }
+const fontWeights = {
+  light: 300,
+  regular: 400,
+  semi: 600,
+  bold: 800,
+}
 
 const breakpoints = [600, 900, 1200].map(pixify);
 
@@ -156,34 +245,34 @@ const messageStyles = {
 const headingStyles = [
   {
     fontSize: "4.5rem",
-    lineHeight: "1.2",
-    fontWeight: "300"
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.light
   },
   {
     fontSize: "3.2rem",
-    lineHeight: "1.2",
-    fontWeight: "300"
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.light
   },
   {
     fontSize: "2.4rem",
-    lineHeight: "1.2",
-    fontWeight: "300"
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.light
   },
   {
     fontSize: "1.8rem",
-    lineHeight: "1.2",
-    fontWeight: "400"
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular
   },
   {
     fontSize: "1.6rem",
-    lineHeight: "1.2",
-    fontWeight: "600"
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.semi
   },
   {
     fontSize: "1.4rem",
-    lineHeight: "1.2",
-    fontWeight: "600",
-    letterSpacing: "2"
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.semi,
+    letterSpacing: letterSpacings.wide
   }
 ];
 
@@ -274,17 +363,20 @@ export const theme = {
   borders,
   breakpoints,
   colors,
+  focus,
   fonts,
   fontSizes,
+  fontWeights,
   headingStyles,
+  letterSpacings,
+  lineHeights,
+  media,
   messageStyles,
+  radii,
   shadows,
   space,
   textStyles,
   zIndices,
-  radii,
-  media,
-  focus
 };
 
 export const ThemeProvider = ({ children }) => (
