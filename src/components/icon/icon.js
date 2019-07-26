@@ -66,7 +66,7 @@ const Icon = ({
         viewBox={viewBox}
         width={width}
       >
-        <title id={`title-${title}`}>{title}</title>
+        <title id={titleId}>{title}</title>
 
         {desc && <desc id={descId}>{desc}</desc>}
         {iconPaths}
