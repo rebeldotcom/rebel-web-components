@@ -47,13 +47,15 @@ const Icon = ({
   width,
   height,
   title,
+  titleId,
+  descId,
   desc,
   viewBox,
   containerProps,
   ...rest
 }) => {
   const iconPaths = getIcon(name)
-  const ariaLabelledBy = desc ? `title-${title} desc-${desc}` : `title-${title}`
+  const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
   return (
     <Box {...containerProps} {...rest}>
@@ -64,9 +66,9 @@ const Icon = ({
         viewBox={viewBox}
         width={width}
       >
-        <title id={`title-${title}`}>{title}</title>
+        <title id={titleId}>{title}</title>
 
-        {desc && <desc id={`desc-${desc}`}>{desc}</desc>}
+        {desc && <desc id={descId}>{desc}</desc>}
         {iconPaths}
       </SVG>
     </Box>
