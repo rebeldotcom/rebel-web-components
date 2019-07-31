@@ -78,5 +78,6 @@ Button.displayName = "Button";
 
 Button.defaultProps = defaultProps;
 Button.propTypes = propTypes;
+Button.variants = buttonStyles;
 
 export default Button;

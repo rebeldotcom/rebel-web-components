@@ -1,0 +1,27 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  // Disable vscode from running prettier on save
+  // ESLint now handles formatting our code with prettier integration
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  // Enable/disable default JavaScript formatter (For Prettier)
+  "javascript.format.enable": false,
+  // Allows ESLint to run when we save
+  "eslint.autoFixOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/dist": true,
+    "**/public": true,
+    "**/.cache": true
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#F58F00",
+    "activityBar.foreground": "#3d2401",
+    "titleBar.activeBackground": "#FFA130",
+    "titleBar.activeForeground": "#3d2401",
+    "titleBar.inactiveBackground": "#F58F00"
+  }
+}
