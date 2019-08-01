@@ -9,7 +9,8 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "version:patch": "npm version patch && git push",
-    "deploy:patch": "yarn build && yarn version:patch && npm publish"
+    "deploy:patch": "yarn build && yarn version:patch && npm publish",
+    "clean": "rimraf node_modules && npm install"
   },
   "repository": {
     "type": "git",
@@ -22,17 +23,18 @@
   },
   "homepage": "https://github.com/rebeldotcom/rebel-web-components#readme",
   "devDependencies": {
-    "@babel/cli": "^7.5.0",
-    "@babel/core": "^7.5.4",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
     "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "@svgr/rollup": "^4.3.1",
+    "@svgr/rollup": "^4.3.2",
     "install": "^0.13.0",
-    "npm": "^6.10.0",
+    "npm": "^6.10.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "rollup": "^1.16.7",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.18.0",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.0.1",
     "rollup-plugin-filesize": "^6.1.1",
@@ -43,7 +45,7 @@
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6",
     "styled-reset": "^3.0.0",
-    "styled-system": "^5.0.12"
+    "styled-system": "^5.0.18"
   },
   "peerDependencies": {
     "react": "^16.8.6",
@@ -54,6 +56,6 @@
     "styled-reset": "^3.0.0"
   },
   "dependencies": {
-    "gatsby-image": "^2.2.5"
+    "gatsby-image": "^2.2.8"
   }
 }
