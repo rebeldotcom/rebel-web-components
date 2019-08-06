@@ -27,10 +27,12 @@ const defaultProps = {
 }
 
 const getIcon = name => {
-  const selected = iconRepo.find(icon => icon.tags[0] === name)
+  const selected = iconRepo.find(icon => {
+    return icon.tags[0] === name
+  })
 
   if (!selected) {
-    return <div>Invalid icon name: {name}</div>
+    return <div style={{ color: red }}>Invalid icon name: {name}</div>
   }
 
   return selected.paths.map((p, idx) => (

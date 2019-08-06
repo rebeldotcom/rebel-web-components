@@ -175,6 +175,20 @@ export const buttonStyles = ({
       `;
     }
 
+    case 'scroll-widget': {
+      return `
+        ${defaultButtonStyles}
+        transition: all .2s ease-in-out 0s;
+        opacity: 0.9;
+        background: ${themeColors.blackLighter};
+
+        &:hover {
+          background: ${themeColors.green};
+        }
+
+      `
+    }
+
     default:
       return `
         color: ${bg};
