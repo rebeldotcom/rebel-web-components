@@ -32,7 +32,7 @@ const getIcon = name => {
   })
 
   if (!selected) {
-    return <div style={{ color: red }}>Invalid icon name: {name}</div>
+    return <div style={{ color: 'red' }}>Invalid icon name: {name}</div>
   }
 
   return selected.paths.map((p, idx) => (
@@ -60,7 +60,7 @@ const Icon = ({
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
   return (
-    <Box {...containerProps} {...rest}>
+    <Box {...containerProps} {...rest} width={width} height={height}>
       <SVG
         aria-labelledby={ariaLabelledBy}
         height={height}
