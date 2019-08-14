@@ -19,10 +19,10 @@ const ImageBG = ({ containerProps, imageProps, children }) => {
     <Box position="relative" {...containerProps}>
       <Img
         alt=""
-        height={1}
+        height='100%'
         left="0"
         style={{
-          position: "aboslute"
+          position: "absolute"
         }}
         top="0"
         width={1}
