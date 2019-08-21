@@ -42,18 +42,21 @@
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-url": "^2.2.2",
+    "rollup-plugin-visualizer": "^2.5.4",
     "styled-components": "^4.3.2",
     "styled-normalize": "^8.0.6",
     "styled-reset": "^3.0.0",
     "styled-system": "^5.0.18"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
+    "gatsby-image": "^2.2.8",
+    "prop-types": "^15.7.2",
     "react-dom": "^16.8.6",
+    "react": "^16.8.6",
     "styled-components": "^4.3.2",
-    "styled-system": "^5.0.18",
     "styled-normalize": "^8.0.6",
-    "styled-reset": "^3.0.0"
+    "styled-reset": "^3.0.0",
+    "styled-system": "^5.0.18"
   },
   "dependencies": {
     "gatsby-image": "^2.2.8"
