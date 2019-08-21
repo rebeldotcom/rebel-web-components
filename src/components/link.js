@@ -14,11 +14,11 @@ const StyledLink = styled.a`
     text-decoration: underline;
   }
 
+  ${buttonStyles}
   ${alignSelf}
   ${margin}
   ${layout}
   ${typography}
-  ${buttonStyles}
   ${textDecoration}
 `;
 
