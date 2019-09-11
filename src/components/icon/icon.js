@@ -60,7 +60,7 @@ const Icon = ({
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
   return (
-    <Box {...containerProps} {...rest} width={width} height={height}>
+  <Box {...containerProps} {...rest} width={width} height={height}>
       <SVG
         aria-labelledby={ariaLabelledBy}
         height={height}

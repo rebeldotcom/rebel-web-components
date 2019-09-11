@@ -1,5 +1,5 @@
 import { theme } from "./theme";
-const { colors: themeColors } = theme;
+const { colors: themeColors, space: themeSpace } = theme;
 
 const colors = {
   red: {
@@ -29,6 +29,13 @@ const colors = {
   }
 };
 
+const paddingVariants = {
+  small: `${themeSpace.quarter} ${themeSpace.half}`,
+  base: `${themeSpace.half} ${themeSpace.regular}`,
+  large: ``,
+  wide: `${themeSpace.half} ${themeSpace.bigger}`,
+}
+
 const defaultButtonStyles = `
   appearance: none;
   text-align: center;
@@ -50,7 +57,7 @@ export const buttonStyles = ({
   color = "green",
   theme,
   variant = "solid",
-  btnSize = "large"
+  btnSize = "base"
 }) => {
   console.assert(
     typeof color === "string",
@@ -58,12 +65,9 @@ export const buttonStyles = ({
   );
 
   const { text, hover, bg } = colors[color];
-  const { radii, space } = theme;
+  const { radii } = theme;
 
-  const padding =
-    btnSize === "small"
-      ? `padding: ${space.quarter} ${space.half};`
-      : `padding: ${space.half} ${space.regular};`;
+  const padding = `padding: ${paddingVariants[btnSize]};`
 
   switch (variant) {
     case "solid": {
