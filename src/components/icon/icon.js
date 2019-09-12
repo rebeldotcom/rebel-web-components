@@ -49,7 +49,7 @@ const getIconViewbox = name => {
     return icon.tags[0] === name
   })
 
-  if (!selected) {
+  if (!selected || !selected.viewBox) {
     return defaultProps.viewBox
   }
 
