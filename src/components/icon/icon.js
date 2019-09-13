@@ -44,6 +44,18 @@ const getIcon = name => {
   ))
 }
 
+const getIconViewbox = name => {
+  const selected = iconRepo.find(icon => {
+    return icon.tags[0] === name
+  })
+
+  if (!selected || !selected.viewBox) {
+    return defaultProps.viewBox
+  }
+
+  return selected.viewBox
+}
+
 const Icon = ({
   name,
   width,
@@ -52,11 +64,11 @@ const Icon = ({
   titleId,
   descId,
   desc,
-  viewBox,
   containerProps,
   ...rest
 }) => {
   const iconPaths = getIcon(name)
+  const viewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
   return (
