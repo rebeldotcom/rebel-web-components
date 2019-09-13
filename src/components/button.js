@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { margin, layout, alignSelf, position } from "styled-system";
-import { buttonStyles } from "../styles/custom-utils";
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { margin, layout, alignSelf, position } from 'styled-system'
+import { buttonStyles } from '../styles/custom-utils'
 
 const defaultProps = {
-  as: "button",
+  as: 'button',
   disabled: false,
-  display: "flex",
-  testId: "",
-  title: ""
-};
+  display: 'flex',
+  testId: '',
+  title: '',
+}
 
 const propTypes = {
   ariaLabel: PropTypes.string.isRequired,
@@ -21,8 +21,8 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   testId: PropTypes.string,
-  title: PropTypes.string
-};
+  title: PropTypes.string,
+}
 
 const StyledButton = styled.button`
   align-items: center;
@@ -44,7 +44,7 @@ const StyledButton = styled.button`
     background: ${({ theme }) => theme.colors.greyLight} !important;
     color: ${({ theme }) => theme.colors.greyDarker};
   }
-`;
+`
 
 const Button = React.forwardRef(
   (
@@ -52,9 +52,9 @@ const Button = React.forwardRef(
     ref
   ) => {
     const handleButtonClick = event => {
-      event.preventDefault();
-      onClick();
-    };
+      event.preventDefault()
+      onClick()
+    }
 
     return (
       <StyledButton
@@ -70,14 +70,14 @@ const Button = React.forwardRef(
       >
         {children}
       </StyledButton>
-    );
+    )
   }
-);
+)
 
-Button.displayName = "Button";
+Button.displayName = 'Button'
 
-Button.defaultProps = defaultProps;
-Button.propTypes = propTypes;
-Button.variants = buttonStyles;
+Button.defaultProps = defaultProps
+Button.propTypes = propTypes
+Button.variants = buttonStyles
 
-export default Button;
+export default Button

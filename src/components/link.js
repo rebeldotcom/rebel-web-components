@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { margin, typography, layout, system, alignSelf } from "styled-system";
-import { buttonStyles } from "../styles/custom-utils";
+import React from 'react'
+import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { margin, typography, layout, system, alignSelf } from 'styled-system'
+import { buttonStyles } from '../styles/custom-utils'
 
 const textDecoration = system({
-  textDecoration: true
-});
+  textDecoration: true,
+})
 
 const StyledLink = styled.a`
 
@@ -20,17 +20,17 @@ const StyledLink = styled.a`
   ${layout}
   ${typography}
   ${textDecoration}
-`;
+`
 
 const defaultProps = {
-  as: "a",
-  className: "",
-  display: "inline-block",
+  as: 'a',
+  className: '',
+  display: 'inline-block',
   newTab: false,
   onClick: null,
-  testId: "",
-  variant: "default"
-};
+  testId: '',
+  variant: 'default',
+}
 
 const propTypes = {
   ariaLabel: PropTypes.string.isRequired,
@@ -42,13 +42,13 @@ const propTypes = {
   newTab: PropTypes.bool,
   onClick: PropTypes.func,
   testId: PropTypes.string,
-  variant: PropTypes.string
-};
+  variant: PropTypes.string,
+}
 
 const Link = ({ onClick, children, ariaLabel, newTab, testId, ...rest }) => {
   const tabProps = newTab
-    ? { rel: "noopener noreferrer", target: "_blank" }
-    : {};
+    ? { rel: 'noopener noreferrer', target: '_blank' }
+    : {}
 
   return (
     <StyledLink
@@ -61,10 +61,10 @@ const Link = ({ onClick, children, ariaLabel, newTab, testId, ...rest }) => {
     >
       {children}
     </StyledLink>
-  );
-};
+  )
+}
 
-Link.defaultProps = defaultProps;
-Link.propTypes = propTypes;
+Link.defaultProps = defaultProps
+Link.propTypes = propTypes
 
-export default Link;
+export default Link

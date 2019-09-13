@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { theme } from "../styles";
-import Box from "./box";
+import styled from 'styled-components'
+import { theme } from '../styles'
+import Box from './box'
 
 const Divider = styled(Box)`
   flex: 1;
@@ -13,7 +13,7 @@ const Divider = styled(Box)`
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     display: inline-block;
     height: 1px;
     position: relative;
@@ -29,6 +29,6 @@ const Divider = styled(Box)`
     left: ${theme.space.quarter};
     margin-right: -50%;
   }
-`;
+`
 
-export default Divider;
+export default Divider

@@ -1,28 +1,28 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Box from "./box";
-import Img from "./image";
+import React from 'react'
+import PropTypes from 'prop-types'
+import Box from './box'
+import Img from './image'
 
 const propTypes = {
   children: PropTypes.node.isRequired,
   containerProps: PropTypes.shape({}),
-  imageProps: PropTypes.shape({})
-};
+  imageProps: PropTypes.shape({}),
+}
 
 const defaultProps = {
   containerProps: {},
-  imageProps: {}
-};
+  imageProps: {},
+}
 
 const ImageBG = ({ containerProps, imageProps, children }) => {
   return (
     <Box position="relative" {...containerProps}>
       <Img
         alt=""
-        height='100%'
+        height="100%"
         left="0"
         style={{
-          position: "absolute"
+          position: 'absolute',
         }}
         top="0"
         width={1}
@@ -30,10 +30,10 @@ const ImageBG = ({ containerProps, imageProps, children }) => {
       />
       {children}
     </Box>
-  );
-};
+  )
+}
 
-ImageBG.propTypes = propTypes;
-ImageBG.defaultProps = defaultProps;
+ImageBG.propTypes = propTypes
+ImageBG.defaultProps = defaultProps
 
-export default ImageBG;
+export default ImageBG

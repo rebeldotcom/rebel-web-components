@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 import {
   flexbox,
   color,
@@ -8,22 +8,22 @@ import {
   system,
   typography,
   layout,
-  textStyle
-} from "styled-system";
+  textStyle,
+} from 'styled-system'
 
 const textTransform = system({
-  textTransform: true
-});
+  textTransform: true,
+})
 
 const truncateText = ({ truncate }) => {
-  if (!truncate) return "";
+  if (!truncate) return ''
 
   return `
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-  `;
-};
+  `
+}
 
 const Text = styled.div`
   ${border}
@@ -36,6 +36,6 @@ const Text = styled.div`
   ${truncateText}
   ${textTransform}
   ${flexbox}
-`;
+`
 
-export default Text;
+export default Text

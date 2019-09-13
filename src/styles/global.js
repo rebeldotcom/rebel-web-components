@@ -1,8 +1,9 @@
-import { createGlobalStyle } from "styled-components";
-import styledNormalize from "styled-normalize";
-import reset from "styled-reset";
-import { theme } from "./theme";
-const { fonts } = theme;
+import { createGlobalStyle } from 'styled-components'
+import styledNormalize from 'styled-normalize'
+import reset from 'styled-reset'
+import { theme } from './theme'
+
+const { fonts } = theme
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,800');
@@ -43,6 +44,6 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     box-sizing: border-box;
   }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

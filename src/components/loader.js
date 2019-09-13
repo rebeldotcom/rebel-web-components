@@ -1,15 +1,15 @@
 const show = () => {
-  const el = document.querySelector(".rw__loader_wrapper");
+  const el = document.querySelector('.rw__loader_wrapper')
   if (el) {
-    el.style.display = "block";
+    el.style.display = 'block'
   }
-};
+}
 
 const hide = () => {
-  const el = document.querySelector(".rw__loader_wrapper");
+  const el = document.querySelector('.rw__loader_wrapper')
   if (el) {
-    el.style.display = "none";
+    el.style.display = 'none'
   }
-};
+}
 
-export default { show, hide };
+export default { show, hide }

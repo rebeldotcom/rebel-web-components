@@ -1,33 +1,34 @@
-import { theme } from "./theme";
-const { colors: themeColors, space: themeSpace } = theme;
+import { theme as baseTheme } from './theme'
+
+const { colors: themeColors, space: themeSpace } = baseTheme
 
 const colors = {
   red: {
     bg: themeColors.red,
     hover: themeColors.redDark,
-    text: themeColors.white
+    text: themeColors.white,
   },
   green: {
     bg: themeColors.green,
     hover: themeColors.greenDark,
-    text: themeColors.white
+    text: themeColors.white,
   },
   blue: {
     bg: themeColors.blue,
     hover: themeColors.blueDark,
-    text: themeColors.white
+    text: themeColors.white,
   },
   white: {
     bg: themeColors.white,
     hover: themeColors.whiteDark,
-    text: themeColors.black
+    text: themeColors.black,
   },
   black: {
     bg: themeColors.black,
     hover: themeColors.blackLighter,
-    text: themeColors.white
-  }
-};
+    text: themeColors.white,
+  },
+}
 
 const paddingVariants = {
   small: `${themeSpace.quarter} ${themeSpace.half}`,
@@ -51,26 +52,26 @@ const defaultButtonStyles = `
   display: inline-block;
   border-width: 1px;
   border-style: solid;
-`;
+`
 
 export const buttonStyles = ({
-  color = "green",
+  color = 'green',
   theme,
-  variant = "solid",
-  btnSize = "base"
+  variant = 'solid',
+  btnSize = 'base',
 }) => {
   console.assert(
-    typeof color === "string",
+    typeof color === 'string',
     `Color must be a string, received: ${color}`
-  );
+  )
 
-  const { text, hover, bg } = colors[color];
-  const { radii } = theme;
+  const { text, hover, bg } = colors[color]
+  const { radii } = theme
 
   const padding = `padding: ${paddingVariants[btnSize]};`
 
   switch (variant) {
-    case "solid": {
+    case 'solid': {
       return `
         ${defaultButtonStyles}
         ${padding}
@@ -82,10 +83,10 @@ export const buttonStyles = ({
         &:hover {
           background: ${hover};
         }
-      `;
+      `
     }
-    case "inverse": {
-      if (color === "white") {
+    case 'inverse': {
+      if (color === 'white') {
         return `
           ${defaultButtonStyles}
           ${padding}
@@ -105,7 +106,7 @@ export const buttonStyles = ({
           &:visited {
             color: ${bg};
           }
-        `;
+        `
       }
 
       return `
@@ -128,10 +129,10 @@ export const buttonStyles = ({
           color: ${bg};
         }
 
-      `;
+      `
     }
 
-    case "minimal": {
+    case 'minimal': {
       return `
         ${defaultButtonStyles}
         ${padding}
@@ -143,10 +144,10 @@ export const buttonStyles = ({
         &:hover {
           color: ${hover};
         }
-      `;
+      `
     }
 
-    case "navbar": {
+    case 'navbar': {
       return `
         background: none;
         color: ${themeColors.whiteDark};
@@ -159,10 +160,10 @@ export const buttonStyles = ({
         &:active {
           text-decoration: underline;
         }
-      `;
+      `
     }
 
-    case "underlined": {
+    case 'underlined': {
       return `
         ${defaultButtonStyles}
         color: ${bg};
@@ -176,7 +177,7 @@ export const buttonStyles = ({
           color: ${hover};
           border-bottom: 1px solid ${hover};
         }
-      `;
+      `
     }
 
     case 'scroll-widget': {
@@ -196,6 +197,6 @@ export const buttonStyles = ({
     default:
       return `
         color: ${bg};
-      `;
+      `
   }
-};
+}
