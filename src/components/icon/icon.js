@@ -11,9 +11,11 @@ const SVG = styled.svg`
 const propTypes = {
   containerProps: PropTypes.shape({}),
   desc: PropTypes.string,
+  descId: PropTypes.string,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  titleId: PropTypes.string,
   viewBox: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
@@ -21,7 +23,9 @@ const propTypes = {
 const defaultProps = {
   containerProps: {},
   desc: '',
+  descId: '',
   height: 16,
+  titleId: '',
   viewBox: '0 0 1024 1024',
   width: 16,
 }
@@ -72,7 +76,7 @@ const Icon = ({
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
   return (
-  <Box {...containerProps} {...rest} width={width} height={height}>
+    <Box {...containerProps} {...rest} height={height} width={width}>
       <SVG
         aria-labelledby={ariaLabelledBy}
         height={height}

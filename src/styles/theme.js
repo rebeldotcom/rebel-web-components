@@ -182,8 +182,12 @@ const letterSpacings = {
 }
 
 const lineHeights = {
+  normal: 'normal',
+  none: 1,
   title: 1.2,
+  base: 1.5,
   body: 1.8,
+  tall: 2,
 }
 
 const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96].map(remify)
