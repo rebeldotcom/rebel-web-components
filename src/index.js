@@ -15,8 +15,6 @@ import Section from './components/section'
 import SectionBG from './components/section-bg'
 import Badge from './components/badge'
 
-import MFA from './components/mfa'
-
 import { ThemeProvider, theme, GlobalStyle } from './styles'
 
 export {
@@ -31,7 +29,6 @@ export {
   Input,
   Link,
   Loader,
-  MFA,
   Message,
   ModalProvider,
   useModal,
