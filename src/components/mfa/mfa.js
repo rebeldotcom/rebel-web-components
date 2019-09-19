@@ -20,14 +20,14 @@ const MFA = () => {
     const [tokenIsValid, setTokenIsValid] = useState(false)
     const [recoveryCode, setRecoveryCode] = useState(null)
 
-    if(!localStorage.getItem('user')){
+    if(!window.localStorage.getItem('user')){
         return (
             <div>
                 <Section>Please login.</Section>
             </div>
         )
     }
-    const user = JSON.parse(localStorage.getItem('user'))
+    const user = JSON.parse(window.localStorage.getItem('user'))
 
     useEffect(()=>{
         axios.post('http://127.0.0.1:3000/mfa/qrcode', {user:user.userName, customerId:user.customerId})
