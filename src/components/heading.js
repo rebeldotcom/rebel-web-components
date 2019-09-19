@@ -8,6 +8,7 @@ const headingStyles = variant({
 })
 
 const Heading = styled(Text)`
+  font-family: ${({ theme }) => theme.fonts.title};
   ${headingStyles}
 `
 

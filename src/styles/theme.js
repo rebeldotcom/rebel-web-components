@@ -50,7 +50,7 @@ const colors = {
   greenLightest: '#f3f5e6',
   greenLighter: '#D3DCA3',
   greenLight: '#A5C20F',
-  green: '#859F00',
+  green: '#697e00',
   greenDark: '#6B8000',
 
   redLighter: '#F9BEAE',
@@ -122,7 +122,7 @@ const colors = {
   ],
 
   reds: [
-    '#E00074',
+    '#E70076',
     '#EB0079',
     '#FF0082',
     '#FF4D9B',
@@ -173,7 +173,9 @@ const colors = {
 // TYPOGRAPHY
 
 const fonts = {
-  default: `"Montserrat", sans-serif`,
+  title: `'Montserrat', sans-serif`,
+  body: `'Montserrat', sans-serif`,
+  trustpilot: '"Segoe UI","Helvetica Neue","Helvetica","Arial","sans-serif"',
 }
 
 const letterSpacings = {
