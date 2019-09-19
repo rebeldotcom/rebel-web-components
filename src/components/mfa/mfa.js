@@ -13,7 +13,7 @@ import * as S from './styles'
 
 
 
-export const MFA = () => {
+const MFA = () => {
 
     const [qrcode, setQrcode] = useState(null)
     const [token, setToken] = useState('')
@@ -154,3 +154,5 @@ export const MFA = () => {
 
 MFA.defaultProps = {}
 MFA.propTypes = {}
+
+export default MFA

@@ -1,1 +1,1 @@
-export * from './mfa'
+export {default} from './mfa'
