@@ -45,7 +45,7 @@ const sizeStyles = ({ msgSize, theme }) => {
     `
     case 'medium':
       return `
-        margin-top: ${space.default};
+        margin-top: ${space.regular};
         padding: ${space.half};
         font-size: 1.4rem;
         font-weight: 400;`
