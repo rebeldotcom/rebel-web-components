@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import isNumber from 'lodash/isNumber'
 import * as S from './input.styles'
+
+const isNumber = val => typeof val === 'number' && val === val
 
 const propTypes = {
   autoComplete: PropTypes.string,
@@ -105,7 +106,7 @@ const Input = ({
     }
 
     return (
-      <React.Fragment>
+      <>
         <input
           aria-invalid={hasError}
           aria-required={required}
@@ -125,7 +126,7 @@ const Input = ({
         {renderShowPass()}
         {renderIcon()}
         {renderSuffix()}
-      </React.Fragment>
+      </>
     )
   }
 

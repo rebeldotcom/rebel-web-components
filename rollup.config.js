@@ -6,11 +6,16 @@ import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
 import filesize from 'rollup-plugin-filesize'
 import visualizer from 'rollup-plugin-visualizer'
+import { terser } from 'rollup-plugin-terser'
 
 import pkg from './package.json'
 
+const production = !process.env.ROLLUP_WATCH
+
+const extensions = ['.js', '.jsx', '.ts', '.tsx']
+
 module.exports = {
-  input: 'src/index.js',
+  input: 'src/index.ts',
   output: [
     {
       file: pkg.main,
@@ -19,7 +24,7 @@ module.exports = {
     },
     {
       file: pkg.module,
-      format: 'esm',
+      format: 'es',
       sourcemap: true,
     },
   ],
@@ -29,8 +34,21 @@ module.exports = {
     svgr(),
     babel({
       exclude: 'node_modules/**',
+      extensions,
+      presets: [
+        [
+          '@babel/preset-env',
+          {
+            modules: false,
+          },
+        ],
+        '@babel/preset-react',
+        '@babel/preset-typescript',
+      ],
     }),
-    resolve(),
+    resolve({
+      extensions,
+    }),
 
     commonjs({
       include: 'node_modules/**',
@@ -52,6 +70,8 @@ module.exports = {
         ],
       },
     }),
+
+    production && terser(),
     filesize(),
     visualizer(),
   ],

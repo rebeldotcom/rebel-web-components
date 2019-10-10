@@ -1,7 +1,7 @@
 module.exports = {
   parser: 'babel-eslint',
   extends: ['airbnb', 'prettier', 'prettier/react'],
-  plugins: ['react-hooks', 'tree-shaking', 'prettier'],
+  plugins: ['react-hooks', 'prettier'],
   globals: {
     document: true,
     window: true,

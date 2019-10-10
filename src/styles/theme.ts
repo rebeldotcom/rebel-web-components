@@ -1,5 +1,4 @@
-import React from 'react'
-import { ThemeProvider as StyledThemeProvider, css } from 'styled-components'
+import { css } from 'styled-components'
 /* eslint-disable prefer-destructuring */
 // Need to set value since styled-system no longer provides this in v5+
 const remify = n => `${n / 10}rem`
@@ -400,8 +399,3 @@ export const theme = {
   textStyles,
   zIndices,
 }
-
-// eslint-disable-next-line react/prop-types
-export const ThemeProvider = ({ children }) => (
-  <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
-)

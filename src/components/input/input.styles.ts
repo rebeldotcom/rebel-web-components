@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import { layout, margin, flexbox } from "styled-system";
-import { theme } from "../../styles/theme";
-const { colors, space, borders } = theme;
+import styled from 'styled-components'
+import { layout, margin, flexbox } from 'styled-system'
+import { theme } from '../../styles/theme'
+
+const { colors, space, borders } = theme
 
 export const InputLabel = styled.label`
   flex-direction: column;
@@ -23,7 +24,7 @@ export const InputLabel = styled.label`
         margin-left: 38px;
         background: ${colors.white};
       `
-    );
+    )
   }}
 
   ${({ hide }) => {
@@ -35,9 +36,9 @@ export const InputLabel = styled.label`
       font-size: 1rem;
       letter-spacing: 0;
       `
-    );
+    )
   }}
-`;
+`
 
 export const InputContainer = styled.div`
   position: relative;
@@ -97,7 +98,7 @@ export const InputContainer = styled.div`
   .react-tel-input input[type='tel'] {
     padding-left: 48px;
   }
-`;
+`
 
 export const InputSuffix = styled.div`
   margin-left: ${space.half};
@@ -110,7 +111,7 @@ export const InputSuffix = styled.div`
   position: absolute;
   right: 0.8rem;
   top: 3.6rem;
-`;
+`
 
 export const InputErrorMessage = styled.div`
   margin-top: ${space.quarter};
@@ -128,15 +129,15 @@ export const InputErrorMessage = styled.div`
       max-height: 1000px
       opacity: 1;
     `
-    );
+    )
   }}
-`;
+`
 export const InputIcon = styled.div`
   position: absolute;
   display: inline-block;
   left: calc(100% - 25px);
   top: 32px;
-`;
+`
 
 export const ShowPass = styled.button`
   position: absolute;
@@ -150,6 +151,6 @@ export const ShowPass = styled.button`
   text-transform: uppercase;
   background: transparent;
   padding: 0.2rem 0.5rem;
-  border: ${({ theme }) => theme.borders[2]};
+  border: ${theme.borders[2]};
   z-index: 5;
-`;
+`

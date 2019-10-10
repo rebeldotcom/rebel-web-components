@@ -16,13 +16,15 @@ const hasDOM = typeof window !== 'undefined'
 
 const ModalContext = createContext()
 
-const ModalProvider = ({ children }) => {
-  const modalNode = useRef()
+type ModalProviderProps = {
+  children: React.ReactNode
+}
 
-  const value = modalNode
+const ModalProvider = ({ children }: ModalProviderProps) => {
+  const modalNode = useRef<HTMLDivElement>(null!)
 
   return (
-    <ModalContext.Provider value={value}>
+    <ModalContext.Provider value={modalNode}>
       {children}
       <div ref={modalNode} id="modal" />
     </ModalContext.Provider>
@@ -35,7 +37,7 @@ ModalProvider.propTypes = {
 
 function useModal() {
   const [isOpen, setIsOpen] = useState(false)
-  const containerRef = useRef()
+  const containerRef = useRef<HTMLElement | null>(null)
 
   const openModal = () => {
     setIsOpen(true)
@@ -53,7 +55,7 @@ function useModal() {
     onEscapeKey,
     closeBtnCb,
   }) {
-    const bgRef = useRef()
+    const bgRef = useRef<HTMLDivElement>(null)
     const modalNode = useContext(ModalContext)
 
     if (!modalNode) {
@@ -97,7 +99,7 @@ function useModal() {
           height="100vh"
           justifyContent="center"
           left="0"
-          onClick={handleBackgroundClick}
+          onMouseDown={handleBackgroundClick}
           overflow="auto"
           position="fixed"
           top="0"
