@@ -31,17 +31,13 @@ const SectionBG = ({ children, containerProps, imageProps, ...rest }) => {
         }}
         top="0"
         width={1}
+        objectFit="cover"
+        objectPosition="left center"
         {...imageProps}
       />
       <Box
         alignItems="center"
         flexDirection="column"
-        maxWidth={[
-          'containers.sm',
-          'containers.md',
-          'containers.lg',
-          'containers.xl',
-        ]}
         width={1}
         {...containerProps}
       >
