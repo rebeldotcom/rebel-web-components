@@ -43,6 +43,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     box-sizing: border-box;
     font-family: ${fonts.body};
+    line-height: ${theme.lineHeights.body}
   }
 `
 

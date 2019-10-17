@@ -186,8 +186,7 @@ const lineHeights = {
   normal: 'normal',
   none: 1,
   title: 1.2,
-  base: 1.5,
-  body: 1.8,
+  body: 1.7,
   tall: 2,
 }
 
