@@ -12,6 +12,7 @@ const StyledLink = styled.a`
 
   &:hover {
     text-decoration: underline;
+    color: inherit;
   }
 
   ${buttonStyles}
