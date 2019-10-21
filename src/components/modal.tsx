@@ -14,7 +14,7 @@ import Button from './button'
 
 const hasDOM = typeof window !== 'undefined'
 
-const ModalContext = createContext()
+const ModalContext = createContext(null)
 
 type ModalProviderProps = {
   children: React.ReactNode
@@ -44,8 +44,12 @@ function useModal() {
   }
 
   const closeModal = () => {
+    console.log('closeModal in WC')
     setIsOpen(false)
+    console.log('asdfasdfasdf??')
   }
+
+  console.log('Modal state', isOpen)
 
   function Modal({
     bgProps,
@@ -54,6 +58,7 @@ function useModal() {
     onBgClick,
     onEscapeKey,
     closeBtnCb,
+    id,
   }) {
     const bgRef = useRef<HTMLDivElement>(null)
     const modalNode = useContext(ModalContext)
@@ -62,7 +67,10 @@ function useModal() {
       throw new Error(`useModal must be used within a ModalProvider`)
     }
 
+    console.log('Modal =>', id, isOpen)
+
     useEffect(() => {
+      console.log('isOpen changed?', id, isOpen)
       if (isOpen && hasDOM) {
         document.addEventListener('keydown', handleKeydown)
         document.body.style.overflow = 'hidden'
@@ -89,10 +97,13 @@ function useModal() {
       }
     }
 
+    console.log('modal', id, isOpen)
+
     return (
       isOpen &&
       ReactDOM.createPortal(
         <Box
+          id={id}
           ref={bgRef}
           alignItems={['flex-end', 'center']}
           bg="overlay"
