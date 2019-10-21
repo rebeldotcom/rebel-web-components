@@ -44,12 +44,8 @@ function useModal() {
   }
 
   const closeModal = () => {
-    console.log('closeModal in WC')
     setIsOpen(false)
-    console.log('asdfasdfasdf??')
   }
-
-  console.log('Modal state', isOpen)
 
   function Modal({
     bgProps,
@@ -67,10 +63,7 @@ function useModal() {
       throw new Error(`useModal must be used within a ModalProvider`)
     }
 
-    console.log('Modal =>', id, isOpen)
-
     useEffect(() => {
-      console.log('isOpen changed?', id, isOpen)
       if (isOpen && hasDOM) {
         document.addEventListener('keydown', handleKeydown)
         document.body.style.overflow = 'hidden'
@@ -96,8 +89,6 @@ function useModal() {
         onEscapeKey()
       }
     }
-
-    console.log('modal', id, isOpen)
 
     return (
       isOpen &&
