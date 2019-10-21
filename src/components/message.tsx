@@ -1,7 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { variant as systemVariant } from 'styled-system'
+
+import {
+  margin,
+  MarginProps,
+  flexbox,
+  FlexboxProps,
+  variant as systemVariant,
+} from 'styled-system'
 import Box from './box'
 import Button from './button'
 import Icon from './icon'
@@ -42,10 +49,11 @@ const sizeStyles = ({ msgSize, theme }) => {
       return `
       font-size: 1rem;
       font-weight: 600;
+      padding: ${space.half};
+      
     `
     case 'medium':
       return `
-        margin-top: ${space.regular};
         padding: ${space.half};
         font-size: 1.4rem;
         font-weight: 400;`
@@ -56,9 +64,32 @@ const sizeStyles = ({ msgSize, theme }) => {
   }
 }
 
-const StyledMessage = styled(Box)`
+const baseStyles = ({ theme }) => {
+  return `
+    border-radius: ${theme.radii[2]};
+    color: ${theme.colors.white};
+    position: relative;
+  `
+}
+
+interface As {
+  as?: React.ElementType
+}
+
+export type BoxProps = React.RefAttributes<HTMLElement> &
+  React.HTMLAttributes<HTMLElement> &
+  MarginProps &
+  FlexboxProps &
+  As
+
+const StyledMessage: React.FC<BoxProps> = styled.div`
+  ${baseStyles}
+  ${flexbox}
+  ${margin}
   ${sizeStyles}
   ${messageVariant}
+
+  
 `
 
 const Message = ({
@@ -67,16 +98,14 @@ const Message = ({
   containerProps,
   children,
   dismissCallback,
+  ...rest
 }) => {
   return (
     <StyledMessage
-      borderRadius={2}
-      color="white"
       msgSize={size}
-      p={4}
-      position="relative"
       variant={variant}
       {...containerProps}
+      {...rest}
     >
       <Box>{children}</Box>
       {dismissCallback && (
