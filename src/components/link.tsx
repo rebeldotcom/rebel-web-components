@@ -29,17 +29,20 @@ const defaultProps = {
   display: 'inline-block',
   newTab: false,
   onClick: null,
+  href: null,
+  to: null,
   testId: '',
   variant: 'default',
 }
 
 const propTypes = {
   ariaLabel: PropTypes.string.isRequired,
-  as: PropTypes.string,
+  as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   display: PropTypes.string,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  to: PropTypes.string,
   newTab: PropTypes.bool,
   onClick: PropTypes.func,
   testId: PropTypes.string,
@@ -47,6 +50,10 @@ const propTypes = {
 }
 
 const Link = ({ onClick, children, ariaLabel, newTab, testId, ...rest }) => {
+  if (!rest.href && !rest.to) {
+    console.warn('You must supply a `to` or `href` prop to Link!')
+  }
+
   const tabProps = newTab
     ? { rel: 'noopener noreferrer', target: '_blank' }
     : {}
