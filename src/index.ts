@@ -14,6 +14,7 @@ import { ModalProvider, useModal } from './components/modal'
 import Section from './components/section'
 import SectionBG from './components/section-bg'
 import Badge from './components/badge'
+import HtmlBlock from './components/html-block'
 
 import { ThemeProvider, theme, GlobalStyle } from './styles'
 
@@ -38,4 +39,5 @@ export {
   ThemeProvider,
   theme,
   GlobalStyle,
+  HtmlBlock,
 }
