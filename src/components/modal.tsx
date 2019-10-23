@@ -14,7 +14,7 @@ import Button from './button'
 
 const hasDOM = typeof window !== 'undefined'
 
-const ModalContext = createContext()
+const ModalContext = createContext(null)
 
 type ModalProviderProps = {
   children: React.ReactNode
@@ -54,6 +54,7 @@ function useModal() {
     onBgClick,
     onEscapeKey,
     closeBtnCb,
+    id,
   }) {
     const bgRef = useRef<HTMLDivElement>(null)
     const modalNode = useContext(ModalContext)
@@ -93,6 +94,7 @@ function useModal() {
       isOpen &&
       ReactDOM.createPortal(
         <Box
+          id={id}
           ref={bgRef}
           alignItems={['flex-end', 'center']}
           bg="overlay"
