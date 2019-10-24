@@ -8,7 +8,7 @@ export const InputLabel = styled.label`
   flex-direction: column;
   font-weight: 400;
   text-transform: uppercase;
-  margin-bottom: ${space.quarter};
+
   font-size: 1.2rem;
   transition: all 0.2s;
   letter-spacing: 0.1rem;
@@ -31,7 +31,7 @@ export const InputLabel = styled.label`
     return (
       hide &&
       `
-      transform: translate(0, -0.1rem);
+      transform: translate(0, -0.4rem);
       font-weight: 600;
       font-size: 1rem;
       letter-spacing: 0;
