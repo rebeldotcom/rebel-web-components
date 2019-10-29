@@ -80,7 +80,7 @@
     "typescript": "^3.6.4"
   },
   "peerDependencies": {
-    "gatsby-image": "^2.2.8",
+    "gatsby-image": "^2.2.30",
     "prop-types": "^15.7.2",
     "react-dom": "^16.8.6",
     "react": "^16.11.0",
@@ -90,6 +90,6 @@
     "styled-system": "^5.0.18"
   },
   "dependencies": {
-    "gatsby-image": "^2.2.8"
+    "gatsby-image": "^2.2.30"
   }
 }
