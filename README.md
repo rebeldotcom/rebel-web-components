@@ -29,8 +29,9 @@
 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
+- [Usage](#usage)
 - [The Theme](#the-theme)
-- [The Components](#the-components-providers-and-hooks)
+- [The Components, Providers and Hooks](#the-components-providers-and-hooks)
 - [License](#license)
 
 ## Dependencies
