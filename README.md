@@ -9,10 +9,10 @@
 <p align="center">React components with a focus on Simplicity and Accessibility</p>
 
 <p align="center">
-  <!-- <a aria-label="npm package" href="https://www.npmjs.com/package/@primer/components">
-    <img alt="" src="https://img.shields.io/npm/v/@primer/components.svg">
+  <a aria-label="npm package" href="https://www.npmjs.com/package/@rebeldotcom/components">
+    <img alt="" src="https://img.shields.io/npm/v/@rebeldotcom/components.svg">
   </a>
-  <a aria-label="contributors graph" href="https://github.com/primer/components/graphs/contributors">
+  <!-- <a aria-label="contributors graph" href="https://github.com/primer/components/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/primer/components.svg">
   </a>
   <a aria-label="last commit" href="https://github.com/primer/components/commits/master">
