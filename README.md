@@ -29,8 +29,8 @@
 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
-- [The Theme](#-the-theme)
-- [The Components](#the-components)
+- [The Theme](#the-theme)
+- [The Components](#the-components-and-providers)
 - [License](#license)
 
 ## Dependencies
@@ -57,9 +57,96 @@ or
 yarn add react react-dom styled-components styled-system styled-normalize styled-reset @rebeldotcom/components
 ```
 
+## Usage
+
+All of our components and providers are exported by name from `@rebeldotcom/components`, so you can import them with:
+
+```js
+import {
+  Box,
+  Button,
+  Heading,
+  Input,
+  ThemeProvider,
+  GlobalStyle,
+} from '@rebeldotcom/components'
+```
+
+Rebel Components are built using styled-components and styled-system alongside a provided theme.
+
+In order to use the components, you'll have to bring in the `<ThemeProvider>` and `<GlobalStyles>` into your project to wrap your UI elements.
+
+#### Example
+
+```jsx
+
+mport React from "react";
+import {
+  Box,
+  Button,
+  Heading,
+  Input,
+  ThemeProvider,
+  GlobalStyle
+} from "@rebeldotcom/components";
+
+const App = () => {
+  return (
+    <ThemeProvider>
+      <GlobalStyle />
+      <Box height="100vh" justifyContent="center" alignItems="center">
+        <Box border={1} p={3} borderRadius="large" flexDirection="column">
+          <Heading as="h1">My App here</Heading>
+          <Input id="email" label="email address" />
+          <Button
+            id="click-me"
+            onClick={() => console.log("clicked me")}
+            ariaLabel="Click Me"
+          >
+            Click Me
+          </Button>
+        </Box>
+      </Box>
+    </ThemeProvider>
+  );
+};
+
+export default App;
+
+```
+
 ## The Theme
 
-## The Components
+## The Components, Providers and Hooks
+
+#### Components
+
+- Box
+- Badge
+- Button
+- Divider
+- Heading
+- HtmlBlock
+- Icon
+- Image
+- ImageBG
+- Input
+- Link
+- Loader
+- Message
+- Section
+- SectionBG
+- Skeleton
+- Text
+
+#### Providers
+
+- ModalProvider
+- ThemeProvider
+
+#### Hooks
+
+- useModal
 
 ## License
 
