@@ -10,7 +10,7 @@
 
 <p align="center">
   <a aria-label="npm package" href="https://www.npmjs.com/package/@rebeldotcom/components">
-    <img alt="" src="https://img.shields.io/npm/v/@rebeldotcom/components.svg">
+    <img alt="" src="https://img.shields.io/npm/v/@rebeldotcom/components?style=for-the-badge">
   </a>
   <!-- <a aria-label="contributors graph" href="https://github.com/primer/components/graphs/contributors">
     <img src="https://img.shields.io/github/contributors/primer/components.svg">
