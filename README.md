@@ -115,6 +115,8 @@ export default App;
 
 ```
 
+![](components-example.gif)
+
 ## The Theme
 
 ## The Components, Providers and Hooks
