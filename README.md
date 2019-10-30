@@ -13,11 +13,11 @@
     <img alt="" src="https://img.shields.io/npm/v/@rebeldotcom/components?style=for-the-badge">
   </a>
   <a aria-label="contributors graph" href="https://github.com/rebeldotcom/rebel-web-components/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/rebeldotcom/rebel-web-components.svg">
+    <img src="https://img.shields.io/github/contributors/rebeldotcom/rebel-web-components?style=for-the-badge">
   </a>
   <a aria-label="last commit" href="https://github.com/rebeldotcom/rebel-web-components/commits/master">
     <img alt="" src=
-  "https://img.shields.io/github/last-commit/rebeldotcom/rebel-web-components.svg">
+  "https://img.shields.io/github/last-commit/rebeldotcom/rebel-web-components?style=for-the-badge">
   </a>
   
   <a aria-label="license" href="https://github.com/rebeldotcom/rebel-web-components/blob/master/LICENSE">
