@@ -1,4 +1,5 @@
-import { css } from 'styled-components'
+import { css, keyframes } from 'styled-components'
+
 /* eslint-disable prefer-destructuring */
 // Need to set value since styled-system no longer provides this in v5+
 const remify = n => `${n / 10}rem`
@@ -38,6 +39,7 @@ const sizes = {
 const colors = {
   white: '#fff',
   whiteDark: '#f7f7f7',
+  greyLightest: '#e7e7e7',
   greyLight: '#d7d7d7',
   grey: '#B2B2B2',
   greyDark: '#999999',
@@ -378,6 +380,92 @@ const media = {
   `,
 }
 
+export const animations = {
+  scaleout: keyframes`
+    from {
+      transform: scale(0);
+    }
+
+    to {
+      transform: scale(1.0);
+      opacity: 0;
+    }
+  `,
+  slideUp: keyframes`
+    from {
+      transform: translate3d(0, 2rem, 0);
+      opacity: 0;
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1
+    }
+  `,
+  bounceTop: keyframes`
+    0% {
+      transform: translateY(-35px);
+      animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      transform: translateY(-24px);
+      animation-timing-function: ease-in;
+    }
+    65% {
+      transform: translateY(-12px);
+      animation-timing-function: ease-in;
+    }
+    82% {
+      transform: translateY(-6px);
+      animation-timing-function: ease-in;
+    }
+    93% {
+      transform: translateY(-4px);
+      animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+    }
+    100% {
+      transform: translateY(0px);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+  `,
+  lightSpeedIn: keyframes`
+    from {
+      transform: translate3d(100%, 0, 0) skewX(-30deg);
+      opacity: 0;
+    }
+
+    60% {
+      transform: skewX(20deg);
+      opacity: 1;
+    }
+
+    80% {
+      transform: skewX(-5deg);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  `,
+  shine: keyframes`
+    to {
+      background-position: 200% center;
+    }
+  `,
+}
+
 export const theme = {
   borders,
   breakpoints,
@@ -397,4 +485,5 @@ export const theme = {
   space,
   textStyles,
   zIndices,
+  animations,
 }

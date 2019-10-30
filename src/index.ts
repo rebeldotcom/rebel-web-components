@@ -15,6 +15,7 @@ import Section from './components/section'
 import SectionBG from './components/section-bg'
 import Badge from './components/badge'
 import HtmlBlock from './components/html-block'
+import Skeleton from './components/skeleton'
 
 import { ThemeProvider, theme, GlobalStyle } from './styles'
 
@@ -40,4 +41,5 @@ export {
   theme,
   GlobalStyle,
   HtmlBlock,
+  Skeleton,
 }

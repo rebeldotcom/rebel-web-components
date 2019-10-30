@@ -17,6 +17,9 @@ import {
 } from 'styled-system'
 import styled from 'styled-components'
 
+import { theme } from '../styles/theme'
+const { colors, animations } = theme
+
 interface As {
   as?: React.ElementType
 }
@@ -32,7 +35,7 @@ export type BoxProps = React.RefAttributes<HTMLElement> &
   BorderProps &
   As
 
-const Block: React.FC<BoxProps> = styled.div`
+const SkeletonBlock: React.FC<BoxProps> = styled.div`
   ${border}
   ${color}
   ${flexbox}
@@ -41,18 +44,18 @@ const Block: React.FC<BoxProps> = styled.div`
   ${space}
   ${shadow}
 
-  p {
-    margin: ${({ theme: { space } }) => space.regular} 0;
-  }
-
-  ul {
-    margin-left: ${({ theme: { space } }) => space.big};
-    list-style-type: disc;
-  }
+  background: linear-gradient(
+    to right,
+    ${colors.greyLightest} 20%,
+    ${colors.white} 40%,
+    ${colors.white} 60%,
+    ${colors.greyLightest} 80%
+  );
+  background-size: 200% auto;
+  content: '';
+  animation: ${animations.shine} 0.8s linear infinite;
 `
 
-const HtmlBlock = ({ children, ...rest }) => (
-  <Block {...rest} dangerouslySetInnerHTML={{ __html: children }} />
-)
+const Skeleton = props => <SkeletonBlock {...props} />
 
-export default HtmlBlock
+export default Skeleton
