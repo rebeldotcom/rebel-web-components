@@ -30,7 +30,7 @@
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [The Theme](#the-theme)
-- [The Components](#the-components-and-providers)
+- [The Components](#the-components-providers-and-hooks)
 - [License](#license)
 
 ## Dependencies
