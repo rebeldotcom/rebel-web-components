@@ -115,7 +115,7 @@ export default App;
 
 ```
 
-![](components-example.gif)
+![](components-example.gif | width=400)
 
 ## The Theme
 
