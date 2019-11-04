@@ -3,8 +3,6 @@ import Button from './components/button'
 import Text from './components/text'
 import Divider from './components/divider'
 import Heading from './components/heading'
-import Image from './components/image'
-import ImageBG from './components/image-bg'
 import Link from './components/link'
 import Loader from './components/loader'
 import Icon from './components/icon'
@@ -12,7 +10,6 @@ import Input from './components/input'
 import Message from './components/message'
 import { ModalProvider, useModal } from './components/modal'
 import Section from './components/section'
-import SectionBG from './components/section-bg'
 import Badge from './components/badge'
 import HtmlBlock from './components/html-block'
 import Skeleton from './components/skeleton'
@@ -26,8 +23,6 @@ export {
   Divider,
   Heading,
   Icon,
-  Image,
-  ImageBG,
   Input,
   Link,
   Loader,
@@ -35,7 +30,6 @@ export {
   ModalProvider,
   useModal,
   Section,
-  SectionBG,
   Text,
   ThemeProvider,
   theme,
