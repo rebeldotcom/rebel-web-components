@@ -48,6 +48,7 @@ function useModal() {
   }
 
   function Modal({
+    width,
     bgProps,
     children,
     containerProps,
@@ -120,7 +121,7 @@ function useModal() {
             position="relative"
             role="dialog"
             tabIndex="-1"
-            width={[1, '52rem']}
+            width={[1, width || '52rem']}
             {...containerProps}
           >
             {closeBtnCb && (

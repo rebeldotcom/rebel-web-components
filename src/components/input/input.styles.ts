@@ -52,13 +52,19 @@ export const InputContainer = styled.div`
 
   input,
   .react-tel-input input[type='tel'] {
+    height: 34px;
+  }
+
+  input,
+  textarea,
+  .react-tel-input input[type='tel'] {
     width: 100%;
     padding: ${space.half};
     padding-right: ${space[4]};
     box-sizing: border-box;
     font-size: 1.4rem;
     border: ${borders.input};
-    height: 34px;
+    
     border-radius: 0;
 
     transition: all 0.2s;
@@ -90,7 +96,8 @@ export const InputContainer = styled.div`
       letter-spacing: 0;
     }
 
-    input[aria-invalid='true'] + ${InputLabel} {
+    input[aria-invalid='true'] + ${InputLabel},
+    textarea[aria-invalid='true'] + ${InputLabel} {
       color: ${colors.red};
     }
   }

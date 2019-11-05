@@ -137,7 +137,7 @@ const Input = ({
         id={id}
         onChange={onChange}
         required={required}
-        rows={`${rows}`}
+        rows={rows}
         type={type}
         value={value}
       />
