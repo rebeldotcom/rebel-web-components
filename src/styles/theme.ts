@@ -43,10 +43,10 @@ const colors = {
   greyLight: '#d7d7d7',
   grey: '#B2B2B2',
   greyDark: '#999999',
-  greyDarker: '#666',
-  blackLighter: '#333',
+  greyDarker: '#666666',
+  blackLighter: '#333444',
   blackLight: '#222328',
-  black: '#000',
+  black: '#000000',
 
   greenLightest: '#f3f5e6',
   greenLighter: '#D3DCA3',

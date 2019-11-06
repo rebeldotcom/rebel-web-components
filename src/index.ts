@@ -13,6 +13,7 @@ import Section from './components/section'
 import Badge from './components/badge'
 import HtmlBlock from './components/html-block'
 import Skeleton from './components/skeleton'
+import Spinner from './components/spinner'
 
 import { ThemeProvider, theme, GlobalStyle } from './styles'
 
@@ -36,4 +37,5 @@ export {
   GlobalStyle,
   HtmlBlock,
   Skeleton,
+  Spinner,
 }
