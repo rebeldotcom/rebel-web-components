@@ -1,27 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { margin, layout, alignSelf, position } from 'styled-system'
 import { buttonStyles } from '../styles/custom-utils'
 
-const defaultProps = {
-  as: 'button',
-  disabled: false,
-  display: 'flex',
-  testId: '',
-  title: '',
-}
-
-const propTypes = {
-  ariaLabel: PropTypes.string.isRequired,
-  as: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  display: PropTypes.string,
-  id: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  testId: PropTypes.string,
-  title: PropTypes.string,
+type ButtonProps = {
+  ariaLabel: string
+  as?: string
+  children: React.ReactNode
+  disabled?: boolean
+  display?: string
+  id: string
+  onClick: Function
+  title?: string
 }
 
 const StyledButton = styled.button`
@@ -46,9 +36,18 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = React.forwardRef(
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { id, onClick, children, ariaLabel, testId, title, disabled, ...rest },
+    {
+      id,
+      onClick,
+      children,
+      ariaLabel,
+      display = 'flex',
+      title,
+      disabled,
+      ...rest
+    },
     ref
   ) => {
     const handleButtonClick = event => {
@@ -58,9 +57,10 @@ const Button = React.forwardRef(
 
     return (
       <StyledButton
+        display={display}
         ref={ref}
         aria-label={ariaLabel}
-        data-testid={testId}
+        data-testid={id}
         disabled={disabled}
         id={id}
         onClick={handleButtonClick}
@@ -75,9 +75,6 @@ const Button = React.forwardRef(
 )
 
 Button.displayName = 'Button'
-
-Button.defaultProps = defaultProps
-Button.propTypes = propTypes
 Button.variants = buttonStyles
 
 export default Button

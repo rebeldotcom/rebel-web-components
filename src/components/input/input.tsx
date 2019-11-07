@@ -47,136 +47,143 @@ const defaultProps = {
   value: '',
 }
 
-const Input = ({
-  autoComplete,
-  disabled,
-  errorMessage,
-  hasError,
-  icon,
-  id,
-  label,
-  maxLength,
-  name,
-  onBlur,
-  onChange,
-  onKeyPress,
-  required,
-  suffix,
-  type,
-  value,
-  systemProps,
-  rows,
-  textarea,
-}) => {
-  const [showPassword, setShowPassword] = useState(type !== 'password')
+const Input = React.forwardRef<HTMLInputElement>(
+  (
+    {
+      autoComplete,
+      disabled,
+      errorMessage,
+      hasError,
+      icon,
+      id,
+      label,
+      maxLength,
+      name,
+      onBlur,
+      onChange,
+      onKeyPress,
+      required,
+      suffix,
+      type,
+      value,
+      systemProps,
+      rows,
+      textarea,
+    },
+    ref
+  ) => {
+    const [showPassword, setShowPassword] = useState(type !== 'password')
 
-  const renderSuffix = () => {
-    if (!suffix) return null
+    const renderSuffix = () => {
+      if (!suffix) return null
 
-    return <S.InputSuffix position="absolute">{suffix}</S.InputSuffix>
-  }
-
-  const renderIcon = () => {
-    if (!icon) return null
-
-    return <S.InputIcon>{icon}</S.InputIcon>
-  }
-
-  const renderShowPass = () => {
-    if (type !== 'password') return null
-
-    const text = showPassword ? 'Hide' : 'Show'
-
-    return (
-      <S.ShowPass
-        id="showpassword"
-        onClick={() => setShowPassword(!showPassword)}
-        title="Show/Hide password"
-      >
-        {text}
-      </S.ShowPass>
-    )
-  }
-
-  const getInput = () => {
-    let inputType = type
-
-    if (type === 'password') {
-      inputType = showPassword ? 'text' : 'password'
+      return <S.InputSuffix position="absolute">{suffix}</S.InputSuffix>
     }
 
-    return (
-      <>
-        <input
-          aria-invalid={hasError}
-          aria-required={required}
-          autoComplete={autoComplete}
-          data-lpignore={autoComplete !== 'on'}
+    const renderIcon = () => {
+      if (!icon) return null
+
+      return <S.InputIcon>{icon}</S.InputIcon>
+    }
+
+    const renderShowPass = () => {
+      if (type !== 'password') return null
+
+      const text = showPassword ? 'Hide' : 'Show'
+
+      return (
+        <S.ShowPass
+          id="showpassword"
+          onClick={() => setShowPassword(!showPassword)}
+          title="Show/Hide password"
+        >
+          {text}
+        </S.ShowPass>
+      )
+    }
+
+    const getInput = () => {
+      let inputType = type
+
+      if (type === 'password') {
+        inputType = showPassword ? 'text' : 'password'
+      }
+
+      return (
+        <>
+          <input
+            ref={ref}
+            aria-invalid={hasError}
+            aria-required={required}
+            autoComplete={autoComplete}
+            data-lpignore={autoComplete !== 'on'}
+            disabled={disabled}
+            id={id}
+            maxLength={maxLength}
+            name={name}
+            onBlur={onBlur}
+            onChange={onChange}
+            onKeyPress={onKeyPress}
+            required={required}
+            type={inputType}
+            value={value}
+          />
+          {renderShowPass()}
+          {renderIcon()}
+          {renderSuffix()}
+        </>
+      )
+    }
+
+    const getTextArea = () => {
+      return (
+        <textarea
+          ref={ref}
           disabled={disabled}
           id={id}
-          maxLength={maxLength}
-          name={name}
-          onBlur={onBlur}
           onChange={onChange}
-          onKeyPress={onKeyPress}
           required={required}
-          type={inputType}
+          rows={rows}
+          type={type}
           value={value}
         />
-        {renderShowPass()}
-        {renderIcon()}
-        {renderSuffix()}
-      </>
-    )
-  }
-
-  const getTextArea = () => {
-    return (
-      <textarea
-        disabled={disabled}
-        id={id}
-        onChange={onChange}
-        required={required}
-        rows={rows}
-        type={type}
-        value={value}
-      />
-    )
-  }
-
-  const getInputType = () => {
-    if (textarea) return getTextArea()
-
-    return getInput()
-  }
-
-  const shouldHide = () => {
-    if (isNumber(value)) {
-      return true
+      )
     }
 
-    return Boolean(value.length)
+    const getInputType = () => {
+      if (textarea) return getTextArea()
+
+      return getInput()
+    }
+
+    const shouldHide = () => {
+      if (isNumber(value)) {
+        return true
+      }
+
+      return Boolean(value.length)
+    }
+
+    return (
+      <S.InputContainer suffix={suffix} {...systemProps}>
+        <S.InputErrorMessage
+          aria-live="assertive"
+          id={`${id}-error`}
+          role="alert"
+          showErrorMessage={hasError}
+        >
+          {errorMessage}
+        </S.InputErrorMessage>
+
+        {getInputType()}
+
+        <S.InputLabel hide={shouldHide()} htmlFor={id}>
+          {label}
+        </S.InputLabel>
+      </S.InputContainer>
+    )
   }
-
-  return (
-    <S.InputContainer suffix={suffix} {...systemProps}>
-      <S.InputErrorMessage
-        aria-live="assertive"
-        id={`${id}-error`}
-        role="alert"
-        showErrorMessage={hasError}
-      >
-        {errorMessage}
-      </S.InputErrorMessage>
-
-      {getInputType()}
-
-      <S.InputLabel hide={shouldHide()} htmlFor={id}>
-        {label}
-      </S.InputLabel>
-    </S.InputContainer>
-  )
-}
+)
 
 Input.propTypes = propTypes
 Input.defaultProps = defaultProps
