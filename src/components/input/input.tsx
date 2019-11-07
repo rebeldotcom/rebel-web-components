@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import Box from '../box'
+import Text from '../text'
+import Spinner from '../spinner'
 import * as S from './input.styles'
-
-const isNumber = val => typeof val === 'number' && val === val
 
 const propTypes = {
   autoComplete: PropTypes.string,
@@ -24,6 +25,7 @@ const propTypes = {
   textarea: PropTypes.bool,
   type: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  isLoading: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -45,6 +47,7 @@ const defaultProps = {
   textarea: false,
   type: 'text',
   value: '',
+  isLoading: false,
 }
 
 const Input = React.forwardRef<HTMLInputElement>(
@@ -69,6 +72,7 @@ const Input = React.forwardRef<HTMLInputElement>(
       systemProps,
       rows,
       textarea,
+      isLoading,
     },
     ref
   ) => {
@@ -156,29 +160,29 @@ const Input = React.forwardRef<HTMLInputElement>(
       return getInput()
     }
 
-    const shouldHide = () => {
-      if (isNumber(value)) {
-        return true
-      }
-
-      return Boolean(value.length)
-    }
-
     return (
       <S.InputContainer suffix={suffix} {...systemProps}>
-        <S.InputErrorMessage
-          aria-live="assertive"
-          id={`${id}-error`}
-          role="alert"
-          showErrorMessage={hasError}
-        >
-          {errorMessage}
-        </S.InputErrorMessage>
+        <S.InputLabel htmlFor={id}>
+          <Text>{label}</Text>
 
-        {getInputType()}
-
-        <S.InputLabel hide={shouldHide()} htmlFor={id}>
-          {label}
+          {hasError && (
+            <S.InputErrorMessage
+              aria-live="assertive"
+              id={`${id}-error`}
+              role="alert"
+              showErrorMessage={hasError}
+            >
+              {errorMessage}
+            </S.InputErrorMessage>
+          )}
+          <Box position="relative">
+            {getInputType()}
+            {isLoading && (
+              <Box position="absolute" right=".2rem" top=".2rem" bg="white">
+                <Spinner size="3rem" stroke=".3rem" />
+              </Box>
+            )}
+          </Box>
         </S.InputLabel>
       </S.InputContainer>
     )

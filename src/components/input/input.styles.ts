@@ -6,45 +6,18 @@ const { colors, space, borders } = theme
 
 export const InputLabel = styled.label`
   flex-direction: column;
-  font-weight: 400;
   text-transform: uppercase;
-
-  font-size: 1.2rem;
-  transition: all 0.2s;
-  letter-spacing: 0.1rem;
-  transform: translate(1rem, 2.7rem);
-  width: 75%;
-  pointer-events: none;
-
-  ${({ isPhone, hide }) => {
-    return (
-      isPhone &&
-      !hide &&
-      `
-        margin-left: 38px;
-        background: ${colors.white};
-      `
-    )
-  }}
-
-  ${({ hide }) => {
-    return (
-      hide &&
-      `
-      transform: translate(0, -0.4rem);
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0;
-      `
-    )
-  }}
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0;
 `
 
 export const InputContainer = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   min-height: 8.5rem;
+  width: 100%;
 
   ${layout}
   ${margin}
@@ -89,12 +62,12 @@ export const InputContainer = styled.div`
       box-shadow: 0 0 0 2px ${colors.focus};
     }
 
-    &:focus ~ label {
+    /* &:focus ~ label {
       transform: translate(0, -0.1rem);
       font-weight: 600;
       font-size: 1rem;
       letter-spacing: 0;
-    }
+    } */
 
     input[aria-invalid='true'] + ${InputLabel},
     textarea[aria-invalid='true'] + ${InputLabel} {
@@ -121,23 +94,30 @@ export const InputSuffix = styled.div`
 `
 
 export const InputErrorMessage = styled.div`
-  margin-top: ${space.quarter};
   font-size: 1.2rem;
   color: ${colors.red};
   opacity: 0;
-  height: 2rem;
+  text-transform: none;
   transition: all 0.2s ease-in-out;
   font-weight: 400;
+  flex-wrap: wrap;
+  height: auto;
+  margin-bottom: 0.2rem;
 
   ${({ showErrorMessage }) => {
     return (
       showErrorMessage &&
       `
+
       max-height: 1000px
       opacity: 1;
     `
     )
   }}
+
+  &:empty {
+    height: 0px;
+  }
 `
 export const InputIcon = styled.div`
   position: absolute;
