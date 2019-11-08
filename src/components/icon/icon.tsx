@@ -8,27 +8,7 @@ const SVG = styled.svg`
   fill: currentColor;
 `
 
-const propTypes = {
-  containerProps: PropTypes.shape({}),
-  desc: PropTypes.string,
-  descId: PropTypes.string,
-  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  name: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  titleId: PropTypes.string,
-  viewBox: PropTypes.string,
-  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
-
-const defaultProps = {
-  containerProps: {},
-  desc: '',
-  descId: '',
-  height: 16,
-  titleId: '',
-  viewBox: '0 0 1024 1024',
-  width: 16,
-}
+const DEFAULT_VIEWBOX = '0 0 1024 1024'
 
 const getIcon = name => {
   const selected = iconRepo.find(icon => {
@@ -54,23 +34,34 @@ const getIconViewbox = name => {
   })
 
   if (!selected || !selected.viewBox) {
-    return defaultProps.viewBox
+    return DEFAULT_VIEWBOX
   }
 
   return selected.viewBox
 }
 
+type IconProps = {
+  name: string
+  width?: number
+  height?: number
+  title?: string
+  titleId?: string
+  descId?: string
+  desc?: string
+  containerProps?: {}
+}
+
 const Icon = ({
   name,
-  width,
-  height,
+  width = 16,
+  height = 16,
   title,
   titleId,
   descId,
   desc,
   containerProps,
   ...rest
-}) => {
+}: IconProps) => {
   const iconPaths = getIcon(name)
   const viewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
@@ -93,8 +84,6 @@ const Icon = ({
   )
 }
 
-Icon.propTypes = propTypes
-Icon.defaultProps = defaultProps
 Icon.getIcon = getIcon
 
 export default Icon

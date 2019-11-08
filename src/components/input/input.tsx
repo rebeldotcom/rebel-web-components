@@ -4,6 +4,7 @@ import Box from '../box'
 import Text from '../text'
 import Spinner from '../spinner'
 import * as S from './input.styles'
+import Icon from '../icon'
 
 const propTypes = {
   autoComplete: PropTypes.string,
@@ -69,10 +70,10 @@ const Input = React.forwardRef<HTMLInputElement>(
       suffix,
       type,
       value,
-      systemProps,
       rows,
       textarea,
       isLoading,
+      ...rest
     },
     ref
   ) => {
@@ -161,8 +162,15 @@ const Input = React.forwardRef<HTMLInputElement>(
     }
 
     return (
-      <S.InputContainer suffix={suffix} {...systemProps}>
-        <S.InputLabel htmlFor={id}>
+      <S.InputContainer suffix={suffix} {...rest}>
+        <Text
+          display="flex"
+          flexDirection="column"
+          fontWeight="semi"
+          fontSize="1rem"
+          textStyle="caps"
+          htmlFor={id}
+        >
           <Text>{label}</Text>
 
           {hasError && (
@@ -172,7 +180,7 @@ const Input = React.forwardRef<HTMLInputElement>(
               role="alert"
               showErrorMessage={hasError}
             >
-              {errorMessage}
+              <Icon name="error" mr={2} /> {errorMessage}
             </S.InputErrorMessage>
           )}
           <Box position="relative">
@@ -183,7 +191,7 @@ const Input = React.forwardRef<HTMLInputElement>(
               </Box>
             )}
           </Box>
-        </S.InputLabel>
+        </Text>
       </S.InputContainer>
     )
   }

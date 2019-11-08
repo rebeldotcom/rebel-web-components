@@ -4,19 +4,10 @@ import { theme } from '../../styles/theme'
 
 const { colors, space, borders } = theme
 
-export const InputLabel = styled.label`
-  flex-direction: column;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 1rem;
-  letter-spacing: 0;
-`
-
 export const InputContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 8.5rem;
   width: 100%;
 
   ${layout}
@@ -61,18 +52,6 @@ export const InputContainer = styled.div`
       outline: ${colors.focus};
       box-shadow: 0 0 0 2px ${colors.focus};
     }
-
-    /* &:focus ~ label {
-      transform: translate(0, -0.1rem);
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0;
-    } */
-
-    input[aria-invalid='true'] + ${InputLabel},
-    textarea[aria-invalid='true'] + ${InputLabel} {
-      color: ${colors.red};
-    }
   }
 
   .react-tel-input input[type='tel'] {
@@ -102,7 +81,9 @@ export const InputErrorMessage = styled.div`
   font-weight: 400;
   flex-wrap: wrap;
   height: auto;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
 
   ${({ showErrorMessage }) => {
     return (
@@ -131,8 +112,8 @@ export const ShowPass = styled.button`
   display: inline-block;
   cursor: pointer;
   font-size: 1.2rem;
-  top: 3.4rem;
   right: 0;
+  bottom: 0.7rem;
   margin-right: 1rem;
   font-weight: 400;
   text-transform: uppercase;

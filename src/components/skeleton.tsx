@@ -54,6 +54,7 @@ const SkeletonBlock: React.FC<BoxProps> = styled.div`
   background-size: 200% auto;
   content: '';
   animation: ${animations.shine} 0.8s linear infinite;
+  border-radius: 0.2rem;
 `
 
 const Skeleton = props => <SkeletonBlock {...props} />
