@@ -88,9 +88,15 @@ const StyledMessage: React.FC<BoxProps> = styled.div`
   ${margin}
   ${sizeStyles}
   ${messageVariant}
-
-  
 `
+
+type Variants = 'error' | 'success' | 'warning' | 'info' | 'whiteOnDark'
+type Sizes = 'small' | 'medium' | 'large'
+
+type MessageProps = {
+  variant: Variants
+  size: Sizes
+}
 
 const Message = ({
   size,
@@ -99,7 +105,7 @@ const Message = ({
   children,
   dismissCallback,
   ...rest
-}) => {
+}: MessageProps) => {
   return (
     <StyledMessage
       msgSize={size}
