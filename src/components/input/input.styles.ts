@@ -4,47 +4,11 @@ import { theme } from '../../styles/theme'
 
 const { colors, space, borders } = theme
 
-export const InputLabel = styled.label`
-  flex-direction: column;
-  font-weight: 400;
-  text-transform: uppercase;
-
-  font-size: 1.2rem;
-  transition: all 0.2s;
-  letter-spacing: 0.1rem;
-  transform: translate(1rem, 2.7rem);
-  width: 75%;
-  pointer-events: none;
-
-  ${({ isPhone, hide }) => {
-    return (
-      isPhone &&
-      !hide &&
-      `
-        margin-left: 38px;
-        background: ${colors.white};
-      `
-    )
-  }}
-
-  ${({ hide }) => {
-    return (
-      hide &&
-      `
-      transform: translate(0, -0.4rem);
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0;
-      `
-    )
-  }}
-`
-
 export const InputContainer = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
-  min-height: 8.5rem;
+  flex-direction: column;
+  width: 100%;
 
   ${layout}
   ${margin}
@@ -88,18 +52,6 @@ export const InputContainer = styled.div`
       outline: ${colors.focus};
       box-shadow: 0 0 0 2px ${colors.focus};
     }
-
-    &:focus ~ label {
-      transform: translate(0, -0.1rem);
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0;
-    }
-
-    input[aria-invalid='true'] + ${InputLabel},
-    textarea[aria-invalid='true'] + ${InputLabel} {
-      color: ${colors.red};
-    }
   }
 
   .react-tel-input input[type='tel'] {
@@ -121,23 +73,32 @@ export const InputSuffix = styled.div`
 `
 
 export const InputErrorMessage = styled.div`
-  margin-top: ${space.quarter};
   font-size: 1.2rem;
   color: ${colors.red};
   opacity: 0;
-  height: 2rem;
+  text-transform: none;
   transition: all 0.2s ease-in-out;
   font-weight: 400;
+  flex-wrap: wrap;
+  height: auto;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
 
   ${({ showErrorMessage }) => {
     return (
       showErrorMessage &&
       `
+
       max-height: 1000px
       opacity: 1;
     `
     )
   }}
+
+  &:empty {
+    height: 0px;
+  }
 `
 export const InputIcon = styled.div`
   position: absolute;
@@ -151,8 +112,8 @@ export const ShowPass = styled.button`
   display: inline-block;
   cursor: pointer;
   font-size: 1.2rem;
-  top: 3.4rem;
   right: 0;
+  bottom: 0.7rem;
   margin-right: 1rem;
   font-weight: 400;
   text-transform: uppercase;

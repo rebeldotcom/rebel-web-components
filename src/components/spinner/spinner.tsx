@@ -2,8 +2,8 @@ import React from 'react'
 import styled, { css, keyframes } from 'styled-components'
 
 type SpinnerProps = {
-  size: string
-  stroke: string
+  size?: string
+  stroke?: string
 }
 
 const spinnerAnimation = keyframes`

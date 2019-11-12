@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import Box from '../box'
+import Text from '../text'
+import Spinner from '../spinner'
 import * as S from './input.styles'
-
-const isNumber = val => typeof val === 'number' && val === val
+import Icon from '../icon'
 
 const propTypes = {
   autoComplete: PropTypes.string,
@@ -24,6 +26,7 @@ const propTypes = {
   textarea: PropTypes.bool,
   type: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  isLoading: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -45,6 +48,7 @@ const defaultProps = {
   textarea: false,
   type: 'text',
   value: '',
+  isLoading: false,
 }
 
 const Input = React.forwardRef<HTMLInputElement>(
@@ -66,9 +70,10 @@ const Input = React.forwardRef<HTMLInputElement>(
       suffix,
       type,
       value,
-      systemProps,
       rows,
       textarea,
+      isLoading,
+      ...rest
     },
     ref
   ) => {
@@ -156,30 +161,37 @@ const Input = React.forwardRef<HTMLInputElement>(
       return getInput()
     }
 
-    const shouldHide = () => {
-      if (isNumber(value)) {
-        return true
-      }
-
-      return Boolean(value.length)
-    }
-
     return (
-      <S.InputContainer suffix={suffix} {...systemProps}>
-        <S.InputErrorMessage
-          aria-live="assertive"
-          id={`${id}-error`}
-          role="alert"
-          showErrorMessage={hasError}
+      <S.InputContainer suffix={suffix} {...rest}>
+        <Text
+          display="flex"
+          flexDirection="column"
+          fontWeight="semi"
+          fontSize="1rem"
+          textStyle="caps"
+          htmlFor={id}
         >
-          {errorMessage}
-        </S.InputErrorMessage>
+          <Text>{label}</Text>
 
-        {getInputType()}
-
-        <S.InputLabel hide={shouldHide()} htmlFor={id}>
-          {label}
-        </S.InputLabel>
+          {hasError && (
+            <S.InputErrorMessage
+              aria-live="assertive"
+              id={`${id}-error`}
+              role="alert"
+              showErrorMessage={hasError}
+            >
+              <Icon name="error" mr={2} /> {errorMessage}
+            </S.InputErrorMessage>
+          )}
+          <Box position="relative">
+            {getInputType()}
+            {isLoading && (
+              <Box position="absolute" right=".2rem" top=".2rem" bg="white">
+                <Spinner size="3rem" stroke=".3rem" />
+              </Box>
+            )}
+          </Box>
+        </Text>
       </S.InputContainer>
     )
   }
