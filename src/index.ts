@@ -14,6 +14,7 @@ import Badge from './components/badge'
 import HtmlBlock from './components/html-block'
 import Skeleton from './components/skeleton'
 import Spinner from './components/spinner'
+import Stack from './components/stack'
 
 import { ThemeProvider, theme, GlobalStyle } from './styles'
 
@@ -22,20 +23,21 @@ export {
   Box,
   Button,
   Divider,
+  GlobalStyle,
   Heading,
+  HtmlBlock,
   Icon,
   Input,
   Link,
   Loader,
   Message,
   ModalProvider,
-  useModal,
   Section,
-  Text,
-  ThemeProvider,
-  theme,
-  GlobalStyle,
-  HtmlBlock,
   Skeleton,
   Spinner,
+  Stack,
+  Text,
+  theme,
+  ThemeProvider,
+  useModal,
 }
