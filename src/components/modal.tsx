@@ -48,113 +48,116 @@ function useModal() {
     setIsOpen(false)
   }
 
-  const MemoModal = () =>
-    function Modal({
-      width,
-      bgProps,
-      children,
-      containerProps,
-      onBgClick,
-      onEscapeKey,
-      closeBtnCb,
-      id,
-    }) {
-      const bgRef = useRef<HTMLDivElement>(null)
-      const modalNode = useContext(ModalContext)
+  const MemoModal = useMemo(
+    () =>
+      function Modal({
+        width,
+        bgProps,
+        children,
+        containerProps,
+        onBgClick,
+        onEscapeKey,
+        closeBtnCb,
+        id,
+      }) {
+        const bgRef = useRef<HTMLDivElement>(null)
+        const modalNode = useContext(ModalContext)
 
-      if (!modalNode) {
-        throw new Error(`useModal must be used within a ModalProvider`)
-      }
-
-      useEffect(() => {
-        if (isOpen && hasDOM) {
-          document.addEventListener('keydown', handleKeydown)
-          document.body.style.overflow = 'hidden'
+        if (!modalNode) {
+          throw new Error(`useModal must be used within a ModalProvider`)
         }
 
-        return () => {
-          if (hasDOM) {
-            document.removeEventListener('keydown', handleKeydown)
-            document.body.style.overflow = 'auto'
+        useEffect(() => {
+          if (isOpen && hasDOM) {
+            document.addEventListener('keydown', handleKeydown)
+            document.body.style.overflow = 'hidden'
+          }
+
+          return () => {
+            if (hasDOM) {
+              document.removeEventListener('keydown', handleKeydown)
+              document.body.style.overflow = 'auto'
+            }
+          }
+        }, [isOpen])
+
+        const handleBackgroundClick = e => {
+          if (onBgClick && bgRef.current && bgRef.current === e.target) {
+            e.stopPropagation()
+            onBgClick()
           }
         }
-      }, [isOpen])
 
-      const handleBackgroundClick = e => {
-        if (onBgClick && bgRef.current && bgRef.current === e.target) {
-          e.stopPropagation()
-          onBgClick()
+        const handleKeydown = e => {
+          if (e.key === 'Escape' && onEscapeKey) {
+            onEscapeKey()
+          }
         }
-      }
 
-      const handleKeydown = e => {
-        if (e.key === 'Escape' && onEscapeKey) {
-          onEscapeKey()
-        }
-      }
-
-      return (
-        isOpen &&
-        ReactDOM.createPortal(
-          <Box
-            id={id}
-            ref={bgRef}
-            alignItems={['flex-end', 'center']}
-            bg="overlay"
-            height="100vh"
-            justifyContent="center"
-            left="0"
-            onMouseDown={handleBackgroundClick}
-            overflow="auto"
-            position="fixed"
-            top="0"
-            width="100vw"
-            zIndex="modal"
-            {...bgProps}
-          >
+        return (
+          isOpen &&
+          ReactDOM.createPortal(
             <Box
-              ref={containerRef}
-              alignItems="stretch"
-              bg="white"
-              borderRadius="large"
-              flexDirection="column"
+              id={id}
+              ref={bgRef}
+              alignItems={['flex-end', 'center']}
+              bg="overlay"
+              height="100vh"
+              justifyContent="center"
+              left="0"
+              onMouseDown={handleBackgroundClick}
               overflow="auto"
-              p={4}
-              position="relative"
-              role="dialog"
-              tabIndex="-1"
-              width={[1, width || '52rem']}
-              {...containerProps}
+              position="fixed"
+              top="0"
+              width="100vw"
+              zIndex="modal"
+              {...bgProps}
             >
-              {closeBtnCb && (
-                <Button
-                  alignSelf="flex-end"
-                  ariaLabel="Close modal"
-                  color="black"
-                  id="modalCloseButton"
-                  onClick={closeBtnCb}
-                  position="absolute"
-                  right="0.8rem"
-                  top="0.8rem"
-                  variant="minimal"
-                >
-                  <Icon
-                    height={32}
-                    name="close"
-                    title="Close modal icon"
-                    titleId="closeModalIcon"
-                    viewBox="0 0 32 32"
-                    width={32}
-                  />
-                </Button>
-              )}
-              {children}
-            </Box>
-          </Box>,
-          modalNode.current
+              <Box
+                ref={containerRef}
+                alignItems="stretch"
+                bg="white"
+                borderRadius="large"
+                flexDirection="column"
+                overflow="auto"
+                p={4}
+                position="relative"
+                role="dialog"
+                tabIndex="-1"
+                width={[1, width || '52rem']}
+                {...containerProps}
+              >
+                {closeBtnCb && (
+                  <Button
+                    alignSelf="flex-end"
+                    ariaLabel="Close modal"
+                    color="black"
+                    id="modalCloseButton"
+                    onClick={closeBtnCb}
+                    position="absolute"
+                    right="0.8rem"
+                    top="0.8rem"
+                    variant="minimal"
+                  >
+                    <Icon
+                      height={32}
+                      name="close"
+                      title="Close modal icon"
+                      titleId="closeModalIcon"
+                      viewBox="0 0 32 32"
+                      width={32}
+                    />
+                  </Button>
+                )}
+                {children}
+              </Box>
+            </Box>,
+            modalNode.current
+          )
         )
-      )
-    }
+      },
+    [isOpen]
+  )
 
   return { openModal, closeModal, isOpen, Modal: MemoModal, containerRef }
 }
