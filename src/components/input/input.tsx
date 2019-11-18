@@ -171,7 +171,9 @@ const Input = React.forwardRef<HTMLInputElement>(
           textStyle="caps"
           htmlFor={id}
         >
-          <Text as="label">{label}</Text>
+          <Text as="label" htmlFor={id}>
+            {label}
+          </Text>
 
           {hasError && (
             <S.InputErrorMessage
