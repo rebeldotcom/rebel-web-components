@@ -99,7 +99,10 @@ const Input = React.forwardRef<HTMLInputElement>(
       return (
         <S.ShowPass
           id="showpassword"
-          onClick={() => setShowPassword(!showPassword)}
+          onClick={e => {
+            e.preventDefault()
+            setShowPassword(!showPassword)
+          }}
           title="Show/Hide password"
         >
           {text}
