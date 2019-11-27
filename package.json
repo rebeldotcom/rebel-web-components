@@ -9,7 +9,9 @@
     "build": "rollup -c",
     "start": "rollup -c -w",
     "version:patch": "npm version patch && git push",
+    "version:minor": "npm version minor && git push",
     "deploy:patch": "yarn build && yarn version:patch && npm publish",
+    "deploy:minor": "yarn build && yarn version:minor && npm publish",
     "clean": "rimraf node_modules && npm install",
     "eslint": "eslint src"
   },
