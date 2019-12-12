@@ -20,13 +20,18 @@ const colors = {
   },
   white: {
     bg: themeColors.white,
-    hover: themeColors.whiteDark,
+    hover: themeColors.greyLightest,
     text: themeColors.black,
   },
   black: {
     bg: themeColors.black,
     hover: themeColors.blackLighter,
     text: themeColors.white,
+  },
+  orange: {
+    bg: themeColors.orange,
+    hover: themeColors.orange,
+    text: themeColors.black,
   },
 }
 
@@ -73,15 +78,17 @@ export const buttonStyles = ({
   switch (variant) {
     case 'solid': {
       return `
+        transition: all .2s;
         ${defaultButtonStyles}
         ${padding}
         color: ${text};
         background: ${bg};
-        border-radius: ${radii.large};
+        border-radius: ${radii.small};
         border-color: ${bg};
 
         &:hover {
           background: ${hover};
+          color: ${text};
         }
       `
     }
@@ -92,7 +99,7 @@ export const buttonStyles = ({
           ${padding}
           color: ${bg};
           background: transparent;
-          border-radius: ${radii.large};
+          border-radius: ${radii.small};
           border-color: ${bg};
 
           &:hover.
@@ -112,21 +119,21 @@ export const buttonStyles = ({
       return `
         ${defaultButtonStyles}
         ${padding}
-        color: ${bg};
-        background: transparent;
-        border-radius: ${radii.large};
+        color: ${themeColors.black};
+        background: ${themeColors.white};
+        border-radius: ${radii.small};
         border-color: ${bg};
 
         &:hover,
         &:focus {
-          color: ${hover};
+          color: ${themeColors.black};
           border-color: ${hover};
         }
 
         &,
         &:link,
         &:visited {
-          color: ${bg};
+          color: ${themeColors.black};
         }
 
       `
