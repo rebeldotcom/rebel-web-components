@@ -10,10 +10,11 @@ const SVG = styled.svg`
 
 const DEFAULT_VIEWBOX = '0 0 1024 1024'
 
+const getIconData = name =>
+  iconRepo.find(icon => icon.tags.find(t => t === name))
+
 const getIcon = name => {
-  const selected = iconRepo.find(icon => {
-    return icon.tags[0] === name
-  })
+  const selected = getIconData(name)
 
   if (!selected) {
     return <div style={{ color: 'red' }}>Invalid icon name: {name}</div>
@@ -29,9 +30,7 @@ const getIcon = name => {
 }
 
 const getIconViewbox = name => {
-  const selected = iconRepo.find(icon => {
-    return icon.tags[0] === name
-  })
+  const selected = getIconData(name)
 
   if (!selected || !selected.viewBox) {
     return DEFAULT_VIEWBOX
