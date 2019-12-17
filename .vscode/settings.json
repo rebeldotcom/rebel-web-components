@@ -7,8 +7,6 @@
   },
   // Enable/disable default JavaScript formatter (For Prettier)
   "javascript.format.enable": false,
-  // Allows ESLint to run when we save
-  "eslint.autoFixOnSave": true,
   "eslint.alwaysShowStatus": true,
   "search.exclude": {
     "**/node_modules": true,
@@ -32,5 +30,9 @@
     "statusBarItem.hoverBackground": "#f58f00",
     "statusBar.foreground": "#e7e7e7"
   },
-  "peacock.color": "#c27100"
+  "peacock.color": "#c27100",
+  // Allows ESLint to run when we save
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
