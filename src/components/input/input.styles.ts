@@ -26,7 +26,7 @@ export const InputContainer = styled.div`
     padding: ${space.half};
     padding-right: ${space[4]};
     box-sizing: border-box;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     border: ${borders.input};
     
     border-radius: 0;
