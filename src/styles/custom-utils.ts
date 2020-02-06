@@ -47,8 +47,8 @@ const defaultButtonStyles = `
   text-align: center;
   text-decoration: none;
   padding: 0.8rem 1.6rem;
-  text-transform: uppercase;
-  font-size: 1.2rem;
+  text-transform: capitalize;
+  font-size: 1.3rem;
   font-weight: 400;
   transition: all 0.2s ease-in-out;
   min-width: 3rem;
@@ -198,6 +198,14 @@ export const buttonStyles = ({
           background: ${themeColors.green};
         }
 
+      `
+    }
+    case 'link': {
+      return `
+        ${defaultButtonStyles}
+        padding: 0;
+        text-decoration: underline;
+        border: none;
       `
     }
 
