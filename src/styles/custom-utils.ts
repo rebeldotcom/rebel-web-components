@@ -203,6 +203,7 @@ export const buttonStyles = ({
     case 'link': {
       return `
         ${defaultButtonStyles}
+        background: none;
         padding: 0;
         text-decoration: underline;
         border: none;
