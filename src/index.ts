@@ -15,6 +15,7 @@ import HtmlBlock from './components/html-block'
 import Skeleton from './components/skeleton'
 import Spinner from './components/spinner'
 import Stack from './components/stack'
+import StyleReset from './components/style-reset'
 
 import { ThemeProvider, theme, GlobalStyle } from './styles'
 
@@ -36,6 +37,7 @@ export {
   Skeleton,
   Spinner,
   Stack,
+  StyleReset,
   Text,
   theme,
   ThemeProvider,
