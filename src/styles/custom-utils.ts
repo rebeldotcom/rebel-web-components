@@ -161,7 +161,8 @@ export const buttonStyles = ({
         font-weight: 600;
         border: none;
         padding: 0;
-
+        text-transform: uppercase;
+        letter-spacing: 2px;
 
         &:hover,
         &:active {
