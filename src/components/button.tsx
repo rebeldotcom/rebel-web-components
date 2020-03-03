@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { margin, layout, alignSelf, position } from 'styled-system'
+import { space, layout, alignSelf, position } from 'styled-system'
 import { buttonStyles } from '../styles/custom-utils'
 
 type ButtonProps = {
@@ -23,7 +23,7 @@ const StyledButton = styled.button`
   }
   
   ${buttonStyles}
-  ${margin}
+  ${space}
   ${layout}
   ${position}
   ${alignSelf}
