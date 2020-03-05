@@ -43,7 +43,7 @@ type IconProps = {
   name: string
   width?: number
   height?: number
-  title?: string
+  title: string
   titleId?: string
   descId?: string
   desc?: string
