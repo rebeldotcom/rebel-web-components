@@ -52,7 +52,6 @@ const defaultButtonStyles = `
   font-weight: 400;
   transition: all 0.2s ease-in-out;
   min-width: 3rem;
-  letter-spacing: 1px;
   border-width: 1px !important;
   display: inline-block;
   border-width: 1px;
