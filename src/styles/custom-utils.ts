@@ -201,13 +201,14 @@ export const buttonStyles = ({
       `
     }
     case 'link': {
+      console.log('is link', color, themeColors[color])
       return `
         ${defaultButtonStyles}
         background: none;
         padding: 0;
         text-decoration: underline;
         border: none;
-        color: ${color}
+        color: ${themeColors[color]};
       `
     }
 
