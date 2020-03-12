@@ -13,6 +13,8 @@ import {
   BorderProps,
   shadow,
   ShadowProps,
+  background,
+  BackgroundProps,
 } from 'styled-system'
 import styled from 'styled-components'
 
@@ -29,6 +31,7 @@ export type BoxProps = React.RefAttributes<HTMLElement> &
   FlexboxProps &
   ShadowProps &
   BorderProps &
+  BackgroundProps &
   As
 
 const Box: React.FC<BoxProps> = styled.div`
@@ -39,6 +42,7 @@ const Box: React.FC<BoxProps> = styled.div`
   ${position}
   ${space}
   ${shadow}
+  ${background}
 `
 
 Box.defaultProps = {

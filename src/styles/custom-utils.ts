@@ -207,7 +207,7 @@ export const buttonStyles = ({
         padding: 0;
         text-decoration: underline;
         border: none;
-        color: ${color}
+        color: ${themeColors[color]};
       `
     }
 
