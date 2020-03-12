@@ -201,7 +201,6 @@ export const buttonStyles = ({
       `
     }
     case 'link': {
-      console.log('is link', color, themeColors[color])
       return `
         ${defaultButtonStyles}
         background: none;
