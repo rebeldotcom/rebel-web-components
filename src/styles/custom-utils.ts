@@ -42,6 +42,8 @@ const paddingVariants = {
   wide: `${themeSpace.half} ${themeSpace.bigger}`,
 }
 
+const isEmpty = val => val == null || !(Object.keys(val) || val).length
+
 const defaultButtonStyles = `
   appearance: none;
   text-align: center;
@@ -59,17 +61,14 @@ const defaultButtonStyles = `
 `
 
 export const buttonStyles = ({
-  color = 'green',
+  color,
   theme,
   variant = 'solid',
   btnSize = 'base',
 }) => {
-  console.assert(
-    typeof color === 'string',
-    `Color must be a string, received: ${color}`
-  )
+  const baseColor = isEmpty(color) ? 'green' : color
 
-  const { text, hover, bg } = colors[color]
+  const { text, hover, bg } = colors[baseColor]
   const { radii } = theme
 
   const padding = `padding: ${paddingVariants[btnSize]};`
