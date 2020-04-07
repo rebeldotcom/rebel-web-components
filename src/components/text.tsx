@@ -9,10 +9,16 @@ import {
   typography,
   layout,
   textStyle,
+  variant,
 } from 'styled-system'
 
 const textTransform = system({
   textTransform: true,
+})
+
+const textVariants = variant({
+  scale: 'textVariants',
+  prop: 'variant',
 })
 
 const truncateText = ({ truncate }) => {
@@ -36,6 +42,7 @@ const Text = styled.div`
   ${truncateText}
   ${textTransform}
   ${flexbox}
+  ${textVariants}
 `
 
 export default Text

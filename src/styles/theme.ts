@@ -48,11 +48,12 @@ const colors = {
   blackLight: '#222328',
   black: '#000000',
 
-  greenLightest: '#f3f5e6',
-  greenLighter: '#D3DCA3',
-  greenLight: '#A5C20F',
-  green: '#697e00',
-  greenDark: '#6B8000',
+  greenLightest: '#EEF7EE',
+  //greenLighter is our primary green
+  greenLighter: '#CDE7CB',
+  greenLight: '#ABD7A8',
+  green: '#8AC785',
+  greenDark: '#3D7A38',
 
   redLighter: '#F9BEAE',
   redLight: '#E37054',
@@ -60,44 +61,43 @@ const colors = {
   redDark: '#CC3E1C',
   redNew: '#d82a29',
 
-  blueDark: '#0011b1',
-  blue: '#0018ff',
-  blueLight: '#4255ff',
-  blueLighter: '#7a88ff',
-  blueLightest: '#d4d7f7',
+  blueDark: '#003680',
+  //blue is our primary blue
+  blue: '#0052C3',
+  blueLight: '#80B5FF',
+  blueLighter: '#B4D4FD',
+  blueLightest: '#E6F0FF',
 
+  pinkLightest: '#FDE7EC',
+  //pinkLighter is our primary pink
+  pinkLighter: '#F9AEBD',
+  pinkLight: '#F6889E',
+  pink: '#EF2951',
+  pinkDark: '#77091F',
   orange: '#ff9600',
-
   clear: 'transparent',
-
   focus: '#406198',
-
   overlay: 'rgba(0,0,0,.6)',
   overlayDark: 'rgba(0,0,0,.8)',
-
   success: '#859f00',
   successLight: '#e4eeaa',
-
   warning: '#d49e03',
   warningLight: '#f7eac9',
-
   error: '#f04822',
   errorLight: '#ffd1c7',
-
   facebook: '#3b5998',
-
   primary1: [
-    '#0010A3',
-    '#0013D1',
-    '#0018FF',
-    '#2E42FF',
-    '#5C6CFF',
-    '#8B96FF',
-    '#A2ABFF',
-    '#B9C0FF',
-    '#D4D7F7',
+    '#e6f0ff',
+    '#B4D4FD',
+    '#80B5FF',
+    '#4D98FF',
+    '#1A7AFF',
+    '#0061E6',
+    '#0052C3',
+    '#003680',
+    '#00204D',
+    '#000B1A',
   ],
-
   primary2: [
     '#F58F00',
     '#FF9600',
@@ -109,19 +109,18 @@ const colors = {
     '#FFEAD3',
     '#FFF3E6',
   ],
-
   greens: [
-    '#00D66F',
-    '#00E677',
-    '#05F07E',
-    '#43FF90',
-    '#7CFFAA',
-    '#9CFFBE',
-    '#AFFFC9',
-    '#CAFFDB',
-    '#E4FFED',
+    '#EEF7EE',
+    '#CDE7CB',
+    '#ABD7A8',
+    '#8AC785',
+    '#68B762',
+    '#4F9D48',
+    '#3D7A38',
+    '#2C5728',
+    '#1A3418',
+    '#091108',
   ],
-
   reds: [
     '#E70076',
     '#EB0079',
@@ -132,6 +131,19 @@ const colors = {
     '#FFA9CE',
     '#FFBFDA',
     '#FFE5F1',
+  ],
+
+  pinks: [
+    '#FDE7EC',
+    '#F9AEBD',
+    '#F6889E',
+    '#F35978',
+    '#EF2951',
+    '#D61037',
+    '#A60C2B',
+    '#77091F',
+    '#470512',
+    '#180206',
   ],
 
   yellows: [
@@ -198,7 +210,7 @@ const fontWeights = {
   light: 300,
   regular: 400,
   semi: 600,
-  bold: 800,
+  bold: 700,
 }
 
 const breakpoints = [600, 900, 1200].map(pixify)
@@ -263,6 +275,7 @@ const messageStyles = {
   },
 }
 
+// DEPRECATED
 const headingStyles = [
   {
     fontSize: '4.5rem',
@@ -296,6 +309,89 @@ const headingStyles = [
     letterSpacing: letterSpacings.wide,
   },
 ]
+
+const textVariants = {
+  // nina = three sizes larger than h1
+  nina: {
+    fontSize: '9.2rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular,
+  },
+  // yotta = two sizes larger than h1
+  yotta: {
+    fontSize: '7.4rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.bold,
+  },
+  // zetta = one size larger than h1
+  zetta: {
+    fontSize: '5.6rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular,
+  },
+  // exa = h1
+  exa: {
+    fontSize: '4.8rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.bold,
+  },
+  // peta = h2
+  peta: {
+    fontSize: '3.2rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.bold,
+  },
+  // tera = three sizes larger than body
+  tera: {
+    fontSize: '2.4rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.bold,
+  },
+  // giga = two sizes larger than body
+  giga: {
+    fontSize: '1.8rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.bold,
+  },
+  // mega = one size larger than body
+  mega: {
+    fontSize: '1.6rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.bold,
+  },
+  // kilo = body size but used for subheaders & is uppercase
+  kilo: {
+    fontSize: '1.4rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular,
+    letterSpacing: letterSpacings.wide,
+  },
+  // pound = body
+  pound: {
+    fontSize: '1.4rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular,
+    letterSpacing: letterSpacings.wide,
+  },
+  // milli = one size smaller than body
+  milli: {
+    fontSize: '1.2rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular,
+  },
+  // micro = two sizes smaller than body
+  micro: {
+    fontSize: '1.0rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular,
+  },
+  // micro = three sizes smaller than body
+  nano: {
+    fontSize: '0.8rem',
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.regular,
+  },
+}
 
 const zIndices = {
   modal: 9999,
@@ -484,6 +580,7 @@ export const theme = {
   sizes,
   space,
   textStyles,
+  textVariants,
   zIndices,
   animations,
 }
