@@ -76,9 +76,35 @@ const defaultStyles = css`
       margin: 1em 40px;
     }
 
+    /* Font changes */
+
     b,
     strong {
       font-weight: bold;
+    }
+
+    i {
+    }
+
+    em {
+    }
+
+    mark {
+    }
+
+    small {
+    }
+
+    del {
+    }
+
+    ins {
+    }
+
+    sub {
+    }
+
+    sup {
     }
 
     table {
