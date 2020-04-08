@@ -33,6 +33,16 @@ const colors = {
     hover: themeColors.orange,
     text: themeColors.black,
   },
+  pink: {
+    bg: themeColors.pink,
+    hover: themeColors.pinkDark,
+    text: themeColors.white,
+  },
+  pinkLighter: {
+    bg: themeColors.pinkLighter,
+    hover: themeColors.pink,
+    text: themeColors.black,
+  },
 }
 
 const paddingVariants = {
@@ -207,6 +217,10 @@ export const buttonStyles = ({
         text-decoration: underline;
         border: none;
         color: ${themeColors[color]};
+
+        &:hover { 
+          color: ${themeColors[color].hover};
+        }
       `
     }
 
