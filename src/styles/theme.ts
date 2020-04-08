@@ -371,7 +371,6 @@ const textVariants = {
     fontSize: '1.4rem',
     lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
-    letterSpacing: letterSpacings.wide,
   },
   // milli = one size smaller than body
   milli: {
