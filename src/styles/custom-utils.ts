@@ -217,10 +217,6 @@ export const buttonStyles = ({
         text-decoration: underline;
         border: none;
         color: ${themeColors[color]};
-
-        &:hover { 
-          color: ${themeColors[color].hover};
-        }
       `
     }
 
