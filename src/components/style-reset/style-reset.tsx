@@ -47,7 +47,6 @@ const defaultStyles = css`
     }
 
     h3 {
-      margin: 0;
       font-size: 20px;
       line-height: 22px;
     }
@@ -59,12 +58,10 @@ const defaultStyles = css`
 
     ul,
     ol {
-      margin: 1em 0;
+      margin: 0 2em;
     }
 
-    p,
-    ul,
-    ol {
+    p {
       margin: 0 0 17px;
     }
 
