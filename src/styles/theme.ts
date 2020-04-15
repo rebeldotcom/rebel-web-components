@@ -48,12 +48,18 @@ const colors = {
   blackLight: '#222328',
   black: '#000000',
 
-  greenLightest: '#EEF7EE',
+  greenLightest: '#f3f5e6',
+  greenLighter: '#D3DCA3',
+  greenLight: '#A5C20F',
+  green: '#697e00',
+  greenDark: '#6B8000',
+
+  mintGreenLightest: '#EEF7EE',
   //greenLighter is our primary green
-  greenLighter: '#CDE7CB',
-  greenLight: '#ABD7A8',
-  green: '#8AC785',
-  greenDark: '#3D7A38',
+  mintGreenLighter: '#CDE7CB',
+  mintGreenLight: '#ABD7A8',
+  mintGreen: '#8AC785',
+  mintGreenDark: '#3D7A38',
 
   redLighter: '#F9BEAE',
   redLight: '#E37054',
