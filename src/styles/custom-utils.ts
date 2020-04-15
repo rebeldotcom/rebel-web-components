@@ -11,7 +11,7 @@ const colors = {
   green: {
     bg: themeColors.green,
     hover: themeColors.greenDark,
-    text: themeColors.black,
+    text: themeColors.white,
   },
   mintGreen: {
     bg: themeColors.mintGreen,
