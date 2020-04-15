@@ -13,6 +13,11 @@ const colors = {
     hover: themeColors.greenDark,
     text: themeColors.black,
   },
+  mintGreen: {
+    bg: themeColors.mintGreen,
+    hover: themeColors.mintGreenDark,
+    text: themeColors.black,
+  },
   blue: {
     bg: themeColors.blue,
     hover: themeColors.blueDark,
