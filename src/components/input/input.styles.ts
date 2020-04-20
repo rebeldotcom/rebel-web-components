@@ -90,7 +90,7 @@ export const InputErrorMessage = styled.div`
       showErrorMessage &&
       `
 
-      max-height: 1000px
+      max-height: 1000px;
       opacity: 1;
     `
     )
