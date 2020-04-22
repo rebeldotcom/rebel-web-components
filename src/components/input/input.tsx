@@ -11,6 +11,7 @@ const propTypes = {
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
   hasError: PropTypes.bool,
+  hint: PropTypes.string,
   icon: PropTypes.node,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
@@ -49,6 +50,7 @@ const defaultProps = {
   type: 'text',
   value: '',
   isLoading: false,
+  hint: null,
 }
 
 const Input = React.forwardRef<HTMLInputElement>(
@@ -58,6 +60,7 @@ const Input = React.forwardRef<HTMLInputElement>(
       disabled,
       errorMessage,
       hasError,
+      hint,
       icon,
       id,
       label,
@@ -176,6 +179,16 @@ const Input = React.forwardRef<HTMLInputElement>(
         >
           <Text as="label" htmlFor={id}>
             {label}
+            {hint && (
+              <Text
+                mb={1}
+                variant="micro"
+                fontWeight="400"
+                textTransform="none"
+              >
+                {hint}
+              </Text>
+            )}
           </Text>
 
           {hasError && (
