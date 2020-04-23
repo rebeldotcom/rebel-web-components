@@ -173,8 +173,8 @@ const Input = React.forwardRef<HTMLInputElement>(
           display="flex"
           flexDirection="column"
           fontWeight="semi"
-          fontSize="1rem"
-          textStyle="caps"
+          variant="milli"
+          textTransform="capitalize"
           htmlFor={id}
         >
           <Text as="label" htmlFor={id}>
