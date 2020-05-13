@@ -131,14 +131,14 @@ export default App;
 - Heading
 - HtmlBlock
 - Icon
-- Image
-- ImageBG
+- Image (Not included anymore. Lives in CMS)
+- ImageBG (Not included anymore. Lives in CMS)
 - Input
 - Link
 - Loader
 - Message
 - Section
-- SectionBG
+- SectionBG (Not included anymore. Lives in CMS)
 - Skeleton
 - Text
 
