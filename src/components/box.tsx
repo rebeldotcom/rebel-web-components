@@ -15,6 +15,8 @@ import {
   ShadowProps,
   background,
   BackgroundProps,
+  grid,
+  GridProps,
   system,
 } from 'styled-system'
 import styled from 'styled-components'
@@ -33,6 +35,7 @@ export type BoxProps = React.RefAttributes<HTMLElement> &
   ShadowProps &
   BorderProps &
   BackgroundProps &
+  GridProps &
   As
 
 const transform = system({
@@ -49,6 +52,7 @@ const Box: React.FC<BoxProps> = styled.div`
   ${shadow}
   ${background}
   ${transform}
+  ${grid}
 `
 
 Box.defaultProps = {

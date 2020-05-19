@@ -16,6 +16,7 @@ import Skeleton from './components/skeleton'
 import Spinner from './components/spinner'
 import Stack from './components/stack'
 import StyleReset from './components/style-reset'
+import Grid from './components/grid'
 
 import { ThemeProvider, theme, GlobalStyle } from './styles'
 
@@ -42,4 +43,5 @@ export {
   theme,
   ThemeProvider,
   useModal,
+  Grid,
 }
