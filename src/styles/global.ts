@@ -6,8 +6,6 @@ import { theme } from './theme'
 const { fonts } = theme
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700');
-
   ${styledNormalize}
   ${reset}
 
