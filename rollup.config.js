@@ -4,7 +4,7 @@ import external from 'rollup-plugin-peer-deps-external'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
-import filesize from 'rollup-plugin-filesize'
+// import filesize from 'rollup-plugin-filesize'
 import visualizer from 'rollup-plugin-visualizer'
 import { terser } from 'rollup-plugin-terser'
 
@@ -72,7 +72,7 @@ module.exports = {
     }),
 
     production && terser(),
-    filesize(),
+    // filesize(),
     visualizer(),
   ],
   external: ['styled-components', 'react', 'react-dom', 'styled-system'],

@@ -88,5 +88,6 @@
     "styled-normalize": "8.0.7",
     "styled-reset": "4.1.4",
     "styled-system": "5.1.5"
-  }
+  },
+  "dependencies": {}
 }
