@@ -89,7 +89,5 @@
     "styled-reset": "4.1.4",
     "styled-system": "5.1.5"
   },
-  "dependencies": {
-    "react-helmet": "^6.0.0"
-  }
+  "dependencies": {}
 }
