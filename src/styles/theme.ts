@@ -237,10 +237,7 @@ borders.input = borders[2]
 borders.error = borders[4]
 
 // Example for shadows
-const shadows = [
-  `0 1rem 3rem ${colors.black}88`,
-  `0.5rem 0.5rem 1rem ${colors.black}44`,
-]
+const shadows = [`0.5rem 0.5rem 1rem ${colors.black}44`]
 
 const radii = {
   none: 0,
