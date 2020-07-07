@@ -208,6 +208,7 @@ const lineHeights = {
   title: 1.2,
   body: 1.7,
   tall: 2,
+  long: 3,
 }
 
 const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96].map(remify)
@@ -285,33 +286,33 @@ const messageStyles = {
 const headingStyles = [
   {
     fontSize: '4.5rem',
-    lineHeight: lineHeights.title,
-    fontWeight: fontWeights.light,
+    lineHeight: lineHeights,
+    fontWeight: fontWeights.bold,
   },
   {
     fontSize: '3.2rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.light,
+    fontWeight: fontWeights.bold,
   },
   {
     fontSize: '2.4rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.light,
+    fontWeight: fontWeights.bold,
   },
   {
     fontSize: '1.8rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.regular,
+    fontWeight: fontWeights.bold,
   },
   {
     fontSize: '1.6rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.semi,
+    fontWeight: fontWeights.bold,
   },
   {
     fontSize: '1.4rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.semi,
+    fontWeight: fontWeights.bold,
     letterSpacing: letterSpacings.wide,
   },
 ]
