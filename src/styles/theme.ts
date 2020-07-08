@@ -135,7 +135,7 @@ const colors = {
     '#FF7EB4',
     '#FF94C1',
     '#FFA9CE',
-    '#FFBFDA',
+    '#FFBFDA',c
     '#FFE5F1',
   ],
 
@@ -286,33 +286,33 @@ const messageStyles = {
 const headingStyles = [
   {
     fontSize: '4.5rem',
-    lineHeight: lineHeights,
-    fontWeight: fontWeights.bold,
+    lineHeight: lineHeights.title,
+    fontWeight: fontWeights.light,
   },
   {
     fontSize: '3.2rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.bold,
+    fontWeight: fontWeights.light,
   },
   {
     fontSize: '2.4rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.bold,
+    fontWeight: fontWeights.light,
   },
   {
     fontSize: '1.8rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.bold,
+    fontWeight: fontWeights.regular,
   },
   {
     fontSize: '1.6rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.bold,
+    fontWeight: fontWeights.semi,
   },
   {
     fontSize: '1.4rem',
     lineHeight: lineHeights.title,
-    fontWeight: fontWeights.bold,
+    fontWeight: fontWeights.semi,
     letterSpacing: letterSpacings.wide,
   },
 ]
