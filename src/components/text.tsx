@@ -45,4 +45,8 @@ const Text = styled.div`
   ${textVariants}
 `
 
+Text.defaultProps = {
+  lineHeight: '1.7',
+}
+
 export default Text
