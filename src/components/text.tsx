@@ -11,6 +11,7 @@ import {
   textStyle,
   variant,
 } from 'styled-system'
+import { theme } from '../styles/theme'
 
 const textTransform = system({
   textTransform: true,
@@ -46,7 +47,7 @@ const Text = styled.div`
 `
 
 Text.defaultProps = {
-  lineHeight: '1.7',
+  lineHeight: theme.lineHeights.body
 }
 
 export default Text
