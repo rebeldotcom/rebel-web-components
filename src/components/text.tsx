@@ -11,6 +11,7 @@ import {
   textStyle,
   variant,
 } from 'styled-system'
+import { theme } from '../styles/theme'
 
 const textTransform = system({
   textTransform: true,
@@ -44,5 +45,9 @@ const Text = styled.div`
   ${flexbox}
   ${textVariants}
 `
+
+Text.defaultProps = {
+  lineHeight: theme.lineHeights.body
+}
 
 export default Text

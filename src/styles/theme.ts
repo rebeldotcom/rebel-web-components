@@ -208,6 +208,7 @@ const lineHeights = {
   title: 1.2,
   body: 1.7,
   tall: 2,
+  long: 3,
 }
 
 const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96].map(remify)
@@ -320,144 +321,118 @@ const textVariants = {
   // nina = three sizes larger than h1
   nina: {
     fontSize: '9.2rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   ninaBold: {
     fontSize: '9.2rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   // yotta = two sizes larger than h1
   yotta: {
     fontSize: '7.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   yottaBold: {
     fontSize: '7.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // zetta = one size larger than h1
   zetta: {
     fontSize: '5.6rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   zettaBold: {
     fontSize: '5.6rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // exa = h1
   exa: {
     fontSize: '4.8rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   exaBold: {
     fontSize: '4.8rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // peta = h2
   peta: {
     fontSize: '3.2rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   petaBold: {
     fontSize: '3.2rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // tera = three sizes larger than body
   tera: {
     fontSize: '2.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   teraBold: {
     fontSize: '2.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // giga = two sizes larger than body
   giga: {
     fontSize: '1.8rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   gigaBold: {
     fontSize: '1.8rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // mega = one size larger than body
   mega: {
     fontSize: '1.6rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   megaBold: {
     fontSize: '1.6rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // kilo = body size but used for subheaders & is uppercase
   kilo: {
     fontSize: '1.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   kiloBold: {
     fontSize: '1.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // pound = body
   pound: {
     fontSize: '1.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   poundBold: {
     fontSize: '1.4rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.bold,
   },
   // milli = one size smaller than body
   milli: {
     fontSize: '1.2rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   milliBold: {
     fontSize: '1.2rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.semi,
   },
   // micro = two sizes smaller than body
   micro: {
     fontSize: '1.0rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   microBold: {
     fontSize: '1.0rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.semi,
   },
   // nano = three sizes smaller than body
   nano: {
     fontSize: '0.8rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.regular,
   },
   nanoBold: {
     fontSize: '0.8rem',
-    lineHeight: lineHeights.title,
     fontWeight: fontWeights.semi,
   },
 }
