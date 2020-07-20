@@ -37,8 +37,8 @@
   },
   "homepage": "https://github.com/rebeldotcom/rebel-web-components#readme",
   "devDependencies": {
-    "@babel/cli": "7.10.4",
-    "@babel/core": "7.10.4",
+    "@babel/cli": "7.10.5",
+    "@babel/core": "7.10.5",
     "@babel/plugin-external-helpers": "7.10.4",
     "@babel/preset-env": "7.10.4",
     "@babel/preset-react": "7.10.4",
@@ -47,7 +47,7 @@
     "@types/styled-components": "5.1.1",
     "@types/styled-system": "5.1.9",
     "babel-eslint": "10.1.0",
-    "eslint": "7.4.0",
+    "eslint": "7.5.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.22.0",
@@ -64,7 +64,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "rimraf": "3.0.2",
-    "rollup": "2.21.0",
+    "rollup": "2.22.1",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-filesize": "9.0.2",
@@ -76,9 +76,9 @@
     "rollup-plugin-visualizer": "4.0.4",
     "styled-components": "5.1.1",
     "styled-normalize": "8.0.7",
-    "styled-reset": "4.2.0",
+    "styled-reset": "4.2.1",
     "styled-system": "5.1.5",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "peerDependencies": {
     "prop-types": "15.7.2",
@@ -86,7 +86,7 @@
     "react-dom": "16.13.1",
     "styled-components": "5.1.1",
     "styled-normalize": "8.0.7",
-    "styled-reset": "4.2.0",
+    "styled-reset": "4.2.1",
     "styled-system": "5.1.5"
   },
   "dependencies": {}
