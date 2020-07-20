@@ -1,12 +1,12 @@
 import React from 'react'
 import Box from '../box'
 
-const Grid = ({ children, ...rest }) => {
+const Grid = React.forwardRef<HTMLDivElement>(({ children, ...rest }, ref) => {
   return (
-    <Box display="grid" {...rest}>
+    <Box ref={ref} display="grid" {...rest}>
       {children}
     </Box>
   )
-}
+})
 
 export default Grid

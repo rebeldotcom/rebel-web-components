@@ -35,44 +35,48 @@ const defaultProps = {
   variant: 'default',
 }
 
-const propTypes = {
-  ariaLabel: PropTypes.string.isRequired,
-  as: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  display: PropTypes.string,
-  href: PropTypes.string,
-  to: PropTypes.string,
-  newTab: PropTypes.bool,
-  onClick: PropTypes.func,
-  testId: PropTypes.string,
-  variant: PropTypes.string,
+type LinkProps = {
+  ariaLabel: string
+  as?: string
+  children: React.ReactNode
+  className?: string
+  display?: string
+  href: string
+  id: string
+  to?: string
+  onClick?: Function
+  testId?: string
+  variant?: string
+  newTab?: boolean
 }
 
-const Link = ({ onClick, children, ariaLabel, newTab, testId, ...rest }) => {
-  if (!rest.href && !rest.to) {
-    console.warn('You must supply a `to` or `href` prop to Link!')
+const Link = React.forwardRef<HTMLLinkElement, LinkProps>(
+  ({ onClick, children, ariaLabel, newTab, testId, ...rest }, ref) => {
+    if (!rest.href && !rest.to) {
+      console.warn('You must supply a `to` or `href` prop to Link!')
+    }
+
+    const tabProps = newTab
+      ? { rel: 'noopener noreferrer', target: '_blank' }
+      : {}
+
+    return (
+      <StyledLink
+        ref={ref}
+        aria-label={ariaLabel}
+        data-testid={testId}
+        onClick={onClick}
+        title={ariaLabel}
+        {...rest}
+        {...tabProps}
+      >
+        {children}
+      </StyledLink>
+    )
   }
-
-  const tabProps = newTab
-    ? { rel: 'noopener noreferrer', target: '_blank' }
-    : {}
-
-  return (
-    <StyledLink
-      aria-label={ariaLabel}
-      data-testid={testId}
-      onClick={onClick}
-      title={ariaLabel}
-      {...rest}
-      {...tabProps}
-    >
-      {children}
-    </StyledLink>
-  )
-}
+)
 
 Link.defaultProps = defaultProps
-Link.propTypes = propTypes
+Link.displayName = 'Link'
 
 export default Link
