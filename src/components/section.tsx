@@ -6,19 +6,21 @@ type SectionProps = {
   containerProps?: {}
 }
 
-const Section = ({ children, containerProps, ...rest }: SectionProps) => {
-  return (
-    <Box as="section" justifyContent="center" width={1} {...rest}>
-      <Box
-        alignItems="center"
-        flexDirection="column"
-        width={1}
-        {...containerProps}
-      >
-        {children}
+const Section = React.forwardRef<HTMLDivElement, SectionProps>(
+  ({ children, containerProps, ...rest }, ref) => {
+    return (
+      <Box ref={ref} as="section" justifyContent="center" width={1} {...rest}>
+        <Box
+          alignItems="center"
+          flexDirection="column"
+          width={1}
+          {...containerProps}
+        >
+          {children}
+        </Box>
       </Box>
-    </Box>
-  )
-}
+    )
+  }
+)
 
 export default Section

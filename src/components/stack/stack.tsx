@@ -1,12 +1,12 @@
 import React from 'react'
 import Box from '../box'
 
-const Stack = ({ children, ...rest }) => {
+const Stack = React.forwardRef<HTMLDivElement>(({ children, ...rest }, ref) => {
   return (
-    <Box flexDirection="column" {...rest}>
+    <Box ref={ref} flexDirection="column" {...rest}>
       {children}
     </Box>
   )
-}
+})
 
 export default Stack
