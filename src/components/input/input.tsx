@@ -103,9 +103,9 @@ const Input = React.forwardRef<HTMLInputElement>(
         <S.ShowPass
           id="showpassword"
           onClick={e => {
-            e.preventDefault()
             setShowPassword(!showPassword)
           }}
+          type="button"
           title="Show/Hide password"
         >
           {text}
@@ -134,7 +134,6 @@ const Input = React.forwardRef<HTMLInputElement>(
             name={name}
             onBlur={onBlur}
             onChange={onChange}
-            onKeyPress={onKeyPress}
             required={required}
             type={inputType}
             value={value}
