@@ -23,6 +23,7 @@ const sizes = {
     md: '880px',
     lg: '1100px',
     xl: '1280px',
+    xxl: '1400px',
   },
   text: {
     body: '400px',
@@ -137,7 +138,7 @@ const colors = {
     '#FFA9CE',
     '#FFBFDA',
     '#FFE5F1',
-    '#B20101', /* New addition */
+    '#B20101' /* New addition */,
   ],
 
   pinks: [
