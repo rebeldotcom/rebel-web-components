@@ -138,7 +138,7 @@ const colors = {
     '#FFA9CE',
     '#FFBFDA',
     '#FFE5F1',
-    '#B20101' /* New addition */,
+    '#B20101',
   ],
 
   pinks: [
