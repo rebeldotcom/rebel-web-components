@@ -10,6 +10,7 @@ import {
   layout,
   textStyle,
   variant,
+  fontFamily,
 } from 'styled-system'
 import { theme } from '../styles/theme'
 
@@ -47,7 +48,8 @@ const Text = styled.div`
 `
 
 Text.defaultProps = {
-  lineHeight: theme.lineHeights.body
+  lineHeight: theme.lineHeights.body,
+  fontFamily: 'body',
 }
 
 export default Text
