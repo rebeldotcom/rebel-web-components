@@ -91,7 +91,16 @@ const Input = React.forwardRef<HTMLInputElement>(
     const renderIcon = () => {
       if (!icon) return null
 
-      return <S.InputIcon>{icon}</S.InputIcon>
+      return (
+        <Box
+          position="absolute"
+          display="inline-block"
+          top="0.6rem"
+          left="calc(100% - 55px)"
+        >
+          {icon}
+        </Box>
+      )
     }
 
     const renderShowPass = () => {

@@ -29,9 +29,7 @@
     "titleBar.inactiveForeground": "#e7e7e799",
     "statusBar.background": "#c27100",
     "statusBarItem.hoverBackground": "#f58f00",
-    "statusBar.foreground": "#e7e7e7",
-    "statusBar.border": "#c27100",
-    "titleBar.border": "#c27100"
+    "statusBar.foreground": "#e7e7e7"
   },
   "peacock.color": "#c27100",
   // Allows ESLint to run when we save
