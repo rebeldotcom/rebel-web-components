@@ -20,13 +20,34 @@ const getIcon = name => {
     return <div style={{ color: 'red' }}>Invalid icon name: {name}</div>
   }
 
-  return selected.paths.map((p, idx) => (
-    <path
-      key={p}
-      d={p}
-      fill={selected.attrs ? selected.attrs[idx].fill : 'currentColor'}
-    />
-  ))
+  return selected.shapes.map((shape, idx) => {
+    if (typeof shape === 'string') {
+      return (
+        <path
+          key={shape}
+          d={shape}
+          fill={selected.attrs ? selected.attrs[idx].fill : 'currentColor'}
+        />
+      )
+    }
+
+    const { type, ...rest } = shape
+
+    switch (type) {
+      case 'path':
+        return (
+          <path
+            key={`path-${idx}`}
+            {...rest}
+            fill={selected.attrs ? selected.attrs[idx].fill : 'currentColor'}
+          />
+        )
+      case 'rect':
+        return <rect key={`rect-${idx}`} {...rest} />
+      default:
+        return null
+    }
+  })
 }
 
 const getIconViewbox = name => {
