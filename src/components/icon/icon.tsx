@@ -44,6 +44,8 @@ const getIcon = name => {
         )
       case 'rect':
         return <rect key={`rect-${idx}`} {...rest} />
+      case 'polygon':
+        return <polygon key={`polygon-${idx}`} {...rest} />
       default:
         return null
     }
@@ -82,7 +84,7 @@ const Icon = ({
   containerProps,
   ...rest
 }: IconProps) => {
-  const iconPaths = getIcon(name)
+  const iconShapes = getIcon(name)
   const viewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
@@ -98,7 +100,7 @@ const Icon = ({
         <title id={titleId}>{title}</title>
 
         {desc && <desc id={descId}>{desc}</desc>}
-        {iconPaths}
+        {iconShapes}
       </SVG>
     </Box>
   )

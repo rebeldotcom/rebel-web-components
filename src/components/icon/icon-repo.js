@@ -1666,10 +1666,32 @@ export default [
     tags: ['website-design'],
   },
   {
+    viewBox: '0 0 32.1 29.1',
     shapes: [
       { type: 'rect', y: '14.55', width: '32.1', height: '1' },
       { type: 'rect', x: '15.55', width: '1', height: '29.1' },
     ],
     tags: ['plus'],
+  },
+  {
+    viewBox: '0 0 32.1 29.37',
+    shapes: [
+      { type: 'rect', x: '0', y: '14.37', width: '32.1', height: '1' },
+      { type: 'rect', x: '0', y: '0', width: '32.1', height: '1' },
+      { type: 'rect', x: '0', y: '28.37', width: '32.1', height: '1' },
+    ],
+    tags: ['lines-horizontal', 'list'],
+  },
+  {
+    viewBox: '0 0 32.78 28.4',
+    shapes: [
+      { type: 'rect', x: '0', y: '13.7', width: '32.1', height: '1' },
+      {
+        type: 'polygon',
+        points:
+          '19.6,28.4 18.87,27.72 31.42,14.2 18.87,0.68 19.6,0 32.78,14.2 ',
+      },
+    ],
+    tags: ['lines-horizontal', 'list'],
   },
 ]
