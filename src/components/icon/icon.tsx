@@ -87,7 +87,7 @@ const Icon = ({
   const iconShapes = getIcon(name)
   const viewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
-  console.log('Icon', name, iconShapes)
+
   return (
     <Box {...containerProps} {...rest} height={height} width={width}>
       <SVG
