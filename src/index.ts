@@ -17,6 +17,8 @@ import Spinner from './components/spinner'
 import Stack from './components/stack'
 import StyleReset from './components/style-reset'
 import Grid from './components/grid'
+import Radio from './components/radio'
+import Selector from './components/selector'
 
 import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
 
@@ -26,6 +28,7 @@ export {
   Button,
   Divider,
   GlobalStyle,
+  Grid,
   Heading,
   HtmlBlock,
   Icon,
@@ -34,7 +37,9 @@ export {
   Loader,
   Message,
   ModalProvider,
+  Radio,
   Section,
+  Selector,
   Skeleton,
   Spinner,
   Stack,
@@ -44,5 +49,4 @@ export {
   redesignTheme,
   ThemeProvider,
   useModal,
-  Grid,
 }
