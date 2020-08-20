@@ -14,6 +14,8 @@ import {
   BorderProps,
   shadow,
   ShadowProps,
+  typography,
+  TypographyProps,
 } from 'styled-system'
 import styled from 'styled-components'
 
@@ -30,6 +32,7 @@ export type BoxProps = React.RefAttributes<HTMLElement> &
   FlexboxProps &
   ShadowProps &
   BorderProps &
+  TypographyProps &
   As
 
 const Block: React.FC<BoxProps> = styled.div`
@@ -40,6 +43,7 @@ const Block: React.FC<BoxProps> = styled.div`
   ${position}
   ${space}
   ${shadow}
+  ${typography}
 
   p {
     margin: ${({ theme: { space } }) => space.regular} 0;

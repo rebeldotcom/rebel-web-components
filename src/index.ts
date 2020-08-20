@@ -18,7 +18,7 @@ import Stack from './components/stack'
 import StyleReset from './components/style-reset'
 import Grid from './components/grid'
 
-import { ThemeProvider, theme, GlobalStyle } from './styles'
+import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
 
 export {
   Badge,
@@ -41,6 +41,7 @@ export {
   StyleReset,
   Text,
   theme,
+  redesignTheme,
   ThemeProvider,
   useModal,
   Grid,
