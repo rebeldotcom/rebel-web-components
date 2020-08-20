@@ -1,62 +1,3 @@
-import { theme as baseTheme } from './theme'
-
-const { colors: themeColors, space: themeSpace } = baseTheme
-
-const colors = {
-  red: {
-    bg: themeColors.red,
-    hover: themeColors.redDark,
-    text: themeColors.white,
-  },
-  green: {
-    bg: themeColors.green,
-    hover: themeColors.greenDark,
-    text: themeColors.white,
-  },
-  mintGreen: {
-    bg: themeColors.mintGreen,
-    hover: themeColors.mintGreenDark,
-    text: themeColors.black,
-  },
-  blue: {
-    bg: themeColors.blue,
-    hover: themeColors.blueDark,
-    text: themeColors.white,
-  },
-  white: {
-    bg: themeColors.white,
-    hover: themeColors.greyLightest,
-    text: themeColors.black,
-  },
-  black: {
-    bg: themeColors.black,
-    hover: themeColors.blackLighter,
-    text: themeColors.white,
-  },
-  orange: {
-    bg: themeColors.orange,
-    hover: themeColors.orange,
-    text: themeColors.black,
-  },
-  pink: {
-    bg: themeColors.pink,
-    hover: themeColors.pinkDark,
-    text: themeColors.white,
-  },
-  pinkLighter: {
-    bg: themeColors.pinkLighter,
-    hover: themeColors.pink,
-    text: themeColors.black,
-  },
-}
-
-const paddingVariants = {
-  small: `${themeSpace.quarter} ${themeSpace.half}`,
-  base: `${themeSpace.half} ${themeSpace.regular}`,
-  large: ``,
-  wide: `${themeSpace.half} ${themeSpace.bigger}`,
-}
-
 const isEmpty = val => val == null || !(Object.keys(val) || val).length
 
 const defaultButtonStyles = `
@@ -81,6 +22,61 @@ export const buttonStyles = ({
   variant = 'solid',
   btnSize = 'base',
 }) => {
+  const colors = {
+    red: {
+      bg: theme.colors.red,
+      hover: theme.colors.redDark,
+      text: theme.colors.white,
+    },
+    green: {
+      bg: theme.colors.green,
+      hover: theme.colors.greenDark,
+      text: theme.colors.white,
+    },
+    mintGreen: {
+      bg: theme.colors.mintGreen,
+      hover: theme.colors.mintGreenDark,
+      text: theme.colors.black,
+    },
+    blue: {
+      bg: theme.colors.blue,
+      hover: theme.colors.blueDark,
+      text: theme.colors.white,
+    },
+    white: {
+      bg: theme.colors.white,
+      hover: theme.colors.greyLightest,
+      text: theme.colors.black,
+    },
+    black: {
+      bg: theme.colors.black,
+      hover: theme.colors.blackLighter,
+      text: theme.colors.white,
+    },
+    orange: {
+      bg: theme.colors.orange,
+      hover: theme.colors.orange,
+      text: theme.colors.black,
+    },
+    pink: {
+      bg: theme.colors.pink,
+      hover: theme.colors.pinkDark,
+      text: theme.colors.white,
+    },
+    pinkLighter: {
+      bg: theme.colors.pinkLighter,
+      hover: theme.colors.pink,
+      text: theme.colors.black,
+    },
+  }
+
+  const paddingVariants = {
+    small: `${theme.space.quarter} ${theme.space.half}`,
+    base: `${theme.space.half} ${theme.space.regular}`,
+    large: ``,
+    wide: `${theme.space.half} ${theme.space.bigger}`,
+  }
+
   const baseColor = isEmpty(color) ? 'green' : color
 
   const { text, hover, bg } = colors[baseColor]
@@ -132,21 +128,21 @@ export const buttonStyles = ({
       return `
         ${defaultButtonStyles}
         ${padding}
-        color: ${themeColors.black};
-        background: ${themeColors.white};
+        color: ${theme.black};
+        background: ${theme.white};
         border-radius: ${radii.small};
         border-color: ${bg};
 
         &:hover,
         &:focus {
-          color: ${themeColors.black};
+          color: ${theme.black};
           border-color: ${hover};
         }
 
         &,
         &:link,
         &:visited {
-          color: ${themeColors.black};
+          color: ${theme.black};
         }
 
       `
@@ -170,7 +166,7 @@ export const buttonStyles = ({
     case 'navbar': {
       return `
         background: none;
-        color: ${themeColors.whiteDark};
+        color: ${theme.colors.whiteDark};
         font-weight: 600;
         border: none;
         padding: 0;
@@ -206,10 +202,10 @@ export const buttonStyles = ({
         ${defaultButtonStyles}
         transition: all .2s ease-in-out 0s;
         opacity: 0.9;
-        background: ${themeColors.blackLighter};
+        background: ${theme.colors.blackLighter};
 
         &:hover {
-          background: ${themeColors.green};
+          background: ${theme.colors.green};
         }
 
       `
@@ -221,7 +217,7 @@ export const buttonStyles = ({
         padding: 0;
         text-decoration: underline;
         border: none;
-        color: ${themeColors[color]};
+        color: ${theme.colors[color]};
       `
     }
 

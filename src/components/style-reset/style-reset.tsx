@@ -15,6 +15,8 @@ import {
   ShadowProps,
 } from 'styled-system'
 import styled, { css } from 'styled-components'
+import { theme } from '../../styles/theme'
+const { fonts: title } = theme
 
 interface As {
   as?: React.ElementType
@@ -34,7 +36,7 @@ const defaultStyles = css`
     }
 
     h1 {
-      font-family: Montserrat, sans-serif;
+      font-family: ${title};
       font-size: 40px;
       line-height: 42px;
       font-weight: 300;
