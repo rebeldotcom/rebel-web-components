@@ -100,13 +100,6 @@ export const InputErrorMessage = styled.div`
     height: 0px;
   }
 `
-export const InputIcon = styled.div`
-  position: absolute;
-  display: inline-block;
-  left: calc(100% - 25px);
-  top: 32px;
-`
-
 export const ShowPass = styled.button`
   position: absolute;
   display: inline-block;
