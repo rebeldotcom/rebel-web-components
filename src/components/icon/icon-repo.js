@@ -1706,6 +1706,7 @@ export default [
         fill: 'rgb(35, 44, 101)',
       },
     ],
+    viewBox: '0 0 3133 1024',
     tags: ['paypal'],
   },
   {
@@ -1721,6 +1722,7 @@ export default [
         fill: 'rgb(255, 255, 255)',
       },
     ],
+    viewBox: '0 0 1638 1024',
     tags: ['americanExpress'],
   },
   {
@@ -1780,6 +1782,7 @@ export default [
         fill: 'rgb(255, 255, 255)',
       },
     ],
+    viewBox: '0 0 1638 1024',
     tags: ['mastercard'],
   },
   {
@@ -1819,6 +1822,7 @@ export default [
         fill: 'rgb(217, 123, 22)',
       },
     ],
+    viewBox: '0 0 1638 1024',
     tags: ['visa'],
   },
   {
