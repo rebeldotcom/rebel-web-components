@@ -31,17 +31,17 @@ const getIcon = name => {
       )
     }
 
-    const { type, ...rest } = shape
+    const { type, fill, ...rest } = shape
+
+    const getFill = () => {
+      if (fill) return fill
+
+      return selected.attrs ? selected.attrs[idx].fill : 'currentColor'
+    }
 
     switch (type) {
       case 'path':
-        return (
-          <path
-            key={`path-${idx}`}
-            {...rest}
-            fill={selected.attrs ? selected.attrs[idx].fill : 'currentColor'}
-          />
-        )
+        return <path key={`path-${idx}`} {...rest} fill={getFill()} />
       case 'rect':
         return <rect key={`rect-${idx}`} {...rest} />
       case 'polygon':
