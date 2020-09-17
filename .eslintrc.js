@@ -40,7 +40,6 @@ module.exports = {
     'jsx-a11y/label-has-for': 0, // TODO: deprecated but airbnb uses this
     'jsx-a11y/label-has-associated-control': 2,
     'react/prefer-stateless-function': 1,
-    'react/no-deprecated': 2,
     'react/forbid-foreign-prop-types': 2,
     'react/no-danger': 0,
     'react/sort-prop-types': 2,
@@ -68,7 +67,8 @@ module.exports = {
       },
     ],
     'tree-shaking/no-side-effects-in-initialization': [
-      0, {"compatibility": "rollup"}
+      0,
+      { compatibility: 'rollup' },
     ],
     'react-hooks/rules-of-hooks': 'error',
     'prettier/prettier': 'error',
