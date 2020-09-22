@@ -55,8 +55,6 @@ const getIcon = name => {
 const getIconViewbox = name => {
   const selected = getIconData(name)
 
-  console.log('selected!', selected)
-
   if (!selected || !selected.viewBox) {
     return DEFAULT_VIEWBOX
   }
@@ -89,7 +87,7 @@ const Icon = ({
   const iconShapes = getIcon(name)
   const viewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
-  console.log(name, viewBox)
+
   return (
     <Box {...containerProps} {...rest} height={height} width={width}>
       <SVG
