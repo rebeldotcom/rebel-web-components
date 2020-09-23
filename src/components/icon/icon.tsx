@@ -46,6 +46,8 @@ const getIcon = name => {
         return <rect key={`rect-${idx}`} {...rest} />
       case 'polygon':
         return <polygon key={`polygon-${idx}`} {...rest} />
+      case 'circle':
+        return <circle key={`circle-${idx}`} {...rest} />
       default:
         return null
     }
