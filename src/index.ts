@@ -20,7 +20,7 @@ import Grid from './components/grid'
 import Radio from './components/radio'
 import Selector from './components/selector'
 
-import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
+import { ThemeProvider, theme, redesignTheme, internicTheme, GlobalStyle } from './styles'
 
 export {
   Badge,
@@ -47,6 +47,7 @@ export {
   Text,
   theme,
   redesignTheme,
+  internicTheme,
   ThemeProvider,
   useModal,
 }

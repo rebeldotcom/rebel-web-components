@@ -1,4 +1,5 @@
 export { theme } from './theme'
-export { theme as redesignTheme } from './redesignTheme'
+export { theme as redesignTheme } from './redesign-theme'
+export { theme as internicTheme } from './internic-theme'
 export { default as GlobalStyle } from './global'
 export { ThemeProvider } from './theme-provider'
