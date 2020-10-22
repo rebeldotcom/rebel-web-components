@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Box from './box'
 import Text from './text'
-import Radio from './radio'
 import { theme } from '../styles/theme'
 
 const { radii, space, colors } = theme
@@ -109,20 +108,23 @@ const Selector = ({
                 </React.Fragment>
               )}
               {withRadio && (
-                <Box
-                  justifyContent="center"
-                  mt="1rem"
-                  css={`
-                    span {
-                      margin-left: 0;
-                    }
-                  `}
-                >
-                  <Radio
-                    id={id}
-                    isChecked={isChecked}
-                    onChange={event => onChangeHandler(id)}
-                  />
+                <Box mt={3} justifyContent="center">
+                  <Box
+                    height="12px"
+                    width="12px"
+                    border="1px solid black"
+                    borderRadius="50%"
+                    bg="white"
+                    alignItems="center"
+                    justifyContent="center"
+                  >
+                    <Box
+                      height="4px"
+                      width="4px"
+                      bg={isChecked ? 'black' : 'white'}
+                      borderRadius="50%"
+                    />
+                  </Box>
                 </Box>
               )}
             </OptionContent>
