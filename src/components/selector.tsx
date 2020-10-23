@@ -78,7 +78,8 @@ const Selector = ({
         const isChecked = id === selected
 
         return (
-          <SelectorOption as="label" key={id} data-testid={testId} htmlFor={id}>
+          <li key={id}>
+          <SelectorOption as="label"  data-testid={testId} htmlFor={id}>
             <input
               aria-label={id}
               checked={isChecked}
@@ -129,6 +130,7 @@ const Selector = ({
               )}
             </OptionContent>
           </SelectorOption>
+          </li>
         )
       }
     )
