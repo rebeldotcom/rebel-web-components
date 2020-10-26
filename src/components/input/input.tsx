@@ -16,7 +16,7 @@ const propTypes = {
   id: PropTypes.string.isRequired,
   isLoading: PropTypes.bool,
   label: PropTypes.string,
-  max: PropTypes.func,
+  max: PropTypes.number,
   maxLength: PropTypes.number,
   min: PropTypes.number,
   name: PropTypes.string,
