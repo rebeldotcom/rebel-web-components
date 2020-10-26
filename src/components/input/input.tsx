@@ -14,8 +14,11 @@ const propTypes = {
   hint: PropTypes.string,
   icon: PropTypes.node,
   id: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool,
   label: PropTypes.string,
+  max: PropTypes.func,
   maxLength: PropTypes.number,
+  min: PropTypes.number,
   name: PropTypes.string,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
@@ -27,7 +30,6 @@ const propTypes = {
   textarea: PropTypes.bool,
   type: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  isLoading: PropTypes.bool,
 }
 
 const defaultProps = {
@@ -35,9 +37,13 @@ const defaultProps = {
   disabled: false,
   errorMessage: '',
   hasError: false,
+  hint: null,
   icon: '',
+  isLoading: false,
   label: '',
+  max: null,
   maxLength: null,
+  min: null,
   name: '',
   onBlur: () => {},
   onChange: () => {},
@@ -49,8 +55,6 @@ const defaultProps = {
   textarea: false,
   type: 'text',
   value: '',
-  isLoading: false,
-  hint: null,
 }
 
 const Input = React.forwardRef<HTMLInputElement>(
@@ -63,19 +67,21 @@ const Input = React.forwardRef<HTMLInputElement>(
       hint,
       icon,
       id,
+      isLoading,
       label,
+      max,
       maxLength,
+      min,
       name,
       onBlur,
       onChange,
       onKeyPress,
       required,
+      rows,
       suffix,
+      textarea,
       type,
       value,
-      rows,
-      textarea,
-      isLoading,
       ...rest
     },
     ref
@@ -141,6 +147,8 @@ const Input = React.forwardRef<HTMLInputElement>(
             id={id}
             maxLength={maxLength}
             name={name}
+            min={min}
+            max={max}
             onBlur={onBlur}
             onChange={onChange}
             required={required}

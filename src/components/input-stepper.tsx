@@ -1,0 +1,87 @@
+import React from 'react'
+import styled from 'styled-components'
+import Box from './box'
+import Button from './button'
+import Input from './input'
+
+type InputStepperProps = {
+  count: number
+  onChange: Function
+  maxValue?: number
+  minValue?: number
+  step?: number
+}
+
+const StyledInput = styled(Input)`
+  & input {
+    text-align: center;
+    padding-right: 0;
+  }
+`
+
+const InputStepper = ({
+  count,
+  onChange,
+  maxValue,
+  minValue,
+  step,
+  ...rest
+}: InputStepperProps) => {
+  const isMax = maxValue <= count
+  const isMin = minValue >= count
+
+  const handleIncremenet = () => {
+    if (isMax) return
+
+    onChange(Number(count) + step)
+  }
+
+  const handleDecrement = () => {
+    if (isMin) return
+
+    onChange(Number(count) - step)
+  }
+
+  return (
+    <Box {...rest}>
+      <Button
+        color="black"
+        disabled={isMin}
+        onClick={handleDecrement}
+        variant="inverse"
+      >
+        -
+      </Button>
+      <StyledInput
+        max={maxValue}
+        min={minValue}
+        onChange={evt => {
+          const { value } = evt.target
+
+          if (value < minValue) return
+          if (value > maxValue) return
+
+          onChange(evt.target.value)
+        }}
+        type="number"
+        value={count}
+      />
+      <Button
+        color="black"
+        disabled={isMax}
+        onClick={handleIncremenet}
+        variant="inverse"
+      >
+        +
+      </Button>
+    </Box>
+  )
+}
+
+InputStepper.defaultProps = {
+  maxValue: 100,
+  minValue: 0,
+  step: 1,
+}
+
+export default InputStepper
