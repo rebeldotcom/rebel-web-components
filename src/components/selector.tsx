@@ -78,59 +78,59 @@ const Selector = ({
         const isChecked = id === selected
 
         return (
-          <li key={id}>
-          <SelectorOption as="label"  data-testid={testId} htmlFor={id}>
-            <input
-              aria-label={id}
-              checked={isChecked}
-              id={id}
-              onChange={event => onChangeHandler(id)}
-              title={id}
-              type="radio"
-            />
+          <Box as="li" flex="1" key={id}>
+            <SelectorOption as="label" data-testid={testId} htmlFor={id}>
+              <input
+                aria-label={id}
+                checked={isChecked}
+                id={id}
+                onChange={event => onChangeHandler(id)}
+                title={id}
+                type="radio"
+              />
 
-            <OptionContent
-              flexDirection="column"
-              justifyContent="space-between"
-              bg="whiteDark"
-            >
-              {content || (
-                <React.Fragment>
-                  <h2>{header}</h2>
-                  <p>{description}</p>
-                  <Text
-                    textAlign="right"
-                    fontSize="2rem"
-                    fontWeight="200"
-                    color="green"
-                  >
-                    {footer}
-                  </Text>
-                </React.Fragment>
-              )}
-              {withRadio && (
-                <Box mt={3} justifyContent="center">
-                  <Box
-                    height="12px"
-                    width="12px"
-                    border="1px solid black"
-                    borderRadius="50%"
-                    bg="white"
-                    alignItems="center"
-                    justifyContent="center"
-                  >
+              <OptionContent
+                flexDirection="column"
+                justifyContent="space-between"
+                bg="whiteDark"
+              >
+                {content || (
+                  <React.Fragment>
+                    <h2>{header}</h2>
+                    <p>{description}</p>
+                    <Text
+                      textAlign="right"
+                      fontSize="2rem"
+                      fontWeight="200"
+                      color="green"
+                    >
+                      {footer}
+                    </Text>
+                  </React.Fragment>
+                )}
+                {withRadio && (
+                  <Box mt={3} justifyContent="center">
                     <Box
-                      height="4px"
-                      width="4px"
-                      bg={isChecked ? 'black' : 'white'}
+                      height="12px"
+                      width="12px"
+                      border="1px solid black"
                       borderRadius="50%"
-                    />
+                      bg="white"
+                      alignItems="center"
+                      justifyContent="center"
+                    >
+                      <Box
+                        height="4px"
+                        width="4px"
+                        bg={isChecked ? 'black' : 'white'}
+                        borderRadius="50%"
+                      />
+                    </Box>
                   </Box>
-                </Box>
-              )}
-            </OptionContent>
-          </SelectorOption>
-          </li>
+                )}
+              </OptionContent>
+            </SelectorOption>
+          </Box>
         )
       }
     )

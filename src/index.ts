@@ -19,6 +19,7 @@ import StyleReset from './components/style-reset'
 import Grid from './components/grid'
 import Radio from './components/radio'
 import Selector from './components/selector'
+import InputStepper from './components/input-stepper'
 
 import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
 
@@ -33,6 +34,7 @@ export {
   HtmlBlock,
   Icon,
   Input,
+  InputStepper,
   Link,
   Loader,
   Message,
