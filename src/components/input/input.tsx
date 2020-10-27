@@ -7,6 +7,7 @@ import * as S from './input.styles'
 import Icon from '../icon'
 
 const propTypes = {
+  ariaLabel: PropTypes.string,
   autoComplete: PropTypes.string,
   disabled: PropTypes.bool,
   errorMessage: PropTypes.string,
@@ -33,6 +34,7 @@ const propTypes = {
 }
 
 const defaultProps = {
+  ariaLabel: '',
   autoComplete: 'on',
   disabled: false,
   errorMessage: '',
@@ -60,6 +62,7 @@ const defaultProps = {
 const Input = React.forwardRef<HTMLInputElement>(
   (
     {
+      ariaLabel,
       autoComplete,
       disabled,
       errorMessage,
@@ -139,6 +142,7 @@ const Input = React.forwardRef<HTMLInputElement>(
         <>
           <input
             ref={ref}
+            aria-label={ariaLabel}
             aria-invalid={hasError}
             aria-required={required}
             autoComplete={autoComplete}

@@ -10,6 +10,8 @@ type InputStepperProps = {
   maxValue?: number
   minValue?: number
   step?: number
+  label?: string
+  ariaLabel?: string
 }
 
 const StyledInput = styled(Input)`
@@ -20,13 +22,19 @@ const StyledInput = styled(Input)`
 `
 
 const InputStepper = ({
+  ariaLabel,
   count,
-  onChange,
+  label,
   maxValue,
   minValue,
+  onChange,
   step,
   ...rest
 }: InputStepperProps) => {
+  if (!label && !ariaLabel) {
+    throw new Error('Please provide an input label to InputStepper')
+  }
+
   const isMax = maxValue <= count
   const isMin = minValue >= count
 
@@ -55,6 +63,8 @@ const InputStepper = ({
       <StyledInput
         max={maxValue}
         min={minValue}
+        label={label}
+        ariaLabel={ariaLabel}
         onChange={evt => {
           const { value } = evt.target
 
