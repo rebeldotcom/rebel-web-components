@@ -5,6 +5,7 @@ import Button from './button'
 import Input from './input'
 
 type InputStepperProps = {
+  id: string
   count: number
   onChange: Function
   maxValue?: number
@@ -29,6 +30,7 @@ const InputStepper = ({
   minValue,
   onChange,
   step,
+  id,
   ...rest
 }: InputStepperProps) => {
   if (!label && !ariaLabel) {
@@ -53,6 +55,7 @@ const InputStepper = ({
   return (
     <Box {...rest}>
       <Button
+        id={`${id}-decrement`}
         color="black"
         disabled={isMin}
         onClick={handleDecrement}
@@ -61,6 +64,7 @@ const InputStepper = ({
         -
       </Button>
       <StyledInput
+        id={id}
         max={maxValue}
         min={minValue}
         label={label}
@@ -77,6 +81,7 @@ const InputStepper = ({
         value={count}
       />
       <Button
+        id={`${id}-increment`}
         color="black"
         disabled={isMax}
         onClick={handleIncremenet}
