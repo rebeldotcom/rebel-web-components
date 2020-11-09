@@ -20,6 +20,7 @@ import Grid from './components/grid'
 import Radio from './components/radio'
 import Selector from './components/selector'
 import InputStepper from './components/input-stepper'
+import Select from './components/select'
 
 import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
 
@@ -41,6 +42,7 @@ export {
   ModalProvider,
   Radio,
   Section,
+  Select,
   Selector,
   Skeleton,
   Spinner,
