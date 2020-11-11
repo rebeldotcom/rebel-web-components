@@ -8,6 +8,7 @@ import styled from 'styled-components'
 type Option = {
   value: string
   display: string
+  disabled?: boolean
 }
 
 type SelectProps = {
@@ -18,6 +19,7 @@ type SelectProps = {
   options: Option[]
   hint?: string
   onChange: (string) => void
+  disabled?: boolean
 }
 
 const SelectComponent = styled(Box)`
@@ -33,6 +35,7 @@ const Select = ({
   onChange,
   hint,
   selected,
+  disabled,
   ...rest
 }: SelectProps) => {
   const handleOnChange = e => {
@@ -68,6 +71,7 @@ const Select = ({
           id={id}
           width="100%"
           onChange={handleOnChange}
+          disabled={disabled}
         >
           {options &&
             options.map(opt => {
@@ -76,6 +80,7 @@ const Select = ({
                   key={opt.value}
                   value={opt.value}
                   selected={selected === opt.value}
+                  disabled={opt.disabled}
                 >
                   {opt.display}
                 </option>
