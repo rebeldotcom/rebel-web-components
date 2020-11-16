@@ -1,6 +1,6 @@
 {
   "name": "@rebeldotcom/components",
-  "version": "0.12.0",
+  "version": "0.10.4",
   "description": "Rebel web components",
   "main": "build/index.js",
   "module": "build/index.es.js",
@@ -43,7 +43,7 @@
     "@babel/preset-env": "7.12.1",
     "@babel/preset-react": "7.12.5",
     "@babel/preset-typescript": "7.12.1",
-    "@svgr/rollup": "5.4.0",
+    "@svgr/rollup": "5.5.0",
     "@types/styled-components": "5.1.4",
     "@types/styled-system": "5.1.10",
     "babel-eslint": "10.1.0",
@@ -64,7 +64,7 @@
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "rimraf": "3.0.2",
-    "rollup": "2.33.1",
+    "rollup": "2.33.2",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-filesize": "9.0.2",
@@ -86,7 +86,7 @@
     "react-dom": "17.0.1",
     "styled-components": "5.2.1",
     "styled-normalize": "8.0.7",
-    "styled-reset": "4.3.0",
+    "styled-reset": "4.3.1",
     "styled-system": "5.1.5"
   },
   "dependencies": {}
