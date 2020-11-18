@@ -11,13 +11,14 @@ type RadioProps = {
   onChange: () => {}
   id: string
   text: string
+  name?: string
 }
 
 const StyledRadio = styled(Box)`
   vertical-align: top;
-  display: flex;
+  display: inline-flex;
+  align-items: center;
   position: relative;
-  margin-bottom: 10px;
 
   > input[type='radio'] {
     opacity: 0;
@@ -31,7 +32,7 @@ const StyledRadio = styled(Box)`
     height: 1.2rem;
     width: 1.2rem;
     left: 0;
-    margin-top: 2px;
+    top: 25%;
   }
 
   > span::after {
@@ -43,7 +44,7 @@ const StyledRadio = styled(Box)`
     margin: 3px 5px;
     background-color: ${colors.black};
     left: -1px;
-    top: 3px;
+    top: 30%;
   }
 
   > span::before,
@@ -69,13 +70,22 @@ const StyledRadio = styled(Box)`
   }
 `
 
-const Radio = ({ isChecked, value, onChange, text, id }: RadioProps) => {
+const Radio = ({
+  isChecked,
+  value,
+  onChange,
+  text,
+  id,
+  name,
+  ...rest
+}: RadioProps) => {
   return (
-    <StyledRadio as="label" htmlFor={id}>
+    <StyledRadio as="label" htmlFor={id} {...rest}>
       <input
         checked={isChecked}
         data-testid={`${id}-radioBtn`}
         id={id}
+        name={name}
         onChange={onChange}
         type="radio"
         value={value}
