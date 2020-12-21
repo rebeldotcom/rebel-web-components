@@ -56,7 +56,7 @@ const colors = {
   greenDark: '#6B8000',
 
   mintGreenLightest: '#EEF7EE',
-  //greenLighter is our primary green
+  // greenLighter is our primary green
   mintGreenLighter: '#CDE7CB',
   mintGreenLight: '#ABD7A8',
   mintGreen: '#8AC785',
@@ -69,19 +69,19 @@ const colors = {
   redNew: '#d82a29',
 
   blueDark: '#003680',
-  //blue is our primary blue
+  // blue is our primary blue
   blue: '#0052C3',
   blueLight: '#80B5FF',
   blueLighter: '#B4D4FD',
   blueLightest: '#E6F0FF',
 
   pinkLightest: '#FDE7EC',
-  //pinkLighter is our primary pink
+  // pinkLighter is our primary pink
   pinkLighter: '#F9AEBD',
   pinkLight: '#F6889E',
   pink: '#EF2951',
   pinkDark: '#77091F',
-  orange: '#ff9600',
+  orange: '#C4470E',
   clear: 'transparent',
   focus: '#406198',
   overlay: 'rgba(0,0,0,.6)',
