@@ -56,7 +56,7 @@ export const buttonStyles = ({
     orange: {
       bg: theme.colors.orange,
       hover: theme.colors.orange,
-      text: theme.colors.black,
+      text: theme.colors.white,
     },
     pink: {
       bg: theme.colors.pink,
