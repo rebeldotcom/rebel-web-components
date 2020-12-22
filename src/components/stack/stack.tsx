@@ -9,4 +9,6 @@ const Stack = React.forwardRef<HTMLDivElement>(({ children, ...rest }, ref) => {
   )
 })
 
+Stack.displayName = 'Stack'
+
 export default Stack

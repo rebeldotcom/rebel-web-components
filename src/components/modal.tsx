@@ -98,11 +98,11 @@ function useModal() {
           isOpen &&
           ReactDOM.createPortal(
             <Box
-              id={id}
               ref={bgRef}
               alignItems={['flex-end', 'center']}
               bg="overlay"
               height="100vh"
+              id={id}
               justifyContent="center"
               left="0"
               onMouseDown={handleBackgroundClick}

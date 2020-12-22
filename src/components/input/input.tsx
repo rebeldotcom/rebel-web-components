@@ -102,10 +102,10 @@ const Input = React.forwardRef<HTMLInputElement>(
 
       return (
         <Box
-          position="absolute"
           display="inline-block"
-          top="0.6rem"
           left="calc(100% - 55px)"
+          position="absolute"
+          top="0.6rem"
         >
           {icon}
         </Box>
@@ -123,8 +123,8 @@ const Input = React.forwardRef<HTMLInputElement>(
           onClick={e => {
             setShowPassword(!showPassword)
           }}
-          type="button"
           title="Show/Hide password"
+          type="button"
         >
           {text}
         </S.ShowPass>
@@ -142,17 +142,17 @@ const Input = React.forwardRef<HTMLInputElement>(
         <>
           <input
             ref={ref}
-            aria-label={ariaLabel}
             aria-invalid={hasError}
+            aria-label={ariaLabel}
             aria-required={required}
             autoComplete={autoComplete}
             data-lpignore={autoComplete !== 'on'}
             disabled={disabled}
             id={id}
-            maxLength={maxLength}
-            name={name}
-            min={min}
             max={max}
+            maxLength={maxLength}
+            min={min}
+            name={name}
             onBlur={onBlur}
             onChange={onChange}
             required={required}
@@ -193,18 +193,18 @@ const Input = React.forwardRef<HTMLInputElement>(
           display="flex"
           flexDirection="column"
           fontWeight="semi"
-          variant="milliBold"
-          textTransform="capitalize"
           htmlFor={id}
+          textTransform="capitalize"
+          variant="milliBold"
         >
           <Text as="label" htmlFor={id}>
             {label}
             {hint && (
               <Text
-                mb={1}
-                variant="micro"
                 fontWeight="400"
+                mb={1}
                 textTransform="none"
+                variant="micro"
               >
                 {hint}
               </Text>
@@ -218,13 +218,13 @@ const Input = React.forwardRef<HTMLInputElement>(
               role="alert"
               showErrorMessage={hasError}
             >
-              <Icon name="error" mr={2} /> {errorMessage}
+              <Icon mr={2} name="error" /> {errorMessage}
             </S.InputErrorMessage>
           )}
           <Box position="relative">
             {getInputType()}
             {isLoading && (
-              <Box position="absolute" right=".2rem" top=".2rem" bg="white">
+              <Box bg="white" position="absolute" right=".2rem" top=".2rem">
                 <Spinner size="3rem" stroke=".3rem" />
               </Box>
             )}
@@ -234,6 +234,8 @@ const Input = React.forwardRef<HTMLInputElement>(
     )
   }
 )
+
+Input.displayName = 'Input'
 
 Input.propTypes = propTypes
 Input.defaultProps = defaultProps

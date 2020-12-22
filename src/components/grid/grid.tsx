@@ -9,4 +9,6 @@ const Grid = React.forwardRef<HTMLDivElement>(({ children, ...rest }, ref) => {
   )
 })
 
+Grid.displayName = 'Grid'
+
 export default Grid

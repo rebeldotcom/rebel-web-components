@@ -35,5 +35,6 @@
   // Allows ESLint to run when we save
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
-  }
+  },
+  "files.eol": "\n",
 }

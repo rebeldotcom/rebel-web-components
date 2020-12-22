@@ -21,7 +21,7 @@ const StyledButton = styled.button`
   &:hover {
     cursor: pointer;
   }
-  
+
   ${buttonStyles}
   ${space}
   ${layout}
@@ -57,11 +57,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     return (
       <StyledButton
-        display={display}
         ref={ref}
         aria-label={ariaLabel}
         data-testid={id}
         disabled={disabled}
+        display={display}
         id={id}
         onClick={onClick && handleButtonClick}
         title={title || ariaLabel}

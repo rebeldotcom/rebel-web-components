@@ -51,7 +51,7 @@ module.exports = {
     'react/jsx-filename-extension': [
       1,
       {
-        extensions: ['.js'],
+        extensions: ['.js', '.tsx'],
       },
     ],
     'react/sort-comp': [
@@ -73,4 +73,49 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'prettier/prettier': 'error',
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
+      parserOptions: {
+        ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
+        sourceType: 'module', // Allows for the use of imports
+        ecmaFeatures: {
+          jsx: true, // Allows for the parsing of JSX
+        },
+      },
+      settings: {
+        react: {
+          version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+        },
+      },
+      plugins: ['@typescript-eslint'],
+      extends: [
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      rules: {
+        '@typescript-eslint/no-empty-function': 0,
+        '@typescript-eslint/ban-types': 0,
+        '@typescript-eslint/no-empty-interface': 0,
+        'import/extensions': 0,
+        'import/no-unresolved': 0,
+        'import/no-mutable-exports': 0,
+        'react/prop-types': 0,
+        'react/sort-prop-types': 0,
+        'react/require-default-props': 0,
+        'react/no-unused-prop-types': 0,
+        'react-hooks/rules-of-hooks': 0,
+        'no-plusplus': 0,
+        'no-bitwise': 0,
+        'no-use-before-define': 0,
+        'no-multi-assign': 0,
+        'no-restricted-globals': 0,
+        'no-shadow': 0,
+        camelcase: 0,
+        'consistent-return': 0,
+        'default-case': 0,
+      },
+    },
+  ],
 }

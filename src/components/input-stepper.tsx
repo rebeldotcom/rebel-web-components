@@ -55,20 +55,20 @@ const InputStepper = ({
   return (
     <Box {...rest}>
       <Button
-        id={`${id}-decrement`}
         color="black"
         disabled={isMin}
+        id={`${id}-decrement`}
         onClick={handleDecrement}
         variant="inverse"
       >
         -
       </Button>
       <StyledInput
+        ariaLabel={ariaLabel}
         id={id}
+        label={label}
         max={maxValue}
         min={minValue}
-        label={label}
-        ariaLabel={ariaLabel}
         onChange={evt => {
           const { value } = evt.target
 
@@ -81,9 +81,9 @@ const InputStepper = ({
         value={count}
       />
       <Button
-        id={`${id}-increment`}
         color="black"
         disabled={isMax}
+        id={`${id}-increment`}
         onClick={handleIncremenet}
         variant="inverse"
       >

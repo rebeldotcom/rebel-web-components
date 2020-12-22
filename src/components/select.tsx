@@ -1,9 +1,9 @@
 import React from 'react'
+import styled from 'styled-components'
 import Box from './box'
 import Stack from './stack'
 import Text from './text'
 import Skeleton from './skeleton'
-import styled from 'styled-components'
 
 type Option = {
   value: string
@@ -47,14 +47,14 @@ const Select = ({
       {label && (
         <Text
           as="label"
-          htmlFor={id}
           fontWeight="semi"
-          variant="milliBold"
+          htmlFor={id}
           textTransform="capitalize"
+          variant="milliBold"
         >
           {label}
           {hint && (
-            <Text mb={1} variant="micro" fontWeight="400" textTransform="none">
+            <Text fontWeight="400" mb={1} textTransform="none" variant="micro">
               {hint}
             </Text>
           )}
@@ -67,20 +67,20 @@ const Select = ({
         <SelectComponent
           as="select"
           border={2}
-          p="2px 2rem 2px 5px"
-          id={id}
-          width="100%"
-          onChange={handleOnChange}
           disabled={disabled}
+          id={id}
+          onChange={handleOnChange}
+          p="2px 2rem 2px 5px"
+          width="100%"
         >
           {options &&
             options.map(opt => {
               return (
                 <option
                   key={opt.value}
-                  value={opt.value}
-                  selected={selected === opt.value}
                   disabled={opt.disabled}
+                  selected={selected === opt.value}
+                  value={opt.value}
                 >
                   {opt.display}
                 </option>

@@ -23,4 +23,6 @@ const Section = React.forwardRef<HTMLDivElement, SectionProps>(
   }
 )
 
+Section.displayName = 'Section'
+
 export default Section

@@ -27,5 +27,5 @@ module.exports = {
   arrowParens: 'avoid',
 
   /* Line endings (mac or windows) */
-  endOfLine: 'lf',
+  endOfLine: 'auto',
 }

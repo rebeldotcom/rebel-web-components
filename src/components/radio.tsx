@@ -1,7 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import { theme } from '../styles/theme'
 import Box from './box'
-import styled from 'styled-components'
 
 const { colors } = theme
 
