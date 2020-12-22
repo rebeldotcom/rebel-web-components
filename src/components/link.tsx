@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { margin, typography, layout, system, alignSelf } from 'styled-system'
 import { buttonStyles } from '../styles/custom-utils'
@@ -9,7 +8,6 @@ const textDecoration = system({
 })
 
 const StyledLink = styled.a`
-
   &:hover {
     text-decoration: underline;
     color: inherit;
@@ -27,11 +25,11 @@ const defaultProps = {
   as: 'a',
   className: '',
   display: 'inline-block',
+  href: null,
   newTab: false,
   onClick: null,
-  href: null,
-  to: null,
   testId: '',
+  to: null,
   variant: 'default',
 }
 

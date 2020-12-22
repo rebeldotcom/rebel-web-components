@@ -28,7 +28,7 @@ export const InputContainer = styled.div`
     box-sizing: border-box;
     font-size: 1.6rem;
     border: ${borders.input};
-    
+
     border-radius: 0;
 
     transition: all 0.2s;

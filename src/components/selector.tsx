@@ -78,7 +78,7 @@ const Selector = ({
         const isChecked = id === selected
 
         return (
-          <Box as="li" flex="1" key={id}>
+          <Box key={id} as="li" flex="1">
             <SelectorOption as="label" data-testid={testId} htmlFor={id}>
               <input
                 aria-label={id}
@@ -90,40 +90,40 @@ const Selector = ({
               />
 
               <OptionContent
+                bg="whiteDark"
                 flexDirection="column"
                 justifyContent="space-between"
-                bg="whiteDark"
               >
                 {content || (
-                  <React.Fragment>
+                  <>
                     <h2>{header}</h2>
                     <p>{description}</p>
                     <Text
-                      textAlign="right"
+                      color="green"
                       fontSize="2rem"
                       fontWeight="200"
-                      color="green"
+                      textAlign="right"
                     >
                       {footer}
                     </Text>
-                  </React.Fragment>
+                  </>
                 )}
                 {withRadio && (
-                  <Box mt={3} justifyContent="center">
+                  <Box justifyContent="center" mt={3}>
                     <Box
-                      height="12px"
-                      width="12px"
+                      alignItems="center"
+                      bg="white"
                       border="1px solid black"
                       borderRadius="50%"
-                      bg="white"
-                      alignItems="center"
+                      height="12px"
                       justifyContent="center"
+                      width="12px"
                     >
                       <Box
-                        height="4px"
-                        width="4px"
                         bg={isChecked ? 'black' : 'white'}
                         borderRadius="50%"
+                        height="4px"
+                        width="4px"
                       />
                     </Box>
                   </Box>

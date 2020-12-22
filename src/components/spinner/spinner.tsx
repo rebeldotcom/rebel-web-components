@@ -39,8 +39,8 @@ const StyledSpinner = styled.div<SpinnerProps>`
 const Spinner = ({ size = '5rem', stroke = '0.5rem' }: SpinnerProps) => {
   return (
     <StyledSpinner
-      role="alert"
       aria-live="assertive"
+      role="alert"
       size={size}
       stroke={stroke}
     >

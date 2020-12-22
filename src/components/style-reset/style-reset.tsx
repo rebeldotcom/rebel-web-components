@@ -16,6 +16,7 @@ import {
 } from 'styled-system'
 import styled, { css } from 'styled-components'
 import { theme } from '../../styles/theme'
+
 const { fonts: title } = theme
 
 interface As {

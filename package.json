@@ -13,7 +13,7 @@
     "deploy:patch": "yarn build && yarn version:patch && npm publish",
     "deploy:minor": "yarn build && yarn version:minor && npm publish",
     "clean": "rimraf node_modules && npm install",
-    "eslint": "eslint src --fix"
+    "eslint": "eslint --fix --quiet src"
   },
   "husky": {
     "hooks": {
@@ -21,7 +21,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src": [
       "eslint --fix",
       "eslint"
     ]
@@ -46,6 +46,8 @@
     "@svgr/rollup": "5.5.0",
     "@types/styled-components": "5.1.7",
     "@types/styled-system": "5.1.10",
+    "@typescript-eslint/eslint-plugin": "4.11.0",
+    "@typescript-eslint/parser": "4.11.0",
     "babel-eslint": "10.1.0",
     "eslint": "7.16.0",
     "eslint-config-airbnb": "18.2.1",
