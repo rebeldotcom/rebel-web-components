@@ -18,7 +18,7 @@ const theme = {
     redLight: '#FFEEEE',
     red: '#6B393F',
     redDark: '#6B393F',
-    orangeLight: '#FFDDD3',
+    orangeLight: '#FFEBE6',
     orange: '#C4470E',
     orangeDark: '#C4470E',
   },
