@@ -20,7 +20,7 @@ export const buttonStyles = ({
   color,
   theme,
   variant = 'solid',
-  btnSize = 'base',
+  size = 'base',
 }) => {
   const colors = {
     red: {
@@ -82,7 +82,7 @@ export const buttonStyles = ({
   const { text, hover, bg } = colors[baseColor]
   const { radii } = theme
 
-  const padding = `padding: ${paddingVariants[btnSize]};`
+  const padding = `padding: ${paddingVariants[size]};`
 
   switch (variant) {
     case 'solid': {
