@@ -99,7 +99,7 @@ function useModal() {
           ReactDOM.createPortal(
             <Box
               ref={bgRef}
-              alignItems={['center', 'center']}
+              alignItems="center"
               bg="overlay"
               height="100vh"
               id={id}
