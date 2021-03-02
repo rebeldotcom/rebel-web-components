@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 import styledNormalize from 'styled-normalize'
 import reset from 'styled-reset'
-import { theme } from './theme'
+// import { theme } from './theme'
 
-const { fonts } = theme
+// const { fonts } = theme
 
 const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
@@ -40,8 +40,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     font-size: 1.6rem;
     box-sizing: border-box;
-    font-family: ${fonts.body};
-    line-height: ${theme.lineHeights.body}
+    font-family: ${({ theme }) => theme.fonts.body};
+    line-height: ${({ theme }) => theme.lineHeights.body}
   }
 `
 
