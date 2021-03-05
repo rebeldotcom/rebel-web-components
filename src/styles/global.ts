@@ -1,9 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import styledNormalize from 'styled-normalize'
 import reset from 'styled-reset'
-// import { theme } from './theme'
-
-// const { fonts } = theme
 
 const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
