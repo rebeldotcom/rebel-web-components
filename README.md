@@ -81,7 +81,7 @@ In order to use the components, you'll have to bring in the `<ThemeProvider>` an
 
 ```jsx
 
-mport React from "react";
+import React from "react";
 import {
   Box,
   Button,
