@@ -81,7 +81,7 @@ In order to use the components, you'll have to bring in the `<ThemeProvider>` an
 
 ```jsx
 
-mport React from "react";
+import React from "react";
 import {
   Box,
   Button,
@@ -115,8 +115,6 @@ const App = () => {
 export default App;
 
 ```
-
-<img src="components-example.gif" width="400px" />
 
 ## The Theme
 
