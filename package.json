@@ -44,7 +44,7 @@
     "@babel/preset-react": "7.12.13",
     "@babel/preset-typescript": "7.13.0",
     "@svgr/rollup": "5.5.0",
-    "@types/styled-components": "5.1.7",
+    "@types/styled-components": "5.1.8",
     "@types/styled-system": "5.1.10",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
