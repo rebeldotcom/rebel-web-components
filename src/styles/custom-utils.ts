@@ -48,6 +48,11 @@ export const buttonStyles = ({
       hover: theme.colors.blueDark,
       text: theme.colors.white,
     },
+	blueDark: {
+		bg: theme.colors.blueDark,
+		hover: theme.colors.blueDark,
+		text: theme.colors.white,
+	},
     white: {
       bg: theme.colors.white,
       hover: theme.colors.greyLightest,
