@@ -73,6 +73,11 @@ export const buttonStyles = ({
       hover: theme.colors.orange,
       text: theme.colors.white,
     },
+	orangeDark: {
+		bg: theme.colors.orangeDark,
+		hover: theme.colors.orangeDark,
+		text: theme.colors.white,
+	  },
     pink: {
       bg: theme.colors.pink,
       hover: theme.colors.pinkDark,
