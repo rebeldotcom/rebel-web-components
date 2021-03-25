@@ -99,7 +99,7 @@ const Selector = ({
                     <h2>{header}</h2>
                     <p>{description}</p>
                     <Text
-                      color="green"
+                      color="greenDark"
                       fontSize="2rem"
                       fontWeight="200"
                       textAlign="right"
