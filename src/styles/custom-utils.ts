@@ -38,6 +38,11 @@ export const buttonStyles = ({
       hover: theme.colors.greenDark,
       text: theme.colors.white,
     },
+	greenDark: {
+		bg: theme.colors.greenDark,
+		hover: theme.colors.greenDark,
+		text: theme.colors.white,
+	},
     mintGreen: {
       bg: theme.colors.mintGreen,
       hover: theme.colors.mintGreenDark,
