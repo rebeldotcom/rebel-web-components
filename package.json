@@ -41,7 +41,7 @@
     "@babel/core": "7.13.10",
     "@babel/plugin-external-helpers": "7.12.13",
     "@babel/preset-env": "7.13.10",
-    "@babel/preset-react": "7.12.13",
+    "@babel/preset-react": "7.13.13",
     "@babel/preset-typescript": "7.13.0",
     "@svgr/rollup": "5.5.0",
     "@types/styled-components": "5.1.9",
