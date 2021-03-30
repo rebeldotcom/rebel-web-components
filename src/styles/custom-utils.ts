@@ -240,7 +240,12 @@ export const buttonStyles = ({
         color: ${theme.colors[color]};
       `
     }
-
+    case 'basic': {
+      return `
+        background: none;
+        color: ${bg};
+      `
+    }
     default:
       return `
         color: ${bg};

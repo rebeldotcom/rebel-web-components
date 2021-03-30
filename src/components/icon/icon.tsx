@@ -43,11 +43,11 @@ const getIcon = name => {
       case 'path':
         return <path key={`path-${idx}`} {...rest} fill={getFill()} />
       case 'rect':
-        return <rect key={`rect-${idx}`} {...rest} />
+        return <rect key={`rect-${idx}`} {...rest} fill={getFill()} />
       case 'polygon':
-        return <polygon key={`polygon-${idx}`} {...rest} />
+        return <polygon key={`polygon-${idx}`} fill={getFill()} {...rest} />
       case 'circle':
-        return <circle key={`circle-${idx}`} {...rest} />
+        return <circle key={`circle-${idx}`} fill={getFill()} {...rest} />
       default:
         return null
     }
