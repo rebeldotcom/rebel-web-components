@@ -10,8 +10,8 @@
     "start": "rollup -c -w",
     "version:patch": "npm version patch && git push",
     "version:minor": "npm version minor && git push",
-    "deploy:patch": "yarn build && yarn version:patch && npm publish",
-    "deploy:minor": "yarn build && yarn version:minor && npm publish",
+    "deploy:patch": "npm build && npm version:patch && npm publish",
+    "deploy:minor": "npm build && npm version:minor && npm publish",
     "clean": "rimraf node_modules && npm install",
     "eslint": "eslint --fix --quiet src"
   },
