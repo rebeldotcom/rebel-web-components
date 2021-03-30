@@ -28,21 +28,21 @@ export const buttonStyles = ({
       hover: theme.colors.redDark,
       text: theme.colors.white,
     },
-	redDark: {
-		bg: theme.colors.redDark,
-		hover: theme.colors.redDark,
-		text: theme.colors.white,
-	},
+    redDark: {
+      bg: theme.colors.redDark,
+      hover: theme.colors.redDark,
+      text: theme.colors.white,
+    },
     green: {
       bg: theme.colors.green,
       hover: theme.colors.greenDark,
       text: theme.colors.white,
     },
-	greenDark: {
-		bg: theme.colors.greenDark,
-		hover: theme.colors.greenDark,
-		text: theme.colors.white,
-	},
+    greenDark: {
+      bg: theme.colors.greenDark,
+      hover: theme.colors.greenDark,
+      text: theme.colors.white,
+    },
     mintGreen: {
       bg: theme.colors.mintGreen,
       hover: theme.colors.mintGreenDark,
@@ -53,11 +53,11 @@ export const buttonStyles = ({
       hover: theme.colors.blueDark,
       text: theme.colors.white,
     },
-	blueDark: {
-		bg: theme.colors.blueDark,
-		hover: theme.colors.blueDark,
-		text: theme.colors.white,
-	},
+    blueDark: {
+      bg: theme.colors.blueDark,
+      hover: theme.colors.blueDark,
+      text: theme.colors.white,
+    },
     white: {
       bg: theme.colors.white,
       hover: theme.colors.greyLightest,
@@ -73,11 +73,11 @@ export const buttonStyles = ({
       hover: theme.colors.orange,
       text: theme.colors.white,
     },
-	orangeDark: {
-		bg: theme.colors.orangeDark,
-		hover: theme.colors.orangeDark,
-		text: theme.colors.white,
-	  },
+    orangeDark: {
+      bg: theme.colors.orangeDark,
+      hover: theme.colors.orangeDark,
+      text: theme.colors.white,
+    },
     pink: {
       bg: theme.colors.pink,
       hover: theme.colors.pinkDark,
@@ -97,7 +97,7 @@ export const buttonStyles = ({
     wide: `${theme.space.half} ${theme.space.bigger}`,
   }
 
-  const baseColor = isEmpty(color) ? 'green' : color
+  const baseColor = isEmpty(color) ? 'greenDark' : color
 
   const { text, hover, bg } = colors[baseColor]
   const { radii } = theme
