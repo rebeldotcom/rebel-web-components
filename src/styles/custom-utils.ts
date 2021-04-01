@@ -88,6 +88,16 @@ export const buttonStyles = ({
       hover: theme.colors.pink,
       text: theme.colors.black,
     },
+    purple: {
+		bg: theme.colors.purple,
+		hover: theme.colors.purpleDark,
+		text: theme.colors.white,
+	  },
+	purpleDark: {
+		  bg: theme.colors.purpleDark,
+		  hover: theme.colors.purpleDark,
+		  text: theme.colors.white,
+	},
   }
 
   const paddingVariants = {
@@ -97,7 +107,7 @@ export const buttonStyles = ({
     wide: `${theme.space.half} ${theme.space.bigger}`,
   }
 
-  const baseColor = isEmpty(color) ? 'green' : color
+  const baseColor = isEmpty(color) ? 'greenDark' : color
 
   const { text, hover, bg } = colors[baseColor]
   const { radii } = theme
