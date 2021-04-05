@@ -19,7 +19,7 @@ type SelectProps = {
   options: Option[]
   hint?: string
   onChange: (string) => void
-  disabled?: boolean
+  isEnabled?: boolean
 }
 
 const SelectComponent = styled(Box)`
@@ -35,7 +35,7 @@ const Select = ({
   onChange,
   hint,
   selected,
-  disabled,
+  isEnabled,
   ...rest
 }: SelectProps) => {
   const handleOnChange = e => {
@@ -67,8 +67,8 @@ const Select = ({
         <SelectComponent
           as="select"
           border={2}
-          disabled={disabled}
           id={id}
+          isEnabled={isEnabled}
           onChange={handleOnChange}
           p="2px 2rem 2px 5px"
           width="100%"

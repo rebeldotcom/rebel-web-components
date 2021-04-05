@@ -20,7 +20,7 @@ type SelectorOptions = {
   options: Options[]
   selected: number | string
   title?: string
-  withRadio?: boolean
+  hasRadio?: boolean
 }
 
 const SelectorOption = styled(Box)`
@@ -65,7 +65,7 @@ const Selector = ({
   options,
   selected,
   onChange,
-  withRadio,
+  hasRadio,
   ...rest
 }: SelectorOptions) => {
   const onChangeHandler = id => {
@@ -108,7 +108,7 @@ const Selector = ({
                     </Text>
                   </>
                 )}
-                {withRadio && (
+                {hasRadio && (
                   <Box justifyContent="center" mt={3}>
                     <Box
                       alignItems="center"
