@@ -75,6 +75,10 @@ const colors = {
   blueLighter: '#B4D4FD',
   blueLightest: '#E6F0FF',
 
+  purple: '#B32B85',
+  purpleLight: '#E6E4F4',
+  purpleDark: '#46283F',
+
   pinkLightest: '#FDE7EC',
   // pinkLighter is our primary pink
   pinkLighter: '#F9AEBD',

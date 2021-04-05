@@ -21,6 +21,9 @@ const theme = {
     orangeLight: '#FFEBE6',
     orange: '#FF6600',
     orangeDark: '#C4470E',
+	purple: '#B32B85',
+	purpleLight: '#E6E4F4',
+	purpleDark: '#46283F',
   },
 }
 

@@ -88,6 +88,16 @@ export const buttonStyles = ({
       hover: theme.colors.pink,
       text: theme.colors.black,
     },
+    purple: {
+		bg: theme.colors.purple,
+		hover: theme.colors.purpleDark,
+		text: theme.colors.white,
+	  },
+	purpleDark: {
+		  bg: theme.colors.purpleDark,
+		  hover: theme.colors.purpleDark,
+		  text: theme.colors.white,
+	},
   }
 
   const paddingVariants = {
