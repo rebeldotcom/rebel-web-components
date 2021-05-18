@@ -46,7 +46,7 @@
     "@svgr/rollup": "5.5.0",
     "@types/styled-components": "5.1.9",
     "@types/styled-system": "5.1.11",
-    "@typescript-eslint/eslint-plugin": "4.20.0",
+    "@typescript-eslint/eslint-plugin": "4.24.0",
     "@typescript-eslint/parser": "4.20.0",
     "babel-eslint": "10.1.0",
     "eslint": "7.23.0",
