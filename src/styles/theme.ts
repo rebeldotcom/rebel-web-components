@@ -277,9 +277,9 @@ const messageStyles = {
     color: colors.warning,
   },
   info: {
-    backgroundColor: colors.orange,
-    border: `1px solid ${colors.black}`,
-    color: colors.black,
+    backgroundColor: colors.blueLighter,
+    border: `1px solid ${colors.white}`,
+    color: colors.blue,
   },
   whiteOnDark: {
     backgroundColor: 'transparent',
