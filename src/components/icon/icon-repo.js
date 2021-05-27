@@ -1848,7 +1848,7 @@ export default [
       },
     ],
     viewBox: '0 0 1638 1024',
-    tags: ['americanExpress'],
+    tags: ['americanExpress', 'american express'],
   },
   {
     shapes: [
