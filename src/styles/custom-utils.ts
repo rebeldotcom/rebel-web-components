@@ -89,15 +89,15 @@ export const buttonStyles = ({
       text: theme.colors.black,
     },
     purple: {
-		bg: theme.colors.purple,
-		hover: theme.colors.purpleDark,
-		text: theme.colors.white,
-	  },
-	purpleDark: {
-		  bg: theme.colors.purpleDark,
-		  hover: theme.colors.purpleDark,
-		  text: theme.colors.white,
-	},
+      bg: theme.colors.purple,
+      hover: theme.colors.purpleDark,
+      text: theme.colors.white,
+    },
+    purpleDark: {
+      bg: theme.colors.purpleDark,
+      hover: theme.colors.purpleDark,
+      text: theme.colors.white,
+    },
   }
 
   const paddingVariants = {
@@ -158,7 +158,7 @@ export const buttonStyles = ({
       return `
         ${defaultButtonStyles}
         ${padding}
-        color: ${theme.black};
+        color: ${bg};
         background: ${theme.white};
         border-radius: ${radii.small};
         border-color: ${bg};
