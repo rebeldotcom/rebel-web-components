@@ -84,6 +84,7 @@ export const InputErrorMessage = styled.div`
   margin-bottom: 0.4rem;
   display: flex;
   align-items: center;
+  white-space: pre-wrap;
 
   ${({ showErrorMessage }) => {
     return (
