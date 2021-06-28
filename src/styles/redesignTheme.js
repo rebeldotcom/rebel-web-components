@@ -4,8 +4,8 @@ const theme = {
   ...baseTheme,
   fonts: {
     ...baseTheme.fonts,
-    title: `Shippori Mincho, serif;`,
-    body: `'Nunito Sans', sans-serif;`,
+    title: `ivyjournal, sans-serif;`,
+    body: `'nunito-sans', sans-serif;`,
   },
   colors: {
     ...baseTheme.colors,
