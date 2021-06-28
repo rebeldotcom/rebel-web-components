@@ -5,7 +5,7 @@ const theme = {
   fonts: {
     ...baseTheme.fonts,
     title: `ivyjournal, sans-serif;`,
-    body: `'Nunito Sans', sans-serif;`,
+    body: `'nunito-sans', sans-serif;`,
   },
   colors: {
     ...baseTheme.colors,

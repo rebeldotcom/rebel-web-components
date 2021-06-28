@@ -198,8 +198,8 @@ const colors = {
 // TYPOGRAPHY
 
 const fonts = {
-  title: `'Montserrat', sans-serif`,
-  body: `'Montserrat', sans-serif`,
+  title: `'montserrat', sans-serif`,
+  body: `'montserrat', sans-serif`,
   trustpilot: '"Segoe UI","Helvetica Neue","Helvetica","Arial","sans-serif"',
 }
 
