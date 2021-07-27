@@ -242,6 +242,7 @@ borders.light = borders[2]
 borders.dark = borders[5]
 borders.input = borders[2]
 borders.error = borders[4]
+borders.blackLighter = borders[5]
 
 // Example for shadows
 const shadows = [`0.5rem 0.5rem 1rem ${colors.black}44`]
