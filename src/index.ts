@@ -21,7 +21,7 @@ import Radio from './components/radio'
 import Selector from './components/selector'
 import InputStepper from './components/input-stepper'
 import Select from './components/select'
-
+import ProgressBar from './components/progress-bar'
 import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
 
 export {
@@ -40,6 +40,7 @@ export {
   Loader,
   Message,
   ModalProvider,
+  ProgressBar,
   Radio,
   Section,
   Select,
