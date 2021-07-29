@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import {
   color,
@@ -48,19 +48,21 @@ const Progress: React.FC<BoxProps> = styled.div`
 const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
   ({ progress, maximum, variant, ...rest }, ref) => {
     return (
-      <Box ref={ref} borderRadius="3rem" {...rest}>
-        <Progress
-          alignItems="center"
-          bg={progress === 0 ? 'none' : 'green'}
-          borderRadius="3rem"
-          color="white"
-          py={1}
-          textAlign="center"
-          variant={variant}
-          width={progress === 0 ? '100%' : `${(progress / maximum) * 100}%`}
-        >
-          {`${((progress / maximum) * 100).toFixed(2).replace(/\.0+$/, '')}%`}
-        </Progress>
+      <Box ref={ref} {...rest}>
+        <Box bg="greyLight" borderRadius="3rem" width="100%">
+          <Progress
+            alignItems="center"
+            bg={progress === 0 ? 'none' : 'green'}
+            borderRadius="3rem"
+            color="white"
+            py={1}
+            textAlign="center"
+            variant={variant}
+            width={progress === 0 ? '100%' : `${(progress / maximum) * 100}%`}
+          >
+            {`${((progress / maximum) * 100).toFixed(2).replace(/\.0+$/, '')}%`}
+          </Progress>
+        </Box>
       </Box>
     )
   }
