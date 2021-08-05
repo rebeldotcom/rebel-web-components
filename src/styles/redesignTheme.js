@@ -17,8 +17,8 @@ const redesignColors = {
   purple: '#B32B85',
   purpleLight: '#E6E4F4',
   purpleDark: '#46283F',
-  greyLighterMin: '#D2D2D2',
-  greyLighter: '#D8D8D8',
+  greyLight: '#D8D8D8',
+  greyLightish: '#D2D2D2',
 }
 
 const redesignBorders = [`1px solid ${redesignColors.green}`]
