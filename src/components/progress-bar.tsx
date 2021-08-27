@@ -21,6 +21,7 @@ type ProgressBarProps = {
   progress: number
   maximum: number
   variant: string
+  color: string
 }
 
 export type BoxProps = React.RefAttributes<HTMLElement> &
@@ -47,13 +48,17 @@ const Progress: React.FC<BoxProps> = styled.div`
 `
 
 const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
-  ({ progress, maximum, variant, decimal, ...rest }, ref) => {
+  ({ progress, maximum, variant, decimal, color, ...rest }, ref) => {
+    const getColor = color => {
+      return color || 'green'
+    }
+
     return (
       <Box ref={ref} {...rest}>
         <Box bg="greyLight" borderRadius="3rem" width="100%">
           <Progress
             alignItems="center"
-            bg={progress === 0 ? 'none' : 'green'}
+            bg={progress === 0 ? 'none' : getColor(color)}
             borderRadius="3rem"
             color="white"
             py={1}
