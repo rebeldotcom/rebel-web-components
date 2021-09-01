@@ -24,6 +24,7 @@ const propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onKeyPress: PropTypes.func,
+  placeholder: PropTypes.string,
   required: PropTypes.bool,
   rows: PropTypes.number,
   suffix: PropTypes.string,
@@ -79,6 +80,7 @@ const Input = React.forwardRef<HTMLInputElement>(
       onBlur,
       onChange,
       onKeyPress,
+      placeholder,
       required,
       rows,
       suffix,
@@ -155,6 +157,7 @@ const Input = React.forwardRef<HTMLInputElement>(
             name={name}
             onBlur={onBlur}
             onChange={onChange}
+            placeholder={placeholder}
             required={required}
             type={inputType}
             value={value}
@@ -174,6 +177,7 @@ const Input = React.forwardRef<HTMLInputElement>(
           id={id}
           name={name}
           onChange={onChange}
+          placeholder={placeholder}
           required={required}
           rows={rows}
           type={type}
