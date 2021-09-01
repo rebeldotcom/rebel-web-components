@@ -172,6 +172,7 @@ const Input = React.forwardRef<HTMLInputElement>(
           ref={ref}
           disabled={disabled}
           id={id}
+          name={name}
           onChange={onChange}
           required={required}
           rows={rows}
