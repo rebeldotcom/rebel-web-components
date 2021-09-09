@@ -3340,21 +3340,21 @@ export default [
     ],
     attrs: [
       {
-        fill: 'rgb(255, 255, 255)',
+        fill: 'rgb(69, 62, 97)',
       },
       {
-        fill: 'rgb(255, 255, 255)',
+        fill: 'rgb(69, 62, 97)',
       },
       {
-        fill: 'rgb(255, 255, 255)',
+        fill: 'rgb(69, 62, 97)',
       },
       {
-        fill: 'rgb(255, 255, 255)',
+        fill: 'rgb(69, 62, 97)',
       },
       {
-        fill: 'rgb(255, 255, 255)',
+        fill: 'rgb(69, 62, 97)',
       },
     ],
-    tags: ['simplerebellogonew'],
+    tags: ['rebel-logo-2021'],
   },
 ]
