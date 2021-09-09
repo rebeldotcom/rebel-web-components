@@ -22,6 +22,7 @@ const redesignColors = {
 }
 
 const redesignBorders = [`1px solid ${redesignColors.green}`]
+// eslint-disable-next-line prefer-destructuring
 redesignBorders.green = redesignBorders[0]
 
 const theme = {
