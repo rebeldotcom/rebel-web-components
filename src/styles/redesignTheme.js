@@ -16,7 +16,7 @@ const redesignColors = {
   orangeDark: '#C4470E',
   purple: '#B32B85',
   purpleLight: '#E6E4F4',
-  purpleDark: '#46283F',
+  purpleDark: '#453E61',
   greyLight: '#D8D8D8',
   greyLightish: '#D2D2D2',
 }

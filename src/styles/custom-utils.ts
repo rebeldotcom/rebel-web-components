@@ -108,7 +108,6 @@ export const buttonStyles = ({
   }
 
   const baseColor = isEmpty(color) ? 'greenDark' : color
-
   const { text, hover, bg } = colors[baseColor]
   const { radii } = theme
 
@@ -159,7 +158,7 @@ export const buttonStyles = ({
         ${defaultButtonStyles}
         ${padding}
         color: ${bg};
-        background: ${theme.white};
+        background: white;
         border-radius: ${radii.small};
         border-color: ${bg};
 
