@@ -11,6 +11,7 @@ const redesignColors = {
   redLight: '#FFEEEE',
   red: '#E62E31',
   redDark: '#6B393F',
+  orangeLighter: '#ff9900',
   orangeLight: '#FFEBE6',
   orange: '#FF6600',
   orangeDark: '#C4470E',
