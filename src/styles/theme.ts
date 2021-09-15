@@ -85,6 +85,7 @@ const colors = {
   pinkLight: '#F6889E',
   pink: '#EF2951',
   pinkDark: '#77091F',
+  orangeLighter: '#ff9900',
   orange: '#C4470E',
   clear: 'transparent',
   focus: '#406198',
