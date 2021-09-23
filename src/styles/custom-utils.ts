@@ -136,7 +136,7 @@ export const buttonStyles = ({
           ${defaultButtonStyles}
           ${padding}
           color: ${bg};
-          background: transparent;
+          background: white;
           border-radius: ${radii.small};
           border-color: ${bg};
 
@@ -158,7 +158,7 @@ export const buttonStyles = ({
         ${defaultButtonStyles}
         ${padding}
         color: ${bg};
-        background: white;
+        background: transparent;
         border-radius: ${radii.small};
         border-color: ${bg};
 
