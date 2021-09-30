@@ -41,6 +41,7 @@ const colors = {
   white: '#fff',
   whiteDark: '#f7f7f7',
   greyLightest: '#e7e7e7',
+  greyLighter: '#EFEFEF',
   greyLight: '#d7d7d7',
   grey: '#B2B2B2',
   greyDark: '#999999',
