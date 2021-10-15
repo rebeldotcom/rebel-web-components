@@ -20,6 +20,14 @@ const redesignColors = {
   purpleDark: '#453E61',
   greyLight: '#D8D8D8',
   greyLightish: '#D2D2D2',
+  deepKoamaru: '453E63',
+  grapefruit: 'FE546F',
+  strongCyan: '01CBCF',
+  sunflower: 'FFD080',
+  haciendaBlue: '0188A5',
+  magenta: 'DF0772',
+  aqua: '0BFFE6',
+  orangePeel: 'FF9D00',
 }
 
 const redesignBorders = [`1px solid ${redesignColors.green}`]
