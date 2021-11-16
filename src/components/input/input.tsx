@@ -57,7 +57,6 @@ const defaultProps = {
   textarea: false,
   type: 'text',
   value: null,
-  defaultValue: null,
 }
 
 const Input = React.forwardRef<HTMLInputElement>(
@@ -86,7 +85,6 @@ const Input = React.forwardRef<HTMLInputElement>(
       textarea,
       type,
       value,
-      defaultValue,
       ...rest
     },
     ref
@@ -160,7 +158,6 @@ const Input = React.forwardRef<HTMLInputElement>(
             required={required}
             type={inputType}
             value={value}
-            defaultValue={defaultValue}
           />
           {renderShowPass()}
           {renderIcon()}
