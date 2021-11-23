@@ -57,7 +57,7 @@ const defaultProps = {
   systemProps: {},
   textarea: false,
   type: 'text',
-  value: '',
+  value: null,
 }
 
 const Input = React.forwardRef<HTMLInputElement>(

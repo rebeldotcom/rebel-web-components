@@ -3532,6 +3532,18 @@ export default [
     tags: ['arrowdown-thin'],
   },
   {
+    viewBox: '0 0 16 16',
+    shapes: [
+      {
+        type: 'path',
+        fillRule: 'evenodd',
+        d:
+          'M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10z'
+      },
+    ],
+    tags: ['record'],
+  },
+  {
     viewBox: '0 0 572 202',
     shapes: [
       // E
