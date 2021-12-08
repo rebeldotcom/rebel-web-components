@@ -29,6 +29,7 @@ const redesignColors = {
   magenta: '#DF0772',
   aqua: '#0BFFE6',
   orangePeel: '#FF9D00',
+  alert: '#FFD081',
 }
 
 const redesignBorders = [`1px solid ${redesignColors.green}`]
