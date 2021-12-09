@@ -96,6 +96,7 @@ const colors = {
   successLight: '#e4eeaa',
   warning: '#d49e03',
   warningLight: '#f7eac9',
+  alert: '#e5c282',
   error: '#f04822',
   errorLight: '#ffd1c7',
   facebook: '#3b5998',
