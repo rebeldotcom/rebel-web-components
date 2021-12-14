@@ -56,14 +56,19 @@ const Pagination = ({
   const [turns, setTurns] = useState(1)
   const offset = (current - 1) * countPerPage
 
+  const maxCount =
+    Math.ceil(total / countPerPage) < count
+      ? Math.ceil(total / countPerPage)
+      : count
+
   /* Handles when the user clicks on a page number */
   const onPageSelect = (page, idx) => {
     setCurrent(page)
     if (idx === 0 && page !== 1) {
-      setCurrentIdx(Math.ceil((count - 1) / 2))
+      setCurrentIdx(Math.ceil((maxCount - 1) / 2))
       setTurns(turns - 1)
-    } else if (idx > Math.ceil((count - 1) / 2)) {
-      setCurrentIdx(Math.ceil((count - 1) / 2))
+    } else if (idx > Math.ceil((maxCount - 1) / 2)) {
+      setCurrentIdx(Math.ceil((maxCount - 1) / 2))
       setTurns(turns + 1)
     } else {
       setCurrentIdx(idx)
@@ -75,7 +80,7 @@ const Pagination = ({
     if (current > 1) {
       const prevPage = current - 1
       const prevIndex =
-        currentIdx < 1 ? Math.ceil((count - 1) / 2) : currentIdx - 1
+        currentIdx < 1 ? Math.ceil((maxCount - 1) / 2) : currentIdx - 1
       onPageSelect(prevPage, prevIndex)
     }
   }
@@ -85,7 +90,9 @@ const Pagination = ({
     if (current < Math.ceil(total / countPerPage)) {
       const nextPage = current + 1
       const nextIndex =
-        currentIdx >= count - 1 ? Math.ceil((count - 1) / 2) : currentIdx + 1
+        currentIdx >= maxCount - 1
+          ? Math.ceil((maxCount - 1) / 2)
+          : currentIdx + 1
       onPageSelect(nextPage, nextIndex)
     }
   }
@@ -135,9 +142,9 @@ const Pagination = ({
           />
         )}
 
-        {new Array(count).fill(1).map((_, idx) => {
+        {new Array(maxCount).fill(1).map((_, idx) => {
           const pageNumber =
-            currentIdx > Math.ceil((count - 1) / 2)
+            currentIdx > Math.ceil((maxCount - 1) / 2)
               ? current + idx
               : idx + turns
           return (
@@ -152,7 +159,9 @@ const Pagination = ({
           )
         })}
 
-        <Icon name="arrow-right" onClick={nextButton} title="forward" />
+        {maxCount > 1 && (
+          <Icon name="arrow-right" onClick={nextButton} title="forward" />
+        )}
       </Box>
     </Stack>
   )
