@@ -56,6 +56,7 @@ const Pagination = ({
   const [turns, setTurns] = useState(1)
   const offset = (current - 1) * countPerPage
 
+  /* Handles when the user clicks on a page number */
   const onPageSelect = (page, idx) => {
     setCurrent(page)
     if (idx === 0 && page !== 1) {
@@ -69,6 +70,7 @@ const Pagination = ({
     }
   }
 
+  /* Handles when user clicks the next button */
   const prevButton = () => {
     if (current > 1) {
       const prevPage = current - 1
@@ -78,6 +80,7 @@ const Pagination = ({
     }
   }
 
+  /* Handles when the user clicks the prev button */
   const nextButton = () => {
     if (current < Math.ceil(total / countPerPage)) {
       const nextPage = current + 1
@@ -99,6 +102,7 @@ const Pagination = ({
       width="100%"
       {...props}
     >
+      {/* Display a selector to choose number of rows to display */}
       {showRowSelector && (
         <Box mr={4}>
           <Text alignSelf="center" mr={2} variant="milli">
@@ -112,12 +116,16 @@ const Pagination = ({
           />
         </Box>
       )}
+      {/* Display the number of results, and the range of data being shown */}
       {showResultCount && (
         <Text mr={4}>
           {offset + 1}-{current * countPerPage} of {total}
         </Text>
       )}
+
+      {/* Primary Pagination logic  */}
       <Box key="pagination" alignItems="center" justifyContent="center">
+        {/* Don't show previous button on page 1 */}
         {current > 1 && (
           <PrevButton
             mr={3}
@@ -126,6 +134,7 @@ const Pagination = ({
             title="back"
           />
         )}
+
         {new Array(count).fill(1).map((_, idx) => {
           const pageNumber =
             currentIdx > Math.ceil((count - 1) / 2)
@@ -142,6 +151,7 @@ const Pagination = ({
             </PaginationButton>
           )
         })}
+
         <Icon name="arrow-right" onClick={nextButton} title="forward" />
       </Box>
     </Stack>
