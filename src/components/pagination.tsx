@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import Box from './box'
 import Text from './text'
@@ -55,6 +55,7 @@ const Pagination = ({
   const [countPerPage, setCountPerPage] = useState(rowsPerPage)
   const [turns, setTurns] = useState(1)
   const offset = (current - 1) * countPerPage
+  const didMount = useRef(true) // used to track if this is the first time the component renders
 
   const maxCount =
     Math.ceil(total / countPerPage) < count
@@ -97,7 +98,15 @@ const Pagination = ({
     }
   }
 
-  useEffect(() => {
+  /**
+   * We only want to re-render if the value of `current` changes (on a page selection)
+   * We don't want the initial render
+   */
+  useLayoutEffect(() => {
+    if (didMount.current) {
+      didMount.current = false
+      return
+    }
     onPageChange(offset)
   }, [current])
 
