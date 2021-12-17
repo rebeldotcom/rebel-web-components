@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect } from 'react'
+import React, { useState, useRef, useLayoutEffect, useEffect } from 'react'
 import styled from 'styled-components'
 import Box from './box'
 import Text from './text'
@@ -54,7 +54,7 @@ const Pagination = ({
   const [currentIdx, setCurrentIdx] = useState(0)
   const [countPerPage, setCountPerPage] = useState(rowsPerPage)
   const [turns, setTurns] = useState(1)
-  const offset = (current - 1) * countPerPage
+  let offset = (current - 1) * countPerPage
   const didMount = useRef(true) // used to track if this is the first time the component renders
 
   const lastPage = Math.ceil(total / countPerPage)
@@ -102,7 +102,14 @@ const Pagination = ({
       return
     }
     onPageChange(offset, countPerPage)
-  }, [current, countPerPage])
+  }, [current])
+
+  useEffect(() => {
+    offset = 0
+    setCurrent(1)
+    setCurrentIdx(0)
+    setTurns(1)
+  }, [countPerPage])
 
   return (
     <Stack
