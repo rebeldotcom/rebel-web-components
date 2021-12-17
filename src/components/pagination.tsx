@@ -22,7 +22,7 @@ const PrevButton = styled(Icon)`
 `
 
 interface PaginationProps {
-  onPageChange: (offset: number) => {}
+  onPageChange: (offset: number, limit?: number) => {}
   rowsPerPage: number
   total: number
   count?: number
@@ -57,19 +57,17 @@ const Pagination = ({
   const offset = (current - 1) * countPerPage
   const didMount = useRef(true) // used to track if this is the first time the component renders
 
-  const maxCount =
-    Math.ceil(total / countPerPage) < count
-      ? Math.ceil(total / countPerPage)
-      : count
+  const lastPage = Math.ceil(total / countPerPage)
+  const lowerBound = Math.ceil((count - 1) / 2)
 
   /* Handles when the user clicks on a page number */
   const onPageSelect = (page, idx) => {
     setCurrent(page)
     if (idx === 0 && page !== 1) {
-      setCurrentIdx(Math.ceil((maxCount - 1) / 2))
+      setCurrentIdx(lowerBound)
       setTurns(turns - 1)
-    } else if (idx > Math.ceil((maxCount - 1) / 2)) {
-      setCurrentIdx(Math.ceil((maxCount - 1) / 2))
+    } else if (idx > lowerBound) {
+      setCurrentIdx(lowerBound)
       setTurns(turns + 1)
     } else {
       setCurrentIdx(idx)
@@ -80,8 +78,7 @@ const Pagination = ({
   const prevButton = () => {
     if (current > 1) {
       const prevPage = current - 1
-      const prevIndex =
-        currentIdx < 1 ? Math.ceil((maxCount - 1) / 2) : currentIdx - 1
+      const prevIndex = currentIdx < 1 ? lowerBound : currentIdx - 1
       onPageSelect(prevPage, prevIndex)
     }
   }
@@ -90,10 +87,7 @@ const Pagination = ({
   const nextButton = () => {
     if (current < Math.ceil(total / countPerPage)) {
       const nextPage = current + 1
-      const nextIndex =
-        currentIdx >= maxCount - 1
-          ? Math.ceil((maxCount - 1) / 2)
-          : currentIdx + 1
+      const nextIndex = currentIdx >= count - 1 ? lowerBound : currentIdx + 1
       onPageSelect(nextPage, nextIndex)
     }
   }
@@ -107,8 +101,8 @@ const Pagination = ({
       didMount.current = false
       return
     }
-    onPageChange(offset)
-  }, [current])
+    onPageChange(offset, countPerPage)
+  }, [current, countPerPage])
 
   return (
     <Stack
@@ -151,11 +145,10 @@ const Pagination = ({
           />
         )}
 
-        {new Array(maxCount).fill(1).map((_, idx) => {
+        {new Array(count).fill(1).map((_, idx) => {
           const pageNumber =
-            currentIdx > Math.ceil((maxCount - 1) / 2)
-              ? current + idx
-              : idx + turns
+            currentIdx > lowerBound ? current + idx : idx + turns
+          if (pageNumber > lastPage) return null
           return (
             <PaginationButton
               key={`page-${pageNumber}-${idx}`}
@@ -168,7 +161,7 @@ const Pagination = ({
           )
         })}
 
-        {maxCount > 1 && (
+        {count > 1 && current < lastPage && (
           <Icon name="arrow-right" onClick={nextButton} title="forward" />
         )}
       </Box>
