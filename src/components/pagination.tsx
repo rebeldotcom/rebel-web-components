@@ -1,4 +1,4 @@
-import React, { useState, useRef, useLayoutEffect, useEffect } from 'react'
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import styled from 'styled-components'
 import Box from './box'
 import Text from './text'
@@ -92,6 +92,14 @@ const Pagination = ({
     }
   }
 
+  const onRowSelectChange = item => {
+    setCountPerPage(item)
+    offset = 0
+    setCurrent(1)
+    setCurrentIdx(0)
+    setTurns(1)
+  }
+
   /**
    * We only want to re-render if the value of `current` changes (on a page selection)
    * We don't want the initial render
@@ -102,14 +110,7 @@ const Pagination = ({
       return
     }
     onPageChange(offset, countPerPage)
-  }, [current])
-
-  useEffect(() => {
-    offset = 0
-    setCurrent(1)
-    setCurrentIdx(0)
-    setTurns(1)
-  }, [countPerPage])
+  }, [current, countPerPage])
 
   return (
     <Stack
@@ -127,7 +128,7 @@ const Pagination = ({
           </Text>
           <Select
             id="row-selector"
-            onChange={item => setCountPerPage(item)}
+            onChange={onRowSelectChange}
             options={rowsPerPageOptions}
             value={countPerPage}
           />
