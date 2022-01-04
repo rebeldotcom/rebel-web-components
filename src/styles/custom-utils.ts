@@ -119,7 +119,7 @@ export const buttonStyles = ({
       text: theme.colors.white,
     },
     haciendaBlue: {
-      bg: theme.colors.haciendaBlue,
+      bg: theme.colors.haciendaDarkBlue,
       hover: theme.colors.haciendaBlue,
       text: theme.colors.white,
     },

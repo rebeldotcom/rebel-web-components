@@ -26,6 +26,7 @@ const redesignColors = {
   strongCyan: '#01CBCF',
   sunflower: '#FFD080',
   haciendaBlue: '#0188A5',
+  haciendaDarkBlue: '#015B6F',
   magenta: '#DF0772',
   aqua: '#0BFFE6',
   orangePeel: '#FF9D00',
