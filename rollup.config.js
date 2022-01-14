@@ -2,11 +2,13 @@ import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
 import resolve from 'rollup-plugin-node-resolve'
+import postcss from 'rollup-plugin-postcss'
 import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
 // import filesize from 'rollup-plugin-filesize'
 import visualizer from 'rollup-plugin-visualizer'
 import { terser } from 'rollup-plugin-terser'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 import pkg from './package.json'
 
@@ -29,6 +31,12 @@ module.exports = {
     },
   ],
   plugins: [
+    postcss({
+      plugins: [],
+    }),
+    nodeResolve({
+      extensions: ['.css'],
+    }),
     external(),
     url(),
     svgr(),
@@ -75,5 +83,11 @@ module.exports = {
     // filesize(),
     visualizer(),
   ],
-  external: ['styled-components', 'react', 'react-dom', 'styled-system'],
+  external: [
+    'styled-components',
+    'react',
+    'react-dom',
+    'styled-system',
+    'react-datepicker',
+  ],
 }

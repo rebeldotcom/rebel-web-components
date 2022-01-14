@@ -1,6 +1,7 @@
 import Box from './components/box'
 import Button from './components/button'
 import Text from './components/text'
+import DatePicker from './components/datepicker'
 import Divider from './components/divider'
 import Heading from './components/heading'
 import Link from './components/link'
@@ -29,6 +30,7 @@ export {
   Badge,
   Box,
   Button,
+  DatePicker,
   Divider,
   GlobalStyle,
   Grid,
