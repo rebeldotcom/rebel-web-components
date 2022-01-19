@@ -83,11 +83,5 @@ module.exports = {
     // filesize(),
     visualizer(),
   ],
-  external: [
-    'styled-components',
-    'react',
-    'react-dom',
-    'styled-system',
-    'react-datepicker',
-  ],
+  external: ['styled-components', 'react', 'react-dom', 'styled-system'],
 }
