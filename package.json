@@ -1,6 +1,6 @@
 {
   "name": "@rebeldotcom/components",
-  "version": "0.13.19",
+  "version": "0.13.20",
   "description": "Rebel web components",
   "main": "build/index.js",
   "module": "build/index.es.js",
