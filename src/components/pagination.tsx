@@ -137,7 +137,8 @@ const Pagination = ({
       {/* Display the number of results, and the range of data being shown */}
       {showResultCount && (
         <Text mr={4}>
-          {offset + 1}-{current * countPerPage} of {total}
+          {offset + 1}-{total < countPerPage ? total : current * countPerPage}{' '}
+          of {total}
         </Text>
       )}
 
