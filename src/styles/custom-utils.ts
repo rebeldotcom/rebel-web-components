@@ -118,6 +118,11 @@ export const buttonStyles = ({
       hover: theme.colors.sunflower,
       text: theme.colors.white,
     },
+    sunflowerBlack: {
+      bg: theme.colors.sunflower,
+      hover: theme.colors.sunflower,
+      text: theme.colors.black,
+    },
     haciendaBlue: {
       bg: theme.colors.haciendaDarkBlue,
       hover: theme.colors.haciendaBlue,
