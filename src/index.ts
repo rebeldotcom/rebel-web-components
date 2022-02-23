@@ -1,6 +1,7 @@
 import Box from './components/box'
 import Button from './components/button'
 import Text from './components/text'
+import DatePicker from './components/datepicker'
 import Divider from './components/divider'
 import Heading from './components/heading'
 import Link from './components/link'
@@ -21,13 +22,15 @@ import Radio from './components/radio'
 import Selector from './components/selector'
 import InputStepper from './components/input-stepper'
 import Select from './components/select'
-
+import Pagination from './components/pagination'
+import ProgressBar from './components/progress-bar'
 import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
 
 export {
   Badge,
   Box,
   Button,
+  DatePicker,
   Divider,
   GlobalStyle,
   Grid,
@@ -40,6 +43,8 @@ export {
   Loader,
   Message,
   ModalProvider,
+  Pagination,
+  ProgressBar,
   Radio,
   Section,
   Select,
