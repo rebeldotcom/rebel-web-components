@@ -98,6 +98,51 @@ export const buttonStyles = ({
       hover: theme.colors.purpleDark,
       text: theme.colors.white,
     },
+    deepKoamaru: {
+      bg: theme.colors.deepKoamaru,
+      hover: theme.colors.deepKoamaru,
+      text: theme.colors.white,
+    },
+    grapefruit: {
+      bg: theme.colors.grapefruit,
+      hover: theme.colors.grapefruit,
+      text: theme.colors.white,
+    },
+    strongCyan: {
+      bg: theme.colors.strongCyan,
+      hover: theme.colors.strongCyan,
+      text: theme.colors.white,
+    },
+    sunflower: {
+      bg: theme.colors.sunflower,
+      hover: theme.colors.sunflower,
+      text: theme.colors.white,
+    },
+    sunflowerBlack: {
+      bg: theme.colors.sunflower,
+      hover: theme.colors.sunflower,
+      text: theme.colors.black,
+    },
+    haciendaBlue: {
+      bg: theme.colors.haciendaDarkBlue,
+      hover: theme.colors.haciendaBlue,
+      text: theme.colors.white,
+    },
+    magenta: {
+      bg: theme.colors.magenta,
+      hover: theme.colors.magenta,
+      text: theme.colors.white,
+    },
+    aqua: {
+      bg: theme.colors.aqua,
+      hover: theme.colors.aqua,
+      text: theme.colors.white,
+    },
+    orangePeel: {
+      bg: theme.colors.orangePeel,
+      hover: theme.colors.orangePeel,
+      text: theme.colors.white,
+    },
   }
 
   const paddingVariants = {
@@ -108,7 +153,6 @@ export const buttonStyles = ({
   }
 
   const baseColor = isEmpty(color) ? 'greenDark' : color
-
   const { text, hover, bg } = colors[baseColor]
   const { radii } = theme
 
@@ -159,7 +203,7 @@ export const buttonStyles = ({
         ${defaultButtonStyles}
         ${padding}
         color: ${bg};
-        background: ${theme.white};
+        background: transparent;
         border-radius: ${radii.small};
         border-color: ${bg};
 

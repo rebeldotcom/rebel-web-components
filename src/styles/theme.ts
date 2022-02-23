@@ -41,6 +41,7 @@ const colors = {
   white: '#fff',
   whiteDark: '#f7f7f7',
   greyLightest: '#e7e7e7',
+  greyLighter: '#EFEFEF',
   greyLight: '#d7d7d7',
   grey: '#B2B2B2',
   greyDark: '#999999',
@@ -85,6 +86,7 @@ const colors = {
   pinkLight: '#F6889E',
   pink: '#EF2951',
   pinkDark: '#77091F',
+  orangeLighter: '#ff9900',
   orange: '#C4470E',
   clear: 'transparent',
   focus: '#406198',
@@ -94,6 +96,7 @@ const colors = {
   successLight: '#e4eeaa',
   warning: '#d49e03',
   warningLight: '#f7eac9',
+  alert: '#e5c282',
   error: '#f04822',
   errorLight: '#ffd1c7',
   facebook: '#3b5998',
@@ -242,6 +245,7 @@ borders.light = borders[2]
 borders.dark = borders[5]
 borders.input = borders[2]
 borders.error = borders[4]
+borders.blackLighter = borders[5]
 
 // Example for shadows
 const shadows = [`0.5rem 0.5rem 1rem ${colors.black}44`]
