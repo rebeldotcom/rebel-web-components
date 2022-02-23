@@ -17,6 +17,7 @@ import {
 import Box from './box'
 
 type ProgressBarProps = {
+  decimal: number
   progress: number
   maximum: number
   variant: string
@@ -46,7 +47,7 @@ const Progress: React.FC<BoxProps> = styled.div`
 `
 
 const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
-  ({ progress, maximum, variant, ...rest }, ref) => {
+  ({ progress, maximum, variant, decimal, ...rest }, ref) => {
     return (
       <Box ref={ref} {...rest}>
         <Box bg="greyLight" borderRadius="3rem" width="100%">
@@ -60,13 +61,15 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
             variant={variant}
             width={progress === 0 ? '100%' : `${(progress / maximum) * 100}%`}
           >
-            {`${((progress / maximum) * 100).toFixed(2).replace(/\.0+$/, '')}%`}
+            {`${((progress / maximum) * 100)
+              .toFixed(decimal)
+              .replace(/\.0+$/, '')}%`}
           </Progress>
         </Box>
       </Box>
     )
   }
 )
-
+ProgressBar.defaultProps = { decimal: 0 }
 ProgressBar.displayName = 'ProgressBar'
 export default ProgressBar
