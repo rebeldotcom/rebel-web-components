@@ -106,13 +106,13 @@ export const ShowPass = styled.button`
   display: inline-block;
   cursor: pointer;
   font-size: 1.2rem;
-  right: 0;
-  bottom: 0.7rem;
+  right: -5px;
+  bottom: 0.4rem;
   margin-right: 1rem;
   font-weight: 400;
   text-transform: uppercase;
   background: transparent;
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem;
   border: ${theme.borders[2]};
   z-index: 5;
 `

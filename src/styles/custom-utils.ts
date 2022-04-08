@@ -4,7 +4,7 @@ const defaultButtonStyles = `
   appearance: none;
   text-align: center;
   text-decoration: none;
-  padding: 0.8rem 1.6rem;
+  padding: 1.2rem 1.6rem 0.8rem 1.6rem;
   text-transform: capitalize;
   font-size: 1.3rem;
   font-weight: 400;
@@ -262,11 +262,10 @@ export const buttonStyles = ({
         border: none;
         padding-left: 0;
         padding-right: 0;
-        border-bottom: 1px solid ${bg};
+        text-decoration: underline;
 
         &:hover {
           color: ${hover};
-          border-bottom: 1px solid ${hover};
         }
       `
     }
