@@ -54,19 +54,15 @@ const Link = React.forwardRef<HTMLLinkElement, LinkProps>(
       console.warn('You must supply a `to` or `href` prop to Link!')
     }
 
-    const tabProps = newTab
-      ? { rel: 'noopener noreferrer', target: '_blank' }
-      : {}
-
     return (
       <StyledLink
         ref={ref}
         aria-label={ariaLabel}
         data-testid={testId}
         onClick={onClick}
+        target={newTab ? '_blank' : null}
         title={ariaLabel}
         {...rest}
-        {...tabProps}
       >
         {children}
       </StyledLink>
