@@ -7,6 +7,7 @@ import Heading from './components/heading'
 import Link from './components/link'
 import Loader from './components/loader'
 import Icon from './components/icon'
+import iconRepo from './components/icon/icon-repo'
 import Input from './components/input'
 import Message from './components/message'
 import { ModalProvider, useModal } from './components/modal'
@@ -58,4 +59,5 @@ export {
   redesignTheme,
   ThemeProvider,
   useModal,
+  iconRepo,
 }
