@@ -10,6 +10,7 @@ interface ProgressIndicatorProps {
   value: number
   width?: string
   isInternic?: boolean
+  variant?: string
 }
 
 const { colors } = theme
@@ -28,12 +29,18 @@ const ProgressValue = styled.div`
   width: ${props => props.width};
 `
 
-function progressColor(percentage, isInternic) {
+function progressColor(percentage, isInternic, variant) {
   let color = ''
   if (percentage > 0.67) {
-    color = isInternic ? colors.error : 'red'
+    if (variant === 'inverted') {
+      color = isInternic ? colors.success : '#16A34A'
+    } else {
+      color = isInternic ? colors.error : 'red'
+    }
   } else if (percentage > 0.33) {
     color = isInternic ? colors.alert : '#fbbf24'
+  } else if (variant === 'inverted') {
+    color = isInternic ? colors.error : 'red'
   } else {
     color = isInternic ? colors.success : '#16A34A'
   }
@@ -47,16 +54,17 @@ function ProgressIndicator({
   color = null,
   height = '5px',
   isInternic = false,
+  variant = null,
 }: ProgressIndicatorProps) {
   const percentage = value / max
   return (
     <ProgressContainer
-      color={color || progressColor(percentage, isInternic)}
+      color={color || progressColor(percentage, isInternic, variant)}
       height={height}
       width={width}
     >
       <ProgressValue
-        color={progressColor(percentage, isInternic)}
+        color={progressColor(percentage, isInternic, variant)}
         width={`${percentage * 100}%`}
       />
     </ProgressContainer>
