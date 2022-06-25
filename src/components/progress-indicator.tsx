@@ -11,6 +11,8 @@ interface ProgressIndicatorProps {
   width?: string
   isInternic?: boolean
   variant?: string
+  borderRadius?: string
+  onProgressChange?: (...args: string[]) => void
 }
 
 const { colors } = theme
@@ -18,13 +20,13 @@ const { colors } = theme
 const ProgressContainer = styled.div`
   height: ${props => props.height};
   background-color: #eee;
-  border-radius: 2px;
+  border-radius: ${props => props.borderRadius || '2px'};
   width: ${props => props.width};
 `
 
 const ProgressValue = styled.div`
   background-color: ${props => props.color};
-  border-radius: 2px;
+  border-radius: ${props => props.borderRadius || '2px'};
   height: 100%;
   width: ${props => props.width};
 `
@@ -51,20 +53,32 @@ function ProgressIndicator({
   value,
   max = 100,
   width = '10em',
-  color = null,
+  color,
   height = '5px',
   isInternic = false,
-  variant = null,
+  variant,
+  borderRadius,
+  onProgressChange,
 }: ProgressIndicatorProps) {
   const percentage = value / max
   return (
     <ProgressContainer
-      color={color || progressColor(percentage, isInternic, variant)}
+      borderRadius={borderRadius}
+      color={
+        color ||
+        onProgressChange ||
+        progressColor(percentage, isInternic, variant)
+      }
       height={height}
       width={width}
     >
       <ProgressValue
-        color={progressColor(percentage, isInternic, variant)}
+        borderRadius={borderRadius}
+        color={
+          color ||
+          onProgressChange ||
+          progressColor(percentage, isInternic, variant)
+        }
         width={`${percentage * 100}%`}
       />
     </ProgressContainer>
