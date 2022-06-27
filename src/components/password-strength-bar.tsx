@@ -51,7 +51,7 @@ function PasswordStrengthBar({
       setFeedback(feedback)
     } else {
       setScore(0)
-      setFeedback(`Password should be at least ${minLength}`)
+      setFeedback(`Password must be at least ${minLength}`)
     }
   }
 
