@@ -57,7 +57,7 @@ function PasswordStrengthBar({
 
   useEffect(() => {
     if (onChangeScore) onChangeScore(pwScore, pwFeedback)
-  }, [pwScore, pwFeedback])
+  }, [pwScore, previousPw, pwFeedback])
 
   useEffect(() => {
     if (previousPw !== password) {
