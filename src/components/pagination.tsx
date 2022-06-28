@@ -40,7 +40,7 @@ const defaultRowsPerPage = [
   { value: 100, display: 100 },
 ]
 
-const Pagination = ({
+function Pagination({
   count = 3,
   total,
   onPageChange,
@@ -49,7 +49,7 @@ const Pagination = ({
   showRowSelector = false,
   showResultCount = false,
   ...props
-}: PaginationProps): React.ReactNode => {
+}: PaginationProps): React.ReactNode {
   const [current, setCurrent] = useState(1)
   const [currentIdx, setCurrentIdx] = useState(0)
   const [countPerPage, setCountPerPage] = useState(rowsPerPage)

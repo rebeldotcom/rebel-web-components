@@ -22,7 +22,7 @@ const StyledInput = styled(Input)`
   }
 `
 
-const InputStepper = ({
+function InputStepper({
   ariaLabel,
   count,
   label,
@@ -32,7 +32,7 @@ const InputStepper = ({
   step,
   id,
   ...rest
-}: InputStepperProps) => {
+}: InputStepperProps) {
   if (!label && !ariaLabel) {
     throw new Error('Please provide an input label to InputStepper')
   }

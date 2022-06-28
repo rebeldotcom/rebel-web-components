@@ -27,7 +27,7 @@ const SelectComponent = styled(Box)`
   background: transparent;
 `
 
-const Select = ({
+function Select({
   isLoading,
   id,
   options,
@@ -37,7 +37,7 @@ const Select = ({
   selected,
   isEnabled,
   ...rest
-}: SelectProps) => {
+}: SelectProps) {
   const handleOnChange = e => {
     onChange(e.target.value)
   }

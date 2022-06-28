@@ -13,7 +13,7 @@ const defaultProps = {
   color: 'white',
 }
 
-const Badge = ({ children, bg, color, ...rest }) => {
+function Badge({ children, bg, color, ...rest }) {
   return (
     <Text
       alignItems="center"

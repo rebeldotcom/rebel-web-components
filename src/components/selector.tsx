@@ -60,14 +60,14 @@ const OptionContent = styled(Box)`
   }
 `
 
-const Selector = ({
+function Selector({
   title,
   options,
   selected,
   onChange,
   hasRadio,
   ...rest
-}: SelectorOptions) => {
+}: SelectorOptions) {
   const onChangeHandler = id => {
     onChange(id)
   }

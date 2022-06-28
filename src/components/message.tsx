@@ -98,14 +98,14 @@ type MessageProps = {
   size: Sizes
 }
 
-const Message = ({
+function Message({
   size,
   variant,
   containerProps,
   children,
   dismissCallback,
   ...rest
-}: MessageProps) => {
+}: MessageProps) {
   return (
     <StyledMessage
       msgSize={size}

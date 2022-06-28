@@ -58,6 +58,8 @@ const SkeletonBlock: React.FC<BoxProps> = styled.div`
   border-radius: 0.2rem;
 `
 
-const Skeleton = props => <SkeletonBlock {...props} />
+function Skeleton(props) {
+  return <SkeletonBlock {...props} />
+}
 
 export default Skeleton

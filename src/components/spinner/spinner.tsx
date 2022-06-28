@@ -36,7 +36,7 @@ const StyledSpinner = styled.div<SpinnerProps>`
   transform: translateZ(0);
   animation: ${spinnerAnimation} 1.1s infinite linear;
 `
-const Spinner = ({ size = '5rem', stroke = '0.5rem' }: SpinnerProps) => {
+function Spinner({ size = '5rem', stroke = '0.5rem' }: SpinnerProps) {
   return (
     <StyledSpinner
       aria-live="assertive"

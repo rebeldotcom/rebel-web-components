@@ -75,7 +75,7 @@ type IconProps = {
   containerProps?: {}
 }
 
-const Icon = ({
+function Icon({
   name,
   width = 16,
   height = 16,
@@ -85,7 +85,7 @@ const Icon = ({
   desc,
   containerProps,
   ...rest
-}: IconProps) => {
+}: IconProps) {
   const iconShapes = getIcon(name)
   const viewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId

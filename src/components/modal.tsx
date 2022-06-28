@@ -21,7 +21,7 @@ type ModalProviderProps = {
   children: React.ReactNode
 }
 
-const ModalProvider = ({ children }: ModalProviderProps) => {
+function ModalProvider({ children }: ModalProviderProps) {
   const modalNode = useRef<HTMLDivElement>(null!)
 
   return (

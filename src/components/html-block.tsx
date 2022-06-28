@@ -55,8 +55,8 @@ const Block: React.FC<BoxProps> = styled.div`
   }
 `
 
-const HtmlBlock = ({ children, ...rest }) => (
-  <Block {...rest} dangerouslySetInnerHTML={{ __html: children }} />
-)
+function HtmlBlock({ children, ...rest }) {
+  return <Block {...rest} dangerouslySetInnerHTML={{ __html: children }} />
+}
 
 export default HtmlBlock
