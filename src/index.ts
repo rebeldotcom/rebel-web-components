@@ -25,6 +25,8 @@ import InputStepper from './components/input-stepper'
 import Select from './components/select'
 import Pagination from './components/pagination'
 import ProgressBar from './components/progress-bar'
+import ProgressIndicator from './components/progress-indicator'
+import PasswordStrengthBar from './components/password-strength-bar'
 import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
 
 export {
@@ -46,6 +48,7 @@ export {
   ModalProvider,
   Pagination,
   ProgressBar,
+  ProgressIndicator,
   Radio,
   Section,
   Select,
@@ -60,4 +63,5 @@ export {
   ThemeProvider,
   useModal,
   iconRepo,
+  PasswordStrengthBar,
 }
