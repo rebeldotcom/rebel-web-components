@@ -1,5 +1,8 @@
 module.exports = {
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
+  parserOptions: {
+    requireConfigFile: false,
+  },
   extends: ['airbnb', 'prettier'],
   plugins: ['react-hooks', 'prettier'],
   globals: {
@@ -7,6 +10,7 @@ module.exports = {
     window: true,
     localStorage: true,
   },
+  ignorePatterns: ['**/node_modules/**'],
   env: {
     node: true,
   },
