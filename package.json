@@ -97,5 +97,7 @@
     "styled-system": "5.1.5",
     "zxcvbn": "4.4.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/zxcvbn": "^4.4.1"
+  }
 }
