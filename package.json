@@ -96,6 +96,7 @@
     "styled-components": "5.3.5",
     "styled-normalize": "8.0.7",
     "styled-reset": "4.3.4",
-    "styled-system": "5.1.5"
+    "styled-system": "5.1.5",
+    "zxcvbn": "4.4.2"
   }
 }
