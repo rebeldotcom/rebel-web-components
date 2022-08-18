@@ -138,7 +138,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           checked={checked}
           onChange={handleOnChange}
           size={size}
-          type="checkout"
         />
         {label}
       </Box>
