@@ -17,6 +17,7 @@ import HtmlBlock from './components/html-block'
 import Skeleton from './components/skeleton'
 import Spinner from './components/spinner'
 import Stack from './components/stack'
+import Switch from './components/switch'
 import StyleReset from './components/style-reset'
 import Grid from './components/grid'
 import Radio from './components/radio'
@@ -57,6 +58,7 @@ export {
   Spinner,
   Stack,
   StyleReset,
+  Switch,
   Text,
   theme,
   redesignTheme,
