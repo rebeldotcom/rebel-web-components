@@ -28,9 +28,19 @@ import Pagination from './components/pagination'
 import ProgressBar from './components/progress-bar'
 import ProgressIndicator from './components/progress-indicator'
 import PasswordStrengthBar from './components/password-strength-bar'
-import { ThemeProvider, theme, redesignTheme, GlobalStyle } from './styles'
+import AlertInline from './components/alert-inline'
+import IndeterminateLinearProgress from './components/indeterminate-progress-bar'
+import {
+  ThemeProvider,
+  theme,
+  redesignTheme,
+  swiftTheme,
+  GlobalStyle,
+} from './styles'
 
 export {
+  swiftTheme,
+  AlertInline,
   Badge,
   Box,
   Button,
@@ -50,6 +60,7 @@ export {
   Pagination,
   ProgressBar,
   ProgressIndicator,
+  IndeterminateLinearProgress,
   Radio,
   Section,
   Select,
