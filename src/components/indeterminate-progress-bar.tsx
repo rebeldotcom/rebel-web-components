@@ -11,6 +11,7 @@ interface ILPProps {
 
 function IndeterminateLinearProgress({
   barColor = colors.neutral[50],
+  ...props
 }: ILPProps) {
   const [progress, setProgress] = React.useState(0)
 
@@ -31,7 +32,7 @@ function IndeterminateLinearProgress({
   }, [])
 
   return (
-    <Box>
+    <Box {...props}>
       <ProgressIndicator color={barColor} value={progress} width="100%" />
     </Box>
   )
