@@ -1,7 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react'
 import styled from 'styled-components'
-import { theme } from '../styles'
+import { theme, swiftTheme } from '../styles'
 
 interface ProgressIndicatorProps {
   color?: string
@@ -11,11 +11,12 @@ interface ProgressIndicatorProps {
   width?: string
   isInternic?: boolean
   variant?: string
-  borderRadius?: string
+  borderRadius?: number
   onProgressChange?: (...args: string[]) => void
 }
 
 const { colors } = theme
+const { colors: swiftColors } = swiftTheme
 
 const ProgressContainer = styled.div`
   height: ${props => props.height};
@@ -35,16 +36,16 @@ function progressColor(percentage, isInternic, variant) {
   let color = ''
   if (percentage > 0.67) {
     if (variant === 'inverted') {
-      color = isInternic ? colors.success : '#16A34A'
+      color = isInternic ? colors.success : swiftColors.success[600]
     } else {
-      color = isInternic ? colors.error : 'red'
+      color = isInternic ? colors.error : swiftColors.destructive[600]
     }
   } else if (percentage > 0.33) {
-    color = isInternic ? colors.alert : '#fbbf24'
+    color = isInternic ? colors.alert : swiftColors.warning[400]
   } else if (variant === 'inverted') {
-    color = isInternic ? colors.error : 'red'
+    color = isInternic ? colors.error : swiftColors.destructive[600]
   } else {
-    color = isInternic ? colors.success : '#16A34A'
+    color = isInternic ? colors.success : swiftColors.success[600]
   }
   return color
 }
@@ -64,11 +65,6 @@ function ProgressIndicator({
   return (
     <ProgressContainer
       borderRadius={borderRadius}
-      color={
-        color ||
-        onProgressChange ||
-        progressColor(percentage, isInternic, variant)
-      }
       height={height}
       width={width}
     >

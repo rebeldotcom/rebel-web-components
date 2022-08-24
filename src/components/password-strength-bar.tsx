@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { lineHeight } from 'styled-system'
 import zxcvbn from 'zxcvbn'
 import ProgressIndicator from './progress-indicator'
 import Stack from './stack'
 import Text from './text'
+import { swiftTheme } from '../styles'
+
+const { colors } = swiftTheme
 
 interface PasswordStrengthBar {
   borderRadius?: number
@@ -36,7 +38,13 @@ function PasswordStrengthBar({
   userInputs = [],
   scorePercentage = [0, 20, 50, 80, 100],
   scoreWords = ['too short', 'weak', 'okay', 'good', 'strong'],
-  scoreColors = ['', '#EF4444', '#FCD34D', '#86EFAC', '#22C55E'], // move these once we build out new design system
+  scoreColors = [
+    '',
+    colors.destructive[500],
+    colors.warning[300],
+    colors.success[300],
+    colors.success[500],
+  ],
   showLabels = false,
 }) {
   const [pwScore, setScore] = useState(0)
