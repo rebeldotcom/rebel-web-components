@@ -1,9 +1,11 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
+import { redesignTheme } from '../../styles'
 
 type SpinnerProps = {
   size?: string
   stroke?: string
+  color?: string
 }
 
 const spinnerAnimation = keyframes`
@@ -26,20 +28,26 @@ const StyledSpinner = styled.div<SpinnerProps>`
   position: relative;
   text-indent: -9999em;
   border-top: ${({ stroke }) => stroke} solid
-    ${({ theme }) => theme.colors.greyDarker}33;
+    ${({ color, theme }) => color || theme.colors.greyDarker};
   border-right: ${({ stroke }) => stroke} solid
-    ${({ theme }) => theme.colors.greyDarker}33;
+    ${({ color, theme }) => color || theme.colors.greyDarker};
   border-bottom: ${({ stroke }) => stroke} solid
-    ${({ theme }) => theme.colors.greyDarker}33;
+    ${({ color, theme }) => color || theme.colors.greyDarker};
   border-left: ${({ stroke }) => stroke} solid
-    ${({ theme }) => theme.colors.greyDarker};
+    ${({ color, theme }) => color || theme.colors.greyDarker};
   transform: translateZ(0);
   animation: ${spinnerAnimation} 1.1s infinite linear;
 `
-const Spinner = ({ size = '5rem', stroke = '0.5rem' }: SpinnerProps) => {
+
+function Spinner({
+  size = '5rem',
+  stroke = '0.5rem',
+  color = redesignTheme.colors.greyDarker,
+}: SpinnerProps) {
   return (
     <StyledSpinner
       aria-live="assertive"
+      color={color}
       role="alert"
       size={size}
       stroke={stroke}
