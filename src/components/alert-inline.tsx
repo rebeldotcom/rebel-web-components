@@ -83,9 +83,9 @@ function AlertInline({
       bg={colorScheme.bg}
       borderColor={colorScheme.border}
       borderRadius="6px"
+      justifyContent="space-between"
       p={3}
       {...props}
-      justifyContent="space-between"
     >
       <Box flexDirection="row">
         <Icon color={colorScheme.icon} name={icon} width={12} />

@@ -31,8 +31,7 @@ const StyledSpinner = styled.div<SpinnerProps>`
     ${({ color, theme }) => color || theme.colors.greyDarker};
   border-right: ${({ stroke }) => stroke} solid
     ${({ color, theme }) => color || theme.colors.greyDarker};
-  border-bottom: ${({ stroke }) => stroke} solid
-    ${({ color, theme }) => color || theme.colors.greyDarker};
+  border-bottom: ${({ stroke }) => stroke} solid transparent;
   border-left: ${({ stroke }) => stroke} solid
     ${({ color, theme }) => color || theme.colors.greyDarker};
   transform: translateZ(0);
