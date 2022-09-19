@@ -42,7 +42,7 @@ const theme = {
   fonts: {
     ...baseTheme.fonts,
     title: `ivyjournal, sans-serif;`,
-    body: `'nunito-sans', sans-serif;`,
+    body: `'work-sans', sans-serif;`,
   },
   colors: {
     ...redesignColors,
