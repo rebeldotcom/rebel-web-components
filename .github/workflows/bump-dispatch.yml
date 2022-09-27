@@ -1,0 +1,60 @@
+name: trigger cms bump
+on:
+  push:
+    branches:
+      - 'main'
+    paths-ignore:
+      - package.json
+      - package-lock.json
+
+jobs:
+  trigger-dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 14
+          registry-url: 'https://registry.npmjs.org'
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GH_CI_TOKEN }}
+          fetch-depth: 0
+      - name: Initialize npm token for Rebel's private repos
+        run: npm config set //registry.npmjs.org/:_authToken ${{ secrets.NPM_TOKEN }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Build package
+        run: npm run build
+      - name: Version and publish to npm
+        uses: bcomnes/npm-bump@v2.0.2
+        with:
+          git_email: github-actions[bot]@users.noreply.github.com
+          git_username: github-actions[bot]
+          newversion: patch
+          push_version_commit: true
+          github_token: ${{ secrets.GH_CI_TOKEN }}
+          npm_token: ${{ secrets.NPM_TOKEN }}
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
+      - name: cms dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_CI_TOKEN }}
+          repository: rebeldotcom/rebel-web-cms
+          event-type: components-version-bump
+          client-payload: '{"version": "${{ steps.package-version.outputs.current-version }}"}'
+      - name: ui dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_CI_TOKEN }}
+          repository: rebeldotcom/rebel-web-ui
+          event-type: components-version-bump
+          client-payload: '{"version": "${{ steps.package-version.outputs.current-version }}"}'
+      - name: src dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.GH_CI_TOKEN }}
+          repository: rebeldotcom/rebel-web-src
+          event-type: components-version-bump
+          client-payload: '{"version": "${{ steps.package-version.outputs.current-version }}"}'
