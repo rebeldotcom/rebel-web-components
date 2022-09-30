@@ -1,11 +1,13 @@
-name: trigger cms bump
+name: build
 on:
-  push:
-    branches:
-      - 'main'
-    paths-ignore:
-      - package.json
-      - package-lock.json
+  workflow_dispatch:
+    inputs:
+      deploy:
+        type: boolean
+        description: 'Deploy'
+        required: true
+
+concurrency: ci-${{ github.ref }}
 
 jobs:
   trigger-dispatch:
@@ -38,6 +40,7 @@ jobs:
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
       - name: cms dispatch
+        if: ${{ inputs.deploy }}
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.GH_CI_TOKEN }}
@@ -45,6 +48,7 @@ jobs:
           event-type: components-version-bump
           client-payload: '{"version": "${{ steps.package-version.outputs.current-version }}"}'
       - name: ui dispatch
+        if: ${{ inputs.deploy }}
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.GH_CI_TOKEN }}
@@ -52,6 +56,7 @@ jobs:
           event-type: components-version-bump
           client-payload: '{"version": "${{ steps.package-version.outputs.current-version }}"}'
       - name: src dispatch
+        if: ${{ inputs.deploy }}
         uses: peter-evans/repository-dispatch@v2
         with:
           token: ${{ secrets.GH_CI_TOKEN }}
