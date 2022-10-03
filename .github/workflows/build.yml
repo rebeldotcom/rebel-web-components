@@ -30,8 +30,8 @@ jobs:
       - name: Version and publish to npm
         uses: bcomnes/npm-bump@v2.0.2
         with:
-          git_email: github-actions[bot]@users.noreply.github.com
-          git_username: github-actions[bot]
+          git_email: rebelautomation@users.noreply.github.com
+          git_username: rebelautomation
           newversion: patch
           push_version_commit: true
           github_token: ${{ secrets.GH_CI_TOKEN }}
