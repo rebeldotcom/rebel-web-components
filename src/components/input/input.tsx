@@ -65,6 +65,7 @@ const Input = React.forwardRef<HTMLInputElement>(
     {
       ariaLabel,
       autoComplete,
+      checked,
       disabled,
       errorMessage,
       hasError,
@@ -148,6 +149,7 @@ const Input = React.forwardRef<HTMLInputElement>(
             aria-label={ariaLabel}
             aria-required={required}
             autoComplete={autoComplete}
+            checked={checked}
             data-lpignore={autoComplete !== 'on'}
             disabled={disabled}
             id={id}
