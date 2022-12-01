@@ -19,7 +19,6 @@
     <img alt="" src=
   "https://img.shields.io/github/last-commit/rebeldotcom/rebel-web-components?style=for-the-badge">
   </a>
-  
   <a aria-label="license" href="https://github.com/rebeldotcom/rebel-web-components/blob/master/LICENSE">
     <img src="https://img.shields.io/github/license/rebeldotcom/rebel-web-components?style=for-the-badge" alt="">
   </a>
@@ -46,7 +45,19 @@ They make our lives easier, but you'll have to make sure your own project includ
 - [styled-normalize](https://github.com/sergeysova/styled-normalize)
 - [styled-reset](https://github.com/zacanger/styled-reset)
 
-## Installation
+## Local Development - Getting Started
+
+```sh
+npm install
+npm link
+npm run start - builds and watches files for changes
+
+  or 
+
+npm run build - only builds
+```
+
+## New Project Installation
 
 ```sh
 npm install --save react react-dom styled-components styled-system styled-normalize styled-reset @rebeldotcom/components
@@ -115,39 +126,6 @@ const App = () => {
 export default App;
 
 ```
-
-## The Theme
-
-## The Components, Providers and Hooks
-
-#### Components
-
-- Box
-- Badge
-- Button
-- Divider
-- Heading
-- HtmlBlock
-- Icon
-- Image (Not included anymore. Lives in CMS)
-- ImageBG (Not included anymore. Lives in CMS)
-- Input
-- Link
-- Loader
-- Message
-- Section
-- SectionBG (Not included anymore. Lives in CMS)
-- Skeleton
-- Text
-
-#### Providers
-
-- ModalProvider
-- ThemeProvider
-
-#### Hooks
-
-- useModal
 
 ## License
 
