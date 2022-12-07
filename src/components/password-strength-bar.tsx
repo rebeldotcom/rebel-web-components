@@ -37,7 +37,7 @@ function PasswordStrengthBar({
   minLength = 8,
   userInputs = [],
   scorePercentage = [0, 20, 50, 80, 100],
-  scoreWords = ['too short', 'weak', 'okay', 'good', 'strong'],
+  scoreWords = ['weak', 'weak', 'okay', 'good', 'strong'],
   scoreColors = [
     '',
     colors.destructive[500],
