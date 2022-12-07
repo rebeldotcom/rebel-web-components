@@ -30,6 +30,7 @@ import ProgressIndicator from './components/progress-indicator'
 import PasswordStrengthBar from './components/password-strength-bar'
 import AlertInline from './components/alert-inline'
 import IndeterminateLinearProgress from './components/indeterminate-progress-bar'
+import { TableHeader, TableHeaderLabel, TableItem } from './components/table'
 import {
   ThemeProvider,
   theme,
@@ -77,4 +78,7 @@ export {
   useModal,
   iconRepo,
   PasswordStrengthBar,
+  TableHeader,
+  TableHeaderLabel,
+  TableItem,
 }
