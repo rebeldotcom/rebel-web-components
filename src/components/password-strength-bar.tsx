@@ -37,7 +37,7 @@ function PasswordStrengthBar({
   minLength = 8,
   userInputs = [],
   scorePercentage = [0, 20, 50, 80, 100],
-  scoreWords = ['too short', 'weak', 'okay', 'good', 'strong'],
+  scoreWords = ['weak', 'weak', 'okay', 'good', 'strong'],
   scoreColors = [
     '',
     colors.destructive[500],
@@ -46,9 +46,10 @@ function PasswordStrengthBar({
     colors.success[500],
   ],
   showLabels = false,
+  showFeedback = false,
 }) {
   const [pwScore, setScore] = useState(0)
-  const [pwFeedback, setFeedback] = useState('')
+  const [pwFeedback, setFeedback] = useState(null)
   const [previousPw, setPrevPw] = useState(password)
 
   const calculateScore = () => {
@@ -59,7 +60,9 @@ function PasswordStrengthBar({
       setFeedback(feedback)
     } else {
       setScore(0)
-      setFeedback(`Password must be at least ${minLength}`)
+      setFeedback({
+        warning: `Password must be at least ${minLength} characters`,
+      })
     }
   }
 
@@ -75,6 +78,11 @@ function PasswordStrengthBar({
 
   return (
     <StyledStack>
+      {showLabels && password !== '' && (
+        <Text variant="milli" width={width}>
+          {scoreWords[pwScore]}
+        </Text>
+      )}
       <ProgressIndicator
         borderRadius={borderRadius}
         color={scoreColors[pwScore]}
@@ -84,9 +92,9 @@ function PasswordStrengthBar({
         variant="inverted"
         width={width}
       />
-      {showLabels && (
+      {showFeedback && (
         <Text variant="milli" width={width}>
-          {scoreWords[pwScore]}
+          {pwFeedback?.warning}
         </Text>
       )}
     </StyledStack>
