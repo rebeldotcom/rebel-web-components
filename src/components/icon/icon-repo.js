@@ -2822,20 +2822,6 @@ export default [
       }
     ],
     viewBox: '0 0 7.213 2.759',
-    attrs: [
-      {
-        fill: '#000000',
-      },
-      {
-        fill: '#FFFFFF',
-      },
-      {
-        fill: '#FFFFFF',
-      },
-      {
-        fill: '#FFFFFF',
-      },
-    ],
     tags: ['dot-xyz'],
   },
   {
