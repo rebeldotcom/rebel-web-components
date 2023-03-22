@@ -108,9 +108,6 @@ updates:
     versions:
     - 4.1.5
     - 4.2.2
-  - dependency-name: rollup-plugin-filesize
-    versions:
-    - 9.1.1
   - dependency-name: "@babel/preset-typescript"
     versions:
     - 7.12.13
