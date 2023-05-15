@@ -10,8 +10,8 @@ const SVG = styled.svg`
 
 const DEFAULT_VIEWBOX = '0 0 1024 1024'
 
-const getIconData = name =>
-  iconRepo.find(icon => icon.tags.find(t => t === name))
+const getIconData = (name: string) =>
+  iconRepo.find(icon => icon.tags.includes(name))
 
 const getIcon = name => {
   const selected = getIconData(name)
