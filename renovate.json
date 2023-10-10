@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "github>rebeldotcom/renovate-presets"
-  ],
-  "schedule": ["after 4am"]
+  "extends": ["github>rebeldotcom/renovate-presets"],
+  "schedule": ["after 4am"],
+  "engines": {
+    "npm": "^6.14.18"
+  }
 }
