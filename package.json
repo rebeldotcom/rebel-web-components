@@ -100,5 +100,8 @@
   },
   "dependencies": {
     "zxcvbn": "4.4.2"
+  },
+  "engines": {
+    "npm": "6.x"
   }
 }
