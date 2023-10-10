@@ -65,7 +65,7 @@
     "eslint-plugin-react-hooks": "4.6.0",
     "husky": "7.0.4",
     "install": "0.13.0",
-    "lint-staged": "13.2.0",
+    "lint-staged": "13.3.0",
     "npm": "8.11.0",
     "postcss": "8.4.31",
     "prettier": "2.8.8",
