@@ -83,7 +83,7 @@
     "rollup-plugin-terser": "7.0.2",
     "rollup-plugin-url": "3.0.1",
     "rollup-plugin-visualizer": "5.6.0",
-    "styled-components": "5.3.11",
+    "styled-components": "6.0.9",
     "styled-normalize": "8.0.7",
     "styled-reset": "4.3.4",
     "styled-system": "5.1.5",
@@ -93,7 +93,7 @@
     "prop-types": "15.8.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "5.3.11",
+    "styled-components": "6.0.9",
     "styled-normalize": "8.0.7",
     "styled-reset": "4.3.4",
     "styled-system": "5.1.5"
