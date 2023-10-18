@@ -28,7 +28,7 @@ jobs:
       - name: Build package
         run: npm run build
       - name: Version and publish to npm
-        uses: bcomnes/npm-bump@v2.0.2
+        uses: bcomnes/npm-bump@v2.2.1
         with:
           git_email: rebelautomation@users.noreply.github.com
           git_username: rebelautomation
