@@ -1,5 +1,6 @@
 import Box from './components/box'
 import Button from './components/button'
+import Popover from './components/popover'
 import Text from './components/text'
 import DatePicker from './components/datepicker'
 import Divider from './components/divider'
@@ -59,6 +60,7 @@ export {
   Message,
   ModalProvider,
   Pagination,
+  Popover,
   ProgressBar,
   ProgressIndicator,
   IndeterminateLinearProgress,
