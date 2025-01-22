@@ -6,12 +6,17 @@
     "jsx": "react",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "strict": false,
-    "noEmit": true,
+    "strict": true,
+    "noEmit": false, // Allow TypeScript to emit output
+    "emitDeclarationOnly": true, // Emit only declaration files, no JavaScript
+    "declaration": true, // Generate declaration files
+    "declarationDir": "build/types", // Output directory for declaration files
     "experimentalDecorators": true,
     "baseUrl": "./",
     "allowSyntheticDefaultImports": true,
     "noErrorTruncation": true,
     "allowJs": true
-  }
+  },
+  "include": ["src/**/*", "@types/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -1,1 +1,3 @@
-export { default } from './style-reset'
+import StyleReset from './style-reset'
+
+export default StyleReset

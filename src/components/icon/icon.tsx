@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import { SpaceProps } from 'styled-system'
 import iconRepo from './icon-repo'
 import Box from '../box'
 
@@ -13,7 +13,7 @@ const DEFAULT_VIEWBOX = '0 0 1024 1024'
 const getIconData = (name: string) =>
   iconRepo.find(icon => icon.tags.includes(name))
 
-const getIcon = name => {
+const getIcon = (name: string) => {
   const selected = getIconData(name)
 
   if (!selected) {
@@ -54,7 +54,7 @@ const getIcon = name => {
   })
 }
 
-const getIconViewbox = name => {
+const getIconViewbox = (name: string) => {
   const selected = getIconData(name)
 
   if (!selected || !selected.viewBox) {
@@ -73,8 +73,10 @@ type IconProps = {
   descId?: string
   desc?: string
   color?: string
+  viewBox?: string
   containerProps?: {}
-}
+} & SpaceProps &
+  HTMLAttributes<HTMLDivElement>
 
 function Icon({
   name,
@@ -88,16 +90,16 @@ function Icon({
   ...rest
 }: IconProps) {
   const iconShapes = getIcon(name)
-  const viewBox = getIconViewbox(name)
+  const calcViewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
   return (
-    <Box {...containerProps} {...rest} height={height} width={width}>
+    <Box {...containerProps} height={height} width={width} {...rest}>
       <SVG
         aria-labelledby={ariaLabelledBy}
         height={height}
         role="img"
-        viewBox={viewBox}
+        viewBox={calcViewBox}
         width={width}
       >
         <title id={titleId}>{title}</title>
@@ -108,7 +110,5 @@ function Icon({
     </Box>
   )
 }
-
-Icon.getIcon = getIcon
 
 export default Icon

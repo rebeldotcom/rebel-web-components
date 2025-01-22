@@ -21,10 +21,6 @@ import {
 } from 'styled-system'
 import styled from 'styled-components'
 
-interface As {
-  as?: React.ElementType
-}
-
 export type BoxProps = React.RefAttributes<HTMLElement> &
   React.HTMLAttributes<HTMLElement> &
   LayoutProps &
@@ -35,8 +31,9 @@ export type BoxProps = React.RefAttributes<HTMLElement> &
   ShadowProps &
   BorderProps &
   BackgroundProps &
-  GridProps &
-  As
+  GridProps & {
+    as?: React.ElementType
+  }
 
 const transform = system({
   transform: true,

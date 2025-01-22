@@ -75,19 +75,20 @@ interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
 
 function Popover({ children, trigger, ...rest }: PopoverProps) {
   const [isVisible, setIsVisible] = useState<boolean>(false)
-  const popoverRef = useRef(null)
-  const triggerRef = useRef(null)
+  const popoverRef = useRef<HTMLDivElement | null>(null)
+  const triggerRef = useRef<HTMLButtonElement | null>(null)
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible)
   }
 
   useEffect(() => {
-    const handleClickOutside = event => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         popoverRef.current &&
-        !popoverRef.current.contains(event.target) &&
-        !triggerRef.current.contains(event.target)
+        !popoverRef.current.contains(event.target as Node) &&
+        triggerRef.current &&
+        !triggerRef.current.contains(event.target as Node)
       ) {
         setIsVisible(false) // Close the popover if clicked outside
       }

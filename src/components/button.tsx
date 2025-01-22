@@ -1,20 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
-import { space, layout, alignSelf, position } from 'styled-system'
-import { buttonStyles } from '../styles/custom-utils'
+import {
+  space,
+  layout,
+  position,
+  alignSelf,
+  AlignSelfProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+} from 'styled-system'
+import { redesignTheme } from '../styles'
+import { ButtonSize, buttonStyles, ButtonVariant } from '../styles/custom-utils'
 
-type ButtonProps = {
-  ariaLabel: string
-  as?: string
-  children: React.ReactNode
+interface StyledButtonProps {
   disabled?: boolean
-  display?: string
-  id: string
-  onClick: Function
-  title?: string
+  variant?: ButtonVariant
+  size?: ButtonSize
+  color?: keyof (typeof redesignTheme)['colors']
 }
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<StyledButtonProps>`
+  display: 'flex';
   align-items: center;
   justify-content: center;
 
@@ -36,23 +43,28 @@ const StyledButton = styled.button`
   }
 `
 
+interface ButtonProps
+  extends SpaceProps,
+    LayoutProps,
+    PositionProps,
+    AlignSelfProps,
+    React.HTMLAttributes<HTMLButtonElement> {
+  ariaLabel?: string
+  disabled?: boolean
+  variant?: ButtonVariant
+  size?: ButtonSize
+  color?: keyof (typeof redesignTheme)['colors']
+}
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      id,
-      onClick,
-      children,
-      ariaLabel,
-      display = 'flex',
-      title,
-      disabled,
-      ...rest
-    },
-    ref
-  ) => {
-    const handleButtonClick = event => {
+  ({ id, onClick, children, ariaLabel, title, disabled, ...rest }, ref) => {
+    const handleButtonClick: React.MouseEventHandler<
+      HTMLButtonElement
+    > = event => {
       event.preventDefault()
-      onClick()
+      if (onClick) {
+        onClick(event)
+      }
     }
 
     return (
@@ -61,9 +73,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         aria-label={ariaLabel}
         data-testid={id}
         disabled={disabled}
-        display={display}
         id={id}
-        onClick={onClick && handleButtonClick}
+        onClick={handleButtonClick}
         title={title || ariaLabel}
         type="button"
         {...rest}
@@ -75,6 +86,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 
 Button.displayName = 'Button'
-Button.variants = buttonStyles
 
 export default Button

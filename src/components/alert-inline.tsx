@@ -9,7 +9,7 @@ const {
   colors: { primary, neutral, success, destructive, warning },
 } = swiftTheme
 
-const getAlertColorScheme = variant => {
+const getAlertColorScheme = (variant: AlertVariant) => {
   switch (variant) {
     case 'success':
       return {
@@ -68,11 +68,11 @@ interface AlertInlineProps {
 }
 
 function AlertInline({
-  notificationTitle = 'Note',
   showTitle = true,
-  body,
   variant = 'neutral',
   icon = 'notification',
+  notificationTitle = 'Note',
+  body,
   onClose,
   ...props
 }: AlertInlineProps) {

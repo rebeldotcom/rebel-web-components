@@ -70,7 +70,7 @@ const StyledRadio = styled(Box)`
   }
 `
 
-const Radio = ({
+function Radio({
   isChecked,
   value,
   onChange,
@@ -78,7 +78,7 @@ const Radio = ({
   id,
   name,
   ...rest
-}: RadioProps) => {
+}: RadioProps) {
   return (
     <StyledRadio as="label" htmlFor={id} {...rest}>
       <input

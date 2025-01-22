@@ -1,3 +1,4 @@
+import { ElementType } from 'react'
 import styled from 'styled-components'
 import {
   flexbox,
@@ -10,6 +11,14 @@ import {
   layout,
   textStyle,
   variant,
+  FlexboxProps,
+  ColorProps,
+  BorderProps,
+  DisplayProps,
+  SpaceProps,
+  TypographyProps,
+  LayoutProps,
+  TextStyleProps,
 } from 'styled-system'
 
 const textTransform = system({
@@ -21,17 +30,21 @@ const textVariants = variant({
   prop: 'variant',
 })
 
-const truncateText = ({ truncate }) => {
-  if (!truncate) return ''
+type TextProps = LayoutProps &
+  FlexboxProps &
+  ColorProps &
+  BorderProps &
+  DisplayProps &
+  SpaceProps &
+  TypographyProps &
+  TextStyleProps & {
+    textTransform?: string
+    variant?: string
+    htmlFor?: string
+    as?: ElementType
+  }
 
-  return `
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  `
-}
-
-const Text = styled.div`
+const Text = styled.div<TextProps>`
   ${border}
   ${color}
   ${display}
@@ -39,7 +52,6 @@ const Text = styled.div`
   ${space}
   ${typography}
   ${textStyle}
-  ${truncateText}
   ${textTransform}
   ${flexbox}
   ${textVariants}

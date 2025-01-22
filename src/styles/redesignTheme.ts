@@ -1,4 +1,4 @@
-import { theme as baseTheme } from './theme.ts'
+import { theme as baseTheme } from './theme'
 
 const redesignColors = {
   ...baseTheme.colors,
@@ -33,9 +33,9 @@ const redesignColors = {
   alert: '#FFD081',
 }
 
-const redesignBorders = [`1px solid ${redesignColors.green}`]
-// eslint-disable-next-line prefer-destructuring
-redesignBorders.green = redesignBorders[0]
+const redesignBorders = {
+  green: `1px solid ${redesignColors.green}`,
+}
 
 const theme = {
   ...baseTheme,

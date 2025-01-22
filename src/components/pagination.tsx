@@ -27,7 +27,7 @@ interface PaginationProps {
   total: number
   count?: number
   rowsPerPageOptions?: {
-    display: any
+    display: number
     value: number
   }[]
   showRowSelector?: boolean
@@ -40,7 +40,7 @@ const defaultRowsPerPage = [
   { value: 100, display: 100 },
 ]
 
-const Pagination = ({
+function Pagination({
   count = 3,
   total,
   onPageChange,
@@ -49,10 +49,10 @@ const Pagination = ({
   showRowSelector = false,
   showResultCount = false,
   ...props
-}: PaginationProps): React.ReactNode => {
+}: PaginationProps): React.ReactNode {
   const [current, setCurrent] = useState(1)
   const [currentIdx, setCurrentIdx] = useState(0)
-  const [countPerPage, setCountPerPage] = useState(rowsPerPage)
+  const [countPerPage, setCountPerPage] = useState<number>(rowsPerPage)
   const [turns, setTurns] = useState(1)
   let offset = (current - 1) * countPerPage
   const didMount = useRef(true) // used to track if this is the first time the component renders
@@ -61,7 +61,7 @@ const Pagination = ({
   const lowerBound = Math.ceil((count - 1) / 2)
 
   /* Handles when the user clicks on a page number */
-  const onPageSelect = (page, idx) => {
+  const onPageSelect = (page: number, idx: number) => {
     setCurrent(page)
     if (idx === 0 && page !== 1) {
       setCurrentIdx(lowerBound)
@@ -92,7 +92,7 @@ const Pagination = ({
     }
   }
 
-  const onRowSelectChange = item => {
+  const onRowSelectChange = (item: number) => {
     setCountPerPage(item)
     offset = 0
     setCurrent(1)
@@ -128,7 +128,11 @@ const Pagination = ({
           </Text>
           <Select
             id="row-selector"
-            onChange={onRowSelectChange}
+            onChange={e => {
+              if (typeof e === 'number') {
+                onRowSelectChange(e)
+              }
+            }}
             options={rowsPerPageOptions}
             value={countPerPage}
           />

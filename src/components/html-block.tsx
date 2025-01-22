@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import {
   space,
   SpaceProps,
@@ -55,8 +55,8 @@ const Block: React.FC<BoxProps> = styled.div`
   }
 `
 
-const HtmlBlock = ({ children, ...rest }) => (
-  <Block {...rest} dangerouslySetInnerHTML={{ __html: children }} />
-)
+function HtmlBlock({ children, ...rest }: { children: ReactNode }) {
+  return <Block {...rest}>{children}</Block>
+}
 
 export default HtmlBlock

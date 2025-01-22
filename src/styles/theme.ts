@@ -1,21 +1,19 @@
 import { css, keyframes } from 'styled-components'
 
-/* eslint-disable prefer-destructuring */
 // Need to set value since styled-system no longer provides this in v5+
-const remify = n => `${n / 10}rem`
-const pixify = n => `${n}px`
+const remify = (n: number) => `${n / 10}rem`
+const pixify = (n: number) => `${n}px`
 
-const space = [0, 4, 8, 16, 32, 64, 128, 256, 512].map(remify)
-
-const [none, quarter, half, regular, big, bigger, biggest] = space
-
-space.none = none
-space.quarter = quarter
-space.half = half
-space.regular = regular
-space.big = big
-space.bigger = bigger
-space.biggest = biggest
+const space = {
+  none: remify(0),
+  quarter: remify(4),
+  half: remify(8),
+  regular: remify(16),
+  big: remify(32),
+  bigger: remify(64),
+  biggest: remify(128),
+  values: [0, 4, 8, 16, 32, 64, 128, 256, 512].map(remify),
+} as const
 
 const sizes = {
   containers: {
@@ -231,21 +229,14 @@ const fontWeights = {
 
 const breakpoints = [600, 900, 1200].map(pixify)
 
-const borders = [
-  'none',
-  `1px solid ${colors.greyDark}`,
-  `1px solid ${colors.greyLight}`,
-  `1px solid ${colors.white}`,
-  `1px solid ${colors.red}`,
-  `1px solid ${colors.blackLighter}`,
-]
-
-borders.none = borders[0]
-borders.light = borders[2]
-borders.dark = borders[5]
-borders.input = borders[2]
-borders.error = borders[4]
-borders.blackLighter = borders[5]
+const borders = {
+  none: 'none',
+  light: `1px solid ${colors.greyLight}`,
+  dark: `1px solid ${colors.blackLighter}`,
+  input: `1px solid ${colors.greyLight}`,
+  error: `1px solid ${colors.red}`,
+  blackLighter: `1px solid ${colors.blackLighter}`,
+}
 
 // Example for shadows
 const shadows = [`0.5rem 0.5rem 1rem ${colors.black}44`]
@@ -470,60 +461,53 @@ const screen = {
   largeUp: '1201px',
 }
 
-// 1366x768
-// 1920x1080
-// 360x640
-// 1440x900
-// 1536x864
-// 1600x900
-
 const media = {
-  smallLaptop: (...args) => css`
+  smallLaptop: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: 700px) and (max-height: 400px) and (orientation: portrait) {
       ${css(...args)};
     }
   `,
-  smallAndDown: (...args) => css`
+  smallAndDown: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: ${screen.small}) {
       ${css(...args)};
     }
   `,
-  mediumOnly: (...args) => css`
+  mediumOnly: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.smallUp}) and (max-width: ${screen.medium}) {
       ${css(...args)};
     }
   `,
-  mediumAndDown: (...args) => css`
+  mediumAndDown: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: ${screen.medium}) {
       ${css(...args)};
     }
   `,
-  mediumAndUp: (...args) => css`
+  mediumAndUp: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.smallUp}) {
       ${css(...args)};
     }
   `,
-  largeAndDown: (...args) => css`
+  largeAndDown: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: ${screen.large}) {
       ${css(...args)};
     }
   `,
-  largeAndUp: (...args) => css`
+  largeAndUp: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.mediumUp}) {
       ${css(...args)};
     }
   `,
-  veryLarge: (...args) => css`
+  veryLarge: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.largeUp}) {
       ${css(...args)};
     }
   `,
-  rotated: (...args) => css`
+  rotated: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (orientation: landscape) {
       ${css(...args)};
     }
   `,
-  touch: (...args) => css`
+  touch: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media (hover: none) {
       ${css(...args)};
     }

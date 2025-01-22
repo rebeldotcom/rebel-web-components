@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components'
 import {
   color,
   ColorProps,
@@ -13,14 +13,15 @@ import {
   space,
   SpaceProps,
   variant,
+  TypographyProps,
 } from 'styled-system'
 import Box from './box'
 
 type ProgressBarProps = {
-  decimal: number
+  decimal?: number
   progress: number
   maximum: number
-  variant: string
+  variant: DefaultTheme['textVariants']
 }
 
 export type BoxProps = React.RefAttributes<HTMLElement> &
@@ -29,7 +30,10 @@ export type BoxProps = React.RefAttributes<HTMLElement> &
   ColorProps &
   SpaceProps &
   FlexboxProps &
-  BorderProps
+  TypographyProps &
+  BorderProps & {
+    variant: DefaultTheme['textVariants']
+  }
 
 const textVariants = variant({
   scale: 'textVariants',
@@ -47,7 +51,7 @@ const Progress: React.FC<BoxProps> = styled.div`
 `
 
 const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
-  ({ progress, maximum, variant, decimal, ...rest }, ref) => {
+  ({ progress, maximum, variant, decimal = 0, ...rest }, ref) => {
     return (
       <Box ref={ref} {...rest}>
         <Box bg="greyLight" borderRadius="3rem" width="100%">
@@ -70,6 +74,7 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
     )
   }
 )
-ProgressBar.defaultProps = { decimal: 0 }
+
 ProgressBar.displayName = 'ProgressBar'
+
 export default ProgressBar

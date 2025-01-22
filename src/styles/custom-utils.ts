@@ -1,4 +1,5 @@
-const isEmpty = val => val == null || !(Object.keys(val) || val).length
+import { DefaultTheme } from 'styled-components'
+import { redesignTheme } from '.'
 
 const defaultButtonStyles = `
   appearance: none;
@@ -16,12 +17,30 @@ const defaultButtonStyles = `
   border-style: solid;
 `
 
+export type ButtonVariant =
+  | 'solid'
+  | 'inverse'
+  | 'minimal'
+  | 'navbar'
+  | 'underlined'
+  | 'scroll-widget'
+  | 'link'
+  | 'basic'
+
+export type ButtonSize = 'small' | 'base' | 'large' | 'wide'
+interface ButtonStylesProps {
+  theme: DefaultTheme
+  color?: keyof (typeof redesignTheme)['colors']
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
 export const buttonStyles = ({
-  color,
   theme,
-  variant = 'solid',
   size = 'base',
-}) => {
+  variant = 'solid',
+  color = 'greenDark',
+}: ButtonStylesProps): string => {
   const colors = {
     red: {
       bg: theme.colors.red,
@@ -152,8 +171,9 @@ export const buttonStyles = ({
     wide: `${theme.space.half} ${theme.space.bigger}`,
   }
 
-  const baseColor = isEmpty(color) ? 'greenDark' : color
-  const { text, hover, bg } = colors[baseColor]
+  const selectedColor =
+    color in colors ? (color as keyof typeof colors) : 'greenDark'
+  const { text, hover, bg } = colors[selectedColor]
   const { radii } = theme
 
   const padding = `padding: ${paddingVariants[size]};`
@@ -209,14 +229,14 @@ export const buttonStyles = ({
 
         &:hover,
         &:focus {
-          color: ${theme.black};
+          color: ${theme.colors.black};
           border-color: ${hover};
         }
 
         &,
         &:link,
         &:visited {
-          color: ${theme.black};
+          color: ${theme.colors.black};
         }
 
       `
