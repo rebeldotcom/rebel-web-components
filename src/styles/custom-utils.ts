@@ -1,3 +1,5 @@
+import { swiftTheme } from './swift-theme'
+
 const isEmpty = val => val == null || !(Object.keys(val) || val).length
 
 const defaultButtonStyles = `
@@ -159,6 +161,44 @@ export const buttonStyles = ({
   const padding = `padding: ${paddingVariants[size]};`
 
   switch (variant) {
+    case 'rounded': {
+      return `
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        background: ${swiftTheme.colors.primary[900]};
+        border: 0.8px solid ${swiftTheme.colors.primary[900]};
+        border-radius: ${radii.rounded};
+        padding: 12px 25px;
+        color: white;
+
+        &:hover {
+          background: ${swiftTheme.colors.primary[800]};
+          border: 0.8px solid ${swiftTheme.colors.primary[800]};
+        }
+      `
+    }
+    case 'rounded-inverse': {
+      return `
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+        background: white;
+        border: 0.8px solid ${swiftTheme.colors.primary[500]};
+        border-radius: ${radii.rounded};
+        padding: 12px 25px;
+        color: ${swiftTheme.colors.neutral[900]};
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.05);
+          border: 1px solid ${swiftTheme.colors.primary[800]};
+        }
+      `
+    }
     case 'solid': {
       return `
         transition: all .2s;
