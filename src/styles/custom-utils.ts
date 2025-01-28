@@ -166,13 +166,16 @@ export const buttonStyles = ({
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
         transition: all 0.2s;
         background: ${swiftTheme.colors.primary[900]};
         border: 0.8px solid ${swiftTheme.colors.primary[900]};
         border-radius: ${radii.rounded};
-        padding: 12px 25px;
+        padding: 10px;
         color: white;
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 600;
 
         &:hover {
           background: ${swiftTheme.colors.primary[800]};
@@ -185,13 +188,16 @@ export const buttonStyles = ({
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 12px;
         transition: all 0.2s;
         background: white;
         border: 0.8px solid ${swiftTheme.colors.primary[500]};
         border-radius: ${radii.rounded};
-        padding: 12px 25px;
+        padding: 10px;
         color: ${swiftTheme.colors.neutral[900]};
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 600;
 
         &:hover {
           background: rgba(0, 0, 0, 0.05);
