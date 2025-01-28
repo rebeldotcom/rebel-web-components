@@ -254,6 +254,7 @@ const radii = {
   none: 0,
   small: '1px',
   large: '2px',
+  rounded: '999px',
 }
 
 const textStyles = {
