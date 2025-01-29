@@ -41,8 +41,8 @@ const theme = {
   ...baseTheme,
   fonts: {
     ...baseTheme.fonts,
-    title: `ivyjournal, sans-serif;`,
-    body: `'work-sans', sans-serif;`,
+    title: `'DM Sans', Inter, ivyjournal, sans-serif;`,
+    body: `Inter, Montserrat, 'work-sans', sans-serif;`,
   },
   colors: {
     ...redesignColors,
