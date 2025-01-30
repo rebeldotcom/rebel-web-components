@@ -1,30 +1,12 @@
-import React, { HTMLAttributes } from 'react'
-import PropTypes from 'prop-types'
-import { redesignTheme } from '../styles'
-import Text from './text'
-
-const propTypes = {
-  bg: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  color: PropTypes.string,
-}
-
-const defaultProps = {
-  bg: 'black',
-  color: 'white',
-}
-
-interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
-  bg?: keyof (typeof redesignTheme)['colors']
-  color?: keyof (typeof redesignTheme)['colors']
-}
+import React from 'react'
+import Text, { TextProps } from './text'
 
 export default function Badge({
   children,
   bg = 'black',
   color = 'white',
   ...rest
-}: BadgeProps) {
+}: TextProps) {
   return (
     <Text
       alignItems="center"
@@ -41,6 +23,3 @@ export default function Badge({
     </Text>
   )
 }
-
-Badge.propTypes = propTypes
-Badge.defaultProps = defaultProps

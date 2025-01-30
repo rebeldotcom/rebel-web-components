@@ -49,7 +49,7 @@ interface ModalProps {
 
 function useModal() {
   const [isOpen, setIsOpen] = useState(false)
-  const containerRef = useRef<HTMLElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
   const openModal = () => {
     setIsOpen(true)

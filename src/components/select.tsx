@@ -1,17 +1,10 @@
-import React, { ComponentProps } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import {
-  border,
-  BorderProps,
-  layout,
-  LayoutProps,
-  space,
-  SpaceProps,
-} from 'styled-system'
+import { border, layout, space } from 'styled-system'
 import Stack from './stack'
 import Text from './text'
 import Skeleton from './skeleton'
-import { StackProps } from './stack/stack'
+import { BoxProps } from './box'
 
 type Option = {
   value: string | number
@@ -19,25 +12,18 @@ type Option = {
   disabled?: boolean
 }
 
-type SelectProps = StackProps & {
+type SelectProps = BoxProps & {
   isLoading?: boolean
-  id: string
   label?: string
   selected?: string
   options: Option[]
   hint?: string
   value?: string | number
   onChange: (x: string | number) => void
+  e?: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-type SelectComponentProps = ComponentProps<'select'> &
-  BorderProps &
-  LayoutProps &
-  SpaceProps & {
-    e?: (e: React.ChangeEvent<HTMLSelectElement>) => void
-  }
-
-const SelectComponent: React.FC<SelectComponentProps> = styled.select`
+const SelectComponent = styled.select<SelectProps>`
   display: flex;
   color: #000;
   background: transparent;
@@ -74,7 +60,12 @@ function Select({
         >
           {label}
           {hint && (
-            <Text fontWeight="400" mb={1} textTransform="none" variant="micro">
+            <Text
+              fontWeight="regular"
+              mb={1}
+              textTransform="none"
+              variant="micro"
+            >
               {hint}
             </Text>
           )}
@@ -88,7 +79,11 @@ function Select({
           border={2}
           e={handleOnChange}
           id={id}
-          onChange={handleOnChange}
+          onChange={e =>
+            handleOnChange(e as React.ChangeEvent<HTMLSelectElement>)
+          }
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           p="2px 2rem 2px 5px"
           value={value}
           width="100%"

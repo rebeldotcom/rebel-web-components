@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { ComponentProps, Ref } from 'react'
+import styled, { DefaultTheme } from 'styled-components'
 import {
   margin,
   typography,
@@ -11,7 +11,6 @@ import {
   PositionProps,
   SpaceProps,
 } from 'styled-system'
-import { redesignTheme } from '../styles'
 import { ButtonSize, buttonStyles, ButtonVariant } from '../styles/custom-utils'
 
 const textDecoration = system({
@@ -37,48 +36,51 @@ interface LinkProps
     LayoutProps,
     PositionProps,
     AlignSelfProps,
-    React.HTMLAttributes<HTMLAnchorElement> {
+    ComponentProps<'a'> {
   ariaLabel: string
-  href: string
-  id: string
   to?: string
   testId?: string
   variant?: ButtonVariant
   newTab?: boolean
   size?: ButtonSize
-  color?: keyof (typeof redesignTheme)['colors']
+  color?: keyof DefaultTheme['colors']
+  ref: Ref<HTMLAnchorElement> | undefined
 }
 
-const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  (
-    { ariaLabel, variant = 'default', newTab, testId, children, to, ...rest },
-    ref
-  ) => {
-    if (!rest.href && !to) {
-      // eslint-disable-next-line no-console
-      console.warn('You must supply a `to` or `href` prop to Link!')
-    }
-
-    if (!rest.href && to) {
-      rest.href = to
-    }
-
-    return (
-      <StyledLink
-        ref={ref}
-        aria-label={ariaLabel}
-        ariaLabel={ariaLabel}
-        data-testid={testId}
-        target={newTab ? '_blank' : ''}
-        title={ariaLabel}
-        variant={variant}
-        {...rest}
-      >
-        {children}
-      </StyledLink>
-    )
+function Link({
+  ariaLabel,
+  onClick,
+  variant = 'default',
+  newTab,
+  testId,
+  children,
+  to,
+  ...rest
+}: LinkProps) {
+  if (!rest.href && !to) {
+    // eslint-disable-next-line no-console
+    console.warn('You must supply a `to` or `href` prop to Link!')
   }
-)
+
+  if (!rest.href && to) {
+    rest.href = to
+  }
+
+  return (
+    <StyledLink
+      aria-label={ariaLabel}
+      ariaLabel={ariaLabel}
+      data-testid={testId}
+      onClick={onClick}
+      target={newTab ? '_blank' : ''}
+      title={ariaLabel}
+      variant={variant}
+      {...rest}
+    >
+      {children}
+    </StyledLink>
+  )
+}
 
 Link.displayName = 'Link'
 

@@ -63,7 +63,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    const [showPassword, setShowPassword] = useState(type !== 'password')
+    const [showPassword, setShowPassword] = useState<boolean>(
+      type !== 'password'
+    )
 
     const renderSuffix = () => {
       if (!suffix) return null
@@ -176,7 +178,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {label}
             {hint && (
               <Text
-                fontWeight="400"
+                fontWeight="regular"
                 mb={1}
                 textTransform="none"
                 variant="micro"

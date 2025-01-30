@@ -1,6 +1,7 @@
+/* eslint-disable react/boolean-prop-naming -- Legacy code */
 import React, { useState, useRef, useLayoutEffect } from 'react'
 import styled from 'styled-components'
-import Box from './box'
+import Box, { BoxProps } from './box'
 import Text from './text'
 import Stack from './stack'
 import Select from './select'
@@ -21,7 +22,7 @@ const PrevButton = styled(Icon)`
   transform: rotate(180deg);
 `
 
-interface PaginationProps {
+type PaginationProps = BoxProps & {
   onPageChange: (offset: number, limit?: number) => {}
   rowsPerPage: number
   total: number

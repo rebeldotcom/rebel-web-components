@@ -1,9 +1,7 @@
 import React from 'react'
-import Box from '../box'
+import Box, { BoxProps } from '../box'
 
-interface GridProps extends React.HTMLAttributes<HTMLDivElement> {}
-
-const Grid = React.forwardRef<HTMLDivElement, GridProps>(
+const Grid = React.forwardRef<HTMLDivElement, BoxProps>(
   ({ children, ...rest }, ref) => {
     return (
       <Box ref={ref} display="grid" {...rest}>

@@ -1,8 +1,7 @@
-import React, { HTMLAttributes } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { SpaceProps } from 'styled-system'
 import iconRepo from './icon-repo'
-import Box from '../box'
+import Box, { BoxProps } from '../box'
 
 const SVG = styled.svg`
   fill: currentColor;
@@ -72,11 +71,9 @@ type IconProps = {
   titleId?: string
   descId?: string
   desc?: string
-  color?: string
   viewBox?: string
-  containerProps?: {}
-} & SpaceProps &
-  HTMLAttributes<HTMLDivElement>
+  containerProps?: BoxProps
+} & BoxProps
 
 function Icon({
   name,

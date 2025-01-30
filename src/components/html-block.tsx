@@ -12,7 +12,7 @@ import {
 import styled from 'styled-components'
 import { BoxProps } from './box'
 
-const Block: React.FC<BoxProps> = styled.div`
+const Block: React.FC<BoxProps> = styled.div<BoxProps>`
   ${border}
   ${color}
   ${flexbox}

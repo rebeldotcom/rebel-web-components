@@ -1,5 +1,5 @@
-import { ElementType } from 'react'
-import styled from 'styled-components'
+import { ElementType, HTMLAttributes } from 'react'
+import styled, { DefaultTheme } from 'styled-components'
 import {
   flexbox,
   color,
@@ -30,21 +30,22 @@ const textVariants = variant({
   prop: 'variant',
 })
 
-type TextProps = LayoutProps &
-  FlexboxProps &
-  ColorProps &
-  BorderProps &
-  DisplayProps &
-  SpaceProps &
-  TypographyProps &
-  TextStyleProps & {
+export type TextProps = HTMLAttributes<HTMLDivElement> &
+  LayoutProps<DefaultTheme> &
+  FlexboxProps<DefaultTheme> &
+  ColorProps<DefaultTheme> &
+  BorderProps<DefaultTheme> &
+  DisplayProps<DefaultTheme> &
+  SpaceProps<DefaultTheme> &
+  TypographyProps<DefaultTheme> &
+  TextStyleProps<DefaultTheme> & {
     textTransform?: string
-    variant?: string
+    variant?: keyof DefaultTheme['textVariants']
     htmlFor?: string
     as?: ElementType
   }
 
-const Text = styled.div<TextProps>`
+const Text: React.FC<TextProps> = styled.div<TextProps>`
   ${border}
   ${color}
   ${display}

@@ -1,5 +1,4 @@
 import { DefaultTheme } from 'styled-components'
-import { redesignTheme } from '.'
 import { swiftTheme } from './swift-theme'
 
 const defaultButtonStyles = `
@@ -34,7 +33,7 @@ export type ButtonVariant =
 export type ButtonSize = 'small' | 'base' | 'large' | 'wide'
 interface ButtonStylesProps {
   theme: DefaultTheme
-  color?: keyof (typeof redesignTheme)['colors']
+  color?: keyof DefaultTheme['colors']
   variant?: ButtonVariant
   size?: ButtonSize
 }

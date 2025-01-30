@@ -18,20 +18,24 @@ import {
   grid,
   GridProps,
   system,
+  DisplayProps,
+  display,
 } from 'styled-system'
-import styled from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components'
+import React from 'react'
 
-export type BoxProps = React.RefAttributes<HTMLElement> &
-  React.HTMLAttributes<HTMLElement> &
-  LayoutProps &
-  ColorProps &
-  SpaceProps &
-  PositionProps &
-  FlexboxProps &
-  ShadowProps &
-  BorderProps &
-  BackgroundProps &
-  GridProps & {
+export type BoxProps = React.RefAttributes<HTMLDivElement> &
+  React.HTMLAttributes<HTMLDivElement> &
+  LayoutProps<DefaultTheme> &
+  FlexboxProps<DefaultTheme> &
+  ColorProps<DefaultTheme> &
+  BorderProps<DefaultTheme> &
+  DisplayProps<DefaultTheme> &
+  SpaceProps<DefaultTheme> &
+  PositionProps<DefaultTheme> &
+  ShadowProps<DefaultTheme> &
+  BackgroundProps<DefaultTheme> &
+  GridProps<DefaultTheme> & {
     as?: React.ElementType
   }
 
@@ -39,9 +43,10 @@ const transform = system({
   transform: true,
 })
 
-const Box: React.FC<BoxProps> = styled.div`
+const Box: React.FC<BoxProps> = styled.div<BoxProps>`
   ${border}
   ${color}
+  ${display}
   ${flexbox}
   ${layout}
   ${position}

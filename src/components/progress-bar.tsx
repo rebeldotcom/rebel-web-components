@@ -54,7 +54,7 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
   ({ progress, maximum, variant, decimal = 0, ...rest }, ref) => {
     return (
       <Box ref={ref} {...rest}>
-        <Box bg="greyLight" borderRadius="3rem" width="100%">
+        <Box bg="greyLight" borderRadius="rounded" width="100%">
           <Progress
             alignItems="center"
             bg={progress === 0 ? 'none' : 'green'}

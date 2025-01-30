@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { HTMLAttributes } from 'react'
+import styled, { DefaultTheme } from 'styled-components'
 import {
   space,
   layout,
@@ -10,7 +10,6 @@ import {
   PositionProps,
   SpaceProps,
 } from 'styled-system'
-import { redesignTheme } from '../styles'
 import { ButtonSize, buttonStyles, ButtonVariant } from '../styles/custom-utils'
 
 const StyledButton = styled.button<ButtonProps>`
@@ -35,18 +34,17 @@ const StyledButton = styled.button<ButtonProps>`
   }
 `
 
-interface ButtonProps
-  extends SpaceProps,
-    LayoutProps,
-    PositionProps,
-    AlignSelfProps,
-    React.HTMLAttributes<HTMLButtonElement> {
-  ariaLabel?: string
-  disabled?: boolean
-  variant?: ButtonVariant
-  size?: ButtonSize
-  color?: keyof (typeof redesignTheme)['colors']
-}
+type ButtonProps = HTMLAttributes<HTMLButtonElement> &
+  SpaceProps<DefaultTheme> &
+  LayoutProps<DefaultTheme> &
+  PositionProps<DefaultTheme> &
+  AlignSelfProps<DefaultTheme> & {
+    ariaLabel?: string
+    disabled?: boolean
+    variant?: ButtonVariant
+    size?: ButtonSize
+    color?: keyof DefaultTheme['colors']
+  }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (

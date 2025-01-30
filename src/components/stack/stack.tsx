@@ -1,29 +1,7 @@
 import React from 'react'
-import {
-  LayoutProps,
-  ColorProps,
-  SpaceProps,
-  PositionProps,
-  FlexboxProps,
-  ShadowProps,
-  BorderProps,
-  BackgroundProps,
-  GridProps,
-} from 'styled-system'
-import Box from '../box'
+import Box, { BoxProps } from '../box'
 
-export type StackProps = React.HTMLAttributes<HTMLDivElement> &
-  LayoutProps &
-  ColorProps &
-  SpaceProps &
-  PositionProps &
-  FlexboxProps &
-  ShadowProps &
-  BorderProps &
-  BackgroundProps &
-  GridProps & {}
-
-const Stack = React.forwardRef<HTMLDivElement, StackProps>(
+const Stack = React.forwardRef<HTMLDivElement, BoxProps>(
   ({ children, ...rest }, ref) => {
     return (
       <Box ref={ref} flexDirection="column" {...rest}>

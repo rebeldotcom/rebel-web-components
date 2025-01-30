@@ -100,8 +100,8 @@ function Selector({
                     <p>{description}</p>
                     <Text
                       color="greenDark"
-                      fontSize="2rem"
-                      fontWeight="200"
+                      fontSize={4}
+                      fontWeight="extraLight"
                       textAlign="right"
                     >
                       {footer}
@@ -114,14 +114,14 @@ function Selector({
                       alignItems="center"
                       bg="white"
                       border="1px solid black"
-                      borderRadius="50%"
+                      borderRadius="circle"
                       height="12px"
                       justifyContent="center"
                       width="12px"
                     >
                       <Box
                         bg={isChecked ? 'black' : 'white'}
-                        borderRadius="50%"
+                        borderRadius="circle"
                         height="4px"
                         width="4px"
                       />
