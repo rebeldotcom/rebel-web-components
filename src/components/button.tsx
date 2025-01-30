@@ -13,15 +13,7 @@ import {
 import { redesignTheme } from '../styles'
 import { ButtonSize, buttonStyles, ButtonVariant } from '../styles/custom-utils'
 
-interface StyledButtonProps {
-  disabled?: boolean
-  variant?: ButtonVariant
-  size?: ButtonSize
-  color?: keyof (typeof redesignTheme)['colors']
-}
-
-const StyledButton = styled.button<StyledButtonProps>`
-  display: 'flex';
+const StyledButton = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
 
@@ -57,7 +49,19 @@ interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ id, onClick, children, ariaLabel, title, disabled, ...rest }, ref) => {
+  (
+    {
+      id,
+      onClick,
+      children,
+      ariaLabel,
+      display = 'flex',
+      title,
+      disabled,
+      ...rest
+    },
+    ref
+  ) => {
     const handleButtonClick: React.MouseEventHandler<
       HTMLButtonElement
     > = event => {
@@ -73,6 +77,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         aria-label={ariaLabel}
         data-testid={id}
         disabled={disabled}
+        display={display}
         id={id}
         onClick={handleButtonClick}
         title={title || ariaLabel}

@@ -18,14 +18,7 @@ const textDecoration = system({
   textDecoration: true,
 })
 
-interface StyledLinkProps {
-  variant?: ButtonVariant
-  size?: ButtonSize
-  color?: keyof (typeof redesignTheme)['colors']
-  display?: LayoutProps['display']
-}
-
-const StyledLink = styled.a<StyledLinkProps>`
+const StyledLink = styled.a<LinkProps>`
   &:hover {
     text-decoration: underline;
     color: inherit;
@@ -57,7 +50,10 @@ interface LinkProps
 }
 
 const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ ariaLabel, newTab, testId, to, ...rest }, ref) => {
+  (
+    { ariaLabel, variant = 'default', newTab, testId, children, to, ...rest },
+    ref
+  ) => {
     if (!rest.href && !to) {
       // eslint-disable-next-line no-console
       console.warn('You must supply a `to` or `href` prop to Link!')
@@ -71,11 +67,15 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
       <StyledLink
         ref={ref}
         aria-label={ariaLabel}
+        ariaLabel={ariaLabel}
         data-testid={testId}
         target={newTab ? '_blank' : ''}
         title={ariaLabel}
+        variant={variant}
         {...rest}
-      />
+      >
+        {children}
+      </StyledLink>
     )
   }
 )

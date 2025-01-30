@@ -29,6 +29,7 @@ export type ButtonVariant =
   | 'scroll-widget'
   | 'link'
   | 'basic'
+  | 'default'
 
 export type ButtonSize = 'small' | 'base' | 'large' | 'wide'
 interface ButtonStylesProps {
@@ -184,9 +185,6 @@ export const buttonStyles = ({
   switch (variant) {
     case 'rounded': {
       return `
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 12px;
         transition: all 0.2s;
         background: ${swiftTheme.colors.primary[900]};
@@ -206,9 +204,6 @@ export const buttonStyles = ({
     }
     case 'rounded-inverse': {
       return `
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 12px;
         transition: all 0.2s;
         background: white;
