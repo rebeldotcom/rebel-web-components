@@ -111,4 +111,6 @@ function Icon({
   )
 }
 
+Icon.getIcon = getIcon
+
 export default Icon
