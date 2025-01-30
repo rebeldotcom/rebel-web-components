@@ -4,16 +4,27 @@ import { css, keyframes } from 'styled-components'
 const remify = (n: number) => `${n / 10}rem`
 const pixify = (n: number) => `${n}px`
 
-const space = {
-  none: remify(0),
-  quarter: remify(4),
-  half: remify(8),
-  regular: remify(16),
-  big: remify(32),
-  bigger: remify(64),
-  biggest: remify(128),
-  values: [0, 4, 8, 16, 32, 64, 128, 256, 512].map(remify),
+// ===== This section assigns properties to an array, which is terrible,
+// but it's how it was initially built and lots of spots on the
+// website utilize that so it's too much work to change
+
+const spaceValues = [0, 4, 8, 16, 32, 64, 128, 256, 512] as const
+const spaceArray = spaceValues.map(remify) as `${number}rem`[]
+
+const spaceObject = {
+  none: spaceArray[0],
+  quarter: spaceArray[1],
+  half: spaceArray[2],
+  regular: spaceArray[3],
+  big: spaceArray[4],
+  bigger: spaceArray[5],
+  biggest: spaceArray[6],
 } as const
+
+const space = Object.assign([...spaceArray], spaceObject) as typeof spaceArray &
+  typeof spaceObject
+
+// ========
 
 const sizes = {
   containers: {
