@@ -239,15 +239,28 @@ const fontWeights = {
 }
 
 const breakpoints = [600, 900, 1200].map(pixify)
+const bordersArray = [
+  'none',
+  `1px solid ${colors.greyDark}`,
+  `1px solid ${colors.greyLight}`,
+  `1px solid ${colors.white}`,
+  `1px solid ${colors.red}`,
+  `1px solid ${colors.blackLighter}`,
+] as const
 
-const borders = {
-  none: 'none',
-  light: `1px solid ${colors.greyLight}`,
-  dark: `1px solid ${colors.blackLighter}`,
-  input: `1px solid ${colors.greyLight}`,
-  error: `1px solid ${colors.red}`,
-  blackLighter: `1px solid ${colors.blackLighter}`,
-}
+const bordersObject = {
+  none: bordersArray[0],
+  light: bordersArray[2],
+  dark: bordersArray[5],
+  input: bordersArray[2],
+  error: bordersArray[4],
+  blackLighter: bordersArray[5],
+} as const
+
+const borders = Object.assign(
+  bordersArray,
+  bordersObject
+) as typeof bordersArray & typeof bordersObject
 
 // Example for shadows
 const shadows = [`0.5rem 0.5rem 1rem ${colors.black}44`]
