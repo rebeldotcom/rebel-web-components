@@ -64,9 +64,10 @@ const getIconViewbox = (name: string) => {
 }
 
 type IconProps = {
+  /** The name of the icon in our repo. */
   name: string
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
   title?: string
   titleId?: string
   descId?: string

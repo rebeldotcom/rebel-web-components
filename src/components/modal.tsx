@@ -106,66 +106,65 @@ function useModal() {
           }
         }
 
-        return (
-          isOpen &&
-          ReactDOM.createPortal(
-            <Box
-              ref={bgRef}
-              alignItems="center"
-              bg="overlay"
-              height="100vh"
-              id={id}
-              justifyContent="center"
-              left="0"
-              onMouseDown={handleBackgroundClick}
-              overflow="auto"
-              position="fixed"
-              style={{ zIndex: 9999 }}
-              top="0"
-              width="100vw"
-            >
+        return isOpen
+          ? ReactDOM.createPortal(
               <Box
-                ref={containerRef}
-                alignItems="stretch"
-                bg="white"
-                borderRadius="large"
-                flexDirection="column"
+                ref={bgRef}
+                alignItems="center"
+                bg="overlay"
+                height="100vh"
+                id={id}
+                justifyContent="center"
+                left="0"
+                onMouseDown={handleBackgroundClick}
                 overflow="auto"
-                p={4}
-                position="relative"
-                role="dialog"
-                tabIndex={-1}
-                width={[1, width || '52rem']}
-                {...containerProps}
+                position="fixed"
+                style={{ zIndex: 9999 }}
+                top="0"
+                width="100vw"
               >
-                {closeBtnCb && (
-                  <Button
-                    alignSelf="flex-end"
-                    ariaLabel="Close modal"
-                    color="black"
-                    id="modalCloseButton"
-                    onClick={closeBtnCb}
-                    position="absolute"
-                    right="0.8rem"
-                    top="0.8rem"
-                    variant="minimal"
-                  >
-                    <Icon
-                      height={32}
-                      name="close"
-                      title="Close modal icon"
-                      titleId="closeModalIcon"
-                      viewBox="0 0 32 32"
-                      width={32}
-                    />
-                  </Button>
-                )}
-                {children}
-              </Box>
-            </Box>,
-            modalNode.current as HTMLDivElement
-          )
-        )
+                <Box
+                  ref={containerRef}
+                  alignItems="stretch"
+                  bg="white"
+                  borderRadius="large"
+                  flexDirection="column"
+                  overflow="auto"
+                  p={4}
+                  position="relative"
+                  role="dialog"
+                  tabIndex={-1}
+                  width={[1, width || '52rem']}
+                  {...containerProps}
+                >
+                  {closeBtnCb && (
+                    <Button
+                      alignSelf="flex-end"
+                      ariaLabel="Close modal"
+                      color="black"
+                      id="modalCloseButton"
+                      onClick={closeBtnCb}
+                      position="absolute"
+                      right="0.8rem"
+                      top="0.8rem"
+                      variant="minimal"
+                    >
+                      <Icon
+                        height={32}
+                        name="close"
+                        title="Close modal icon"
+                        titleId="closeModalIcon"
+                        viewBox="0 0 32 32"
+                        width={32}
+                      />
+                    </Button>
+                  )}
+                  {children}
+                </Box>
+              </Box>,
+              modalNode.current as HTMLDivElement
+            )
+          : null
       },
     [isOpen]
   )
