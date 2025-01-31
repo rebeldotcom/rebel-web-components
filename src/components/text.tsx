@@ -1,7 +1,11 @@
 import { ElementType, HTMLAttributes } from 'react'
 import styled, {
   DefaultTheme,
+  FlattenInterpolation,
   FlattenSimpleInterpolation,
+  InterpolationFunction,
+  SimpleInterpolation,
+  ThemeProps,
 } from 'styled-components'
 import {
   flexbox,
@@ -48,7 +52,11 @@ export type TextProps = HTMLAttributes<HTMLDivElement> &
       | keyof DefaultTheme['textVariants'][]
     htmlFor?: string
     as?: ElementType
-    css?: FlattenSimpleInterpolation
+    css?:
+      | SimpleInterpolation
+      | FlattenSimpleInterpolation
+      | InterpolationFunction<ThemeProps<DefaultTheme>>
+      | FlattenInterpolation<ThemeProps<DefaultTheme>>
   }
 
 const Text: React.FC<TextProps> = styled.div<TextProps>`

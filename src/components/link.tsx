@@ -1,5 +1,12 @@
 import React, { ComponentProps, Ref } from 'react'
-import styled, { DefaultTheme } from 'styled-components'
+import styled, {
+  DefaultTheme,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation,
+  InterpolationFunction,
+  SimpleInterpolation,
+  ThemeProps,
+} from 'styled-components'
 import {
   margin,
   typography,
@@ -18,6 +25,10 @@ const textDecoration = system({
 })
 
 const StyledLink = styled.a<LinkProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   &:hover {
     text-decoration: underline;
     color: inherit;
@@ -31,21 +42,26 @@ const StyledLink = styled.a<LinkProps>`
   ${textDecoration}
 `
 
-interface LinkProps
-  extends SpaceProps,
-    LayoutProps,
-    PositionProps,
-    AlignSelfProps,
-    ComponentProps<'a'> {
-  ariaLabel: string
-  to?: string
-  testId?: string
-  variant?: ButtonVariant
-  newTab?: boolean
-  size?: ButtonSize
-  color?: keyof DefaultTheme['colors']
-  ref: Ref<HTMLAnchorElement> | undefined
-}
+type LinkProps = SpaceProps<DefaultTheme> &
+  LayoutProps<DefaultTheme> &
+  PositionProps<DefaultTheme> &
+  AlignSelfProps<DefaultTheme> &
+  ComponentProps<'a'> & {
+    ariaLabel: string
+    to?: string
+    testId?: string
+    variant?: ButtonVariant
+    // eslint-disable-next-line react/boolean-prop-naming -- legacy thing.
+    newTab?: boolean
+    size?: ButtonSize
+    color?: keyof DefaultTheme['colors']
+    ref?: Ref<HTMLAnchorElement> | undefined
+    css?:
+      | SimpleInterpolation
+      | FlattenSimpleInterpolation
+      | InterpolationFunction<ThemeProps<DefaultTheme>>
+      | FlattenInterpolation<ThemeProps<DefaultTheme>>
+  }
 
 function Link({
   ariaLabel,
