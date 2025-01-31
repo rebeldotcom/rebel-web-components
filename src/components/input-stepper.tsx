@@ -22,17 +22,17 @@ const StyledInput = styled(Input)`
   }
 `
 
-const InputStepper = ({
+function InputStepper({
   ariaLabel,
   count,
   label,
-  maxValue,
-  minValue,
   onChange,
-  step,
+  step = 1,
+  minValue = 0,
+  maxValue = 100,
   id,
   ...rest
-}: InputStepperProps) => {
+}: InputStepperProps) {
   if (!label && !ariaLabel) {
     throw new Error('Please provide an input label to InputStepper')
   }
@@ -70,12 +70,12 @@ const InputStepper = ({
         max={maxValue}
         min={minValue}
         onChange={evt => {
-          const { value } = evt.target
+          const { value } = evt.target as HTMLInputElement
 
-          if (value < minValue) return
-          if (value > maxValue) return
+          if (+value < minValue) return
+          if (+value > maxValue) return
 
-          onChange(evt.target.value)
+          onChange(value)
         }}
         type="number"
         value={count}
@@ -91,12 +91,6 @@ const InputStepper = ({
       </Button>
     </Box>
   )
-}
-
-InputStepper.defaultProps = {
-  maxValue: 100,
-  minValue: 0,
-  step: 1,
 }
 
 export default InputStepper

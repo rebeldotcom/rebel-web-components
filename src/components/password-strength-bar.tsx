@@ -8,10 +8,18 @@ import { swiftTheme } from '../styles'
 
 const { colors } = swiftTheme
 
-interface PasswordStrengthBar {
-  borderRadius?: number
+interface PasswordStrengthBarProps {
+  borderRadius?: string
   minLength?: number
-  onChangeScore: (score, feedback) => void
+  onChangeScore: (
+    score: number,
+    feedback:
+      | zxcvbn.ZXCVBNFeedback
+      | {
+          warning: string
+        }
+      | undefined
+  ) => void
   password: string
   userInputs: string[]
   scorePercentage?: number[]
@@ -20,6 +28,7 @@ interface PasswordStrengthBar {
   width?: string
   height?: string
   showLabels?: boolean
+  showFeedback?: boolean
 }
 
 const StyledStack = styled(Stack)`
@@ -47,9 +56,9 @@ function PasswordStrengthBar({
   ],
   showLabels = false,
   showFeedback = false,
-}) {
+}: PasswordStrengthBarProps) {
   const [pwScore, setScore] = useState(0)
-  const [pwFeedback, setFeedback] = useState(null)
+  const [pwFeedback, setFeedback] = useState<{ warning: string }>()
   const [previousPw, setPrevPw] = useState(password)
 
   const calculateScore = () => {

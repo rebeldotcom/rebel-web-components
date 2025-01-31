@@ -6,8 +6,8 @@ import Text from './text'
 import 'react-datepicker/dist/react-datepicker.min.css'
 
 interface DatePickerProps {
-  selected: any
-  onChange: (date: any) => void
+  selected: Date | null | undefined
+  onChange: (date: Date | null) => void
   label?: string
 }
 
@@ -27,12 +27,12 @@ const DatePickerStyles = createGlobalStyle`
  * DatePicker has an assortment of props that can be passed in, view the docs for more props
  * https://reactdatepicker.com/ - for more props
  */
-const DateSelector = ({
+function DateSelector({
   label,
   selected,
   onChange,
   ...props
-}: DatePickerProps): React.ReactNode => {
+}: DatePickerProps): React.ReactNode {
   return (
     <Box flexDirection="column" mr={2}>
       {label && (

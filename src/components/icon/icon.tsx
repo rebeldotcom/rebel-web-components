@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 import iconRepo from './icon-repo'
-import Box from '../box'
+import Box, { BoxProps } from '../box'
 
 const SVG = styled.svg`
   fill: currentColor;
@@ -13,7 +12,7 @@ const DEFAULT_VIEWBOX = '0 0 1024 1024'
 const getIconData = (name: string) =>
   iconRepo.find(icon => icon.tags.includes(name))
 
-const getIcon = name => {
+const getIcon = (name: string) => {
   const selected = getIconData(name)
 
   if (!selected) {
@@ -54,7 +53,7 @@ const getIcon = name => {
   })
 }
 
-const getIconViewbox = name => {
+const getIconViewbox = (name: string) => {
   const selected = getIconData(name)
 
   if (!selected || !selected.viewBox) {
@@ -65,16 +64,17 @@ const getIconViewbox = name => {
 }
 
 type IconProps = {
+  /** The name of the icon in our repo. */
   name: string
-  width?: number
-  height?: number
+  width?: number | string
+  height?: number | string
   title?: string
   titleId?: string
   descId?: string
   desc?: string
-  color?: string
-  containerProps?: {}
-}
+  viewBox?: string
+  containerProps?: BoxProps
+} & BoxProps
 
 function Icon({
   name,
@@ -88,16 +88,16 @@ function Icon({
   ...rest
 }: IconProps) {
   const iconShapes = getIcon(name)
-  const viewBox = getIconViewbox(name)
+  const calcViewBox = getIconViewbox(name)
   const ariaLabelledBy = desc ? `${titleId} ${descId}` : titleId
 
   return (
-    <Box {...containerProps} {...rest} height={height} width={width}>
+    <Box {...containerProps} height={height} width={width} {...rest}>
       <SVG
         aria-labelledby={ariaLabelledBy}
         height={height}
         role="img"
-        viewBox={viewBox}
+        viewBox={calcViewBox}
         width={width}
       >
         <title id={titleId}>{title}</title>

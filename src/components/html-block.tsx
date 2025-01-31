@@ -1,41 +1,18 @@
 import React from 'react'
 import {
   space,
-  SpaceProps,
   color,
-  ColorProps,
   layout,
-  LayoutProps,
   flexbox,
-  FlexboxProps,
   position,
-  PositionProps,
   border,
-  BorderProps,
   shadow,
-  ShadowProps,
   typography,
-  TypographyProps,
 } from 'styled-system'
 import styled from 'styled-components'
+import { BoxProps } from './box'
 
-interface As {
-  as?: React.ElementType
-}
-
-export type BoxProps = React.RefAttributes<HTMLElement> &
-  React.HTMLAttributes<HTMLElement> &
-  LayoutProps &
-  ColorProps &
-  SpaceProps &
-  PositionProps &
-  FlexboxProps &
-  ShadowProps &
-  BorderProps &
-  TypographyProps &
-  As
-
-const Block: React.FC<BoxProps> = styled.div`
+const Block: React.FC<BoxProps> = styled.div<BoxProps>`
   ${border}
   ${color}
   ${flexbox}
@@ -55,8 +32,13 @@ const Block: React.FC<BoxProps> = styled.div`
   }
 `
 
-const HtmlBlock = ({ children, ...rest }) => (
-  <Block {...rest} dangerouslySetInnerHTML={{ __html: children }} />
-)
+function HtmlBlock({ children, ...rest }: BoxProps) {
+  return (
+    <Block
+      {...rest}
+      dangerouslySetInnerHTML={{ __html: children?.toString() || '' }}
+    />
+  )
+}
 
 export default HtmlBlock

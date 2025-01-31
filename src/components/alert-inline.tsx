@@ -1,66 +1,50 @@
 import React from 'react'
-import { swiftTheme } from '../styles'
 import Box from './box'
 import Text from './text'
 import Icon from './icon/icon'
 import Button from './button'
 
-const {
-  colors: { primary, neutral, success, destructive, warning },
-} = swiftTheme
+type AlertVariant = 'success' | 'error' | 'warning' | 'primary' | 'neutral'
+type SchemeVariant =
+  | 'success'
+  | 'destructive'
+  | 'warning'
+  | 'primary'
+  | 'neutral'
 
-const getAlertColorScheme = variant => {
-  switch (variant) {
-    case 'success':
-      return {
-        bg: success[50],
-        border: success[200],
-        icon: success[800],
-        title: success[800],
-        body: success[700],
-      }
+type ColorScheme<T extends string> = {
+  bg: `${T}-50`
+  border: `${T}-200`
+  icon: `${T}-800`
+  title: `${T}-800`
+  body: `${T}-700`
+}
 
-    case 'error':
-      return {
-        bg: destructive[50],
-        border: destructive[200],
-        icon: destructive[800],
-        title: destructive[800],
-        body: destructive[700],
-      }
-    case 'warning':
-      return {
-        bg: warning[50],
-        border: warning[200],
-        icon: warning[800],
-        title: warning[800],
-        body: warning[700],
-      }
-    case 'primary':
-      return {
-        bg: primary[50],
-        border: primary[200],
-        icon: primary[800],
-        title: primary[800],
-        body: primary[700],
-      }
+const colorMapping: Record<AlertVariant, SchemeVariant> = {
+  success: 'success',
+  error: 'destructive',
+  warning: 'warning',
+  primary: 'primary',
+  neutral: 'neutral',
+}
 
-    default:
-      return {
-        bg: neutral[50],
-        border: neutral[200],
-        icon: neutral[800],
-        title: neutral[800],
-        body: neutral[700],
-      }
+const getAlertColorScheme = (
+  variant: AlertVariant
+): ColorScheme<SchemeVariant> => {
+  const color = colorMapping[variant]
+
+  return {
+    bg: `${color}-50`,
+    border: `${color}-200`,
+    icon: `${color}-800`,
+    title: `${color}-800`,
+    body: `${color}-700`,
   }
 }
 
-type AlertVariant = 'neutral' | 'primary' | 'success' | 'warning' | 'error'
-
 interface AlertInlineProps {
   notificationTitle?: string
-  body: string
+  body: string | React.ReactNode
   variant: AlertVariant
   icon: string
   showTitle?: boolean
@@ -68,11 +52,11 @@ interface AlertInlineProps {
 }
 
 function AlertInline({
-  notificationTitle = 'Note',
   showTitle = true,
-  body,
   variant = 'neutral',
   icon = 'notification',
+  notificationTitle = 'Note',
+  body,
   onClose,
   ...props
 }: AlertInlineProps) {
@@ -82,7 +66,7 @@ function AlertInline({
     <Box
       bg={colorScheme.bg}
       borderColor={colorScheme.border}
-      borderRadius="6px"
+      borderRadius="larger"
       justifyContent="space-between"
       p={3}
       {...props}

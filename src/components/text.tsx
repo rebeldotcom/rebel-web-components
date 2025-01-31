@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import { ElementType, HTMLAttributes } from 'react'
+import styled, {
+  DefaultTheme,
+  FlattenSimpleInterpolation,
+} from 'styled-components'
 import {
   flexbox,
   color,
@@ -10,6 +14,14 @@ import {
   layout,
   textStyle,
   variant,
+  FlexboxProps,
+  ColorProps,
+  BorderProps,
+  DisplayProps,
+  SpaceProps,
+  TypographyProps,
+  LayoutProps,
+  TextStyleProps,
 } from 'styled-system'
 
 const textTransform = system({
@@ -21,17 +33,25 @@ const textVariants = variant({
   prop: 'variant',
 })
 
-const truncateText = ({ truncate }) => {
-  if (!truncate) return ''
+export type TextProps = HTMLAttributes<HTMLDivElement> &
+  LayoutProps<DefaultTheme> &
+  FlexboxProps<DefaultTheme> &
+  ColorProps<DefaultTheme> &
+  BorderProps<DefaultTheme> &
+  DisplayProps<DefaultTheme> &
+  SpaceProps<DefaultTheme> &
+  TypographyProps<DefaultTheme> &
+  TextStyleProps<DefaultTheme> & {
+    textTransform?: string
+    variant?:
+      | keyof DefaultTheme['textVariants']
+      | keyof DefaultTheme['textVariants'][]
+    htmlFor?: string
+    as?: ElementType
+    css?: FlattenSimpleInterpolation
+  }
 
-  return `
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  `
-}
-
-const Text = styled.div`
+const Text: React.FC<TextProps> = styled.div<TextProps>`
   ${border}
   ${color}
   ${display}
@@ -39,7 +59,6 @@ const Text = styled.div`
   ${space}
   ${typography}
   ${textStyle}
-  ${truncateText}
   ${textTransform}
   ${flexbox}
   ${textVariants}

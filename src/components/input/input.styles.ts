@@ -24,7 +24,7 @@ export const InputContainer = styled.div`
   .react-tel-input input[type='tel'] {
     width: 100%;
     padding: ${space.half};
-    padding-right: ${space[4]};
+    padding-right: ${space.big};
     box-sizing: border-box;
     font-size: 1.6rem;
     border: ${borders.input};
@@ -60,6 +60,7 @@ export const InputContainer = styled.div`
 `
 
 export const InputSuffix = styled.div`
+  position: absolute;
   margin-left: ${space.half};
   display: inline-block;
   font-size: 1.4rem;
@@ -71,8 +72,11 @@ export const InputSuffix = styled.div`
   right: 0.8rem;
   top: 3.6rem;
 `
+interface InputErrorMessageProps {
+  showErrorMessage?: boolean
+}
 
-export const InputErrorMessage = styled.div`
+export const InputErrorMessage = styled.div<InputErrorMessageProps>`
   font-size: 1.2rem;
   color: ${colors.red};
   opacity: 0;
@@ -113,6 +117,6 @@ export const ShowPass = styled.button`
   text-transform: uppercase;
   background: transparent;
   padding: 0.5rem;
-  border: ${theme.borders[2]};
+  border: ${theme.borders.light};
   z-index: 5;
 `

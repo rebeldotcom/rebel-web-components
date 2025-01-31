@@ -1,20 +1,20 @@
-import React from 'react'
-import styled from 'styled-components'
-import { space, layout, alignSelf, position } from 'styled-system'
-import { buttonStyles } from '../styles/custom-utils'
+import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react'
+import styled, { DefaultTheme } from 'styled-components'
+import {
+  space,
+  layout,
+  position,
+  alignSelf,
+  AlignSelfProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+  FlexboxProps,
+  flexbox,
+} from 'styled-system'
+import { ButtonSize, buttonStyles, ButtonVariant } from '../styles/custom-utils'
 
-type ButtonProps = {
-  ariaLabel: string
-  as?: string
-  children: React.ReactNode
-  disabled?: boolean
-  display?: string
-  id: string
-  onClick: Function
-  title?: string
-}
-
-const StyledButton = styled.button`
+const StyledButton = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
 
@@ -24,6 +24,7 @@ const StyledButton = styled.button`
 
   ${buttonStyles}
   ${space}
+  ${flexbox}
   ${layout}
   ${position}
   ${alignSelf}
@@ -35,6 +36,20 @@ const StyledButton = styled.button`
     color: ${({ theme }) => theme.colors.greyDarker};
   }
 `
+
+type ButtonProps = HTMLAttributes<HTMLButtonElement> &
+  ButtonHTMLAttributes<HTMLButtonElement> &
+  FlexboxProps<DefaultTheme> &
+  SpaceProps<DefaultTheme> &
+  LayoutProps<DefaultTheme> &
+  PositionProps<DefaultTheme> &
+  AlignSelfProps<DefaultTheme> & {
+    ariaLabel?: string
+    disabled?: boolean
+    variant?: ButtonVariant
+    size?: ButtonSize
+    color?: keyof DefaultTheme['colors']
+  }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -50,9 +65,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const handleButtonClick = event => {
+    const handleButtonClick: React.MouseEventHandler<
+      HTMLButtonElement
+    > = event => {
       event.preventDefault()
-      onClick()
+      if (onClick) {
+        onClick(event)
+      }
     }
 
     return (
@@ -63,7 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         display={display}
         id={id}
-        onClick={onClick && handleButtonClick}
+        onClick={handleButtonClick}
         title={title || ariaLabel}
         type="button"
         {...rest}
@@ -75,6 +94,5 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 
 Button.displayName = 'Button'
-Button.variants = buttonStyles
 
 export default Button

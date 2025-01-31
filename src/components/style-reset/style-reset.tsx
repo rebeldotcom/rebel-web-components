@@ -1,27 +1,17 @@
 import {
   space,
-  SpaceProps,
   color,
-  ColorProps,
   layout,
-  LayoutProps,
   flexbox,
-  FlexboxProps,
   position,
-  PositionProps,
   border,
-  BorderProps,
   shadow,
-  ShadowProps,
 } from 'styled-system'
 import styled, { css } from 'styled-components'
 import { theme } from '../../styles/theme'
+import { BoxProps } from '../box'
 
 const { fonts: title } = theme
-
-interface As {
-  as?: React.ElementType
-}
 
 const defaultStyles = css`
   & {
@@ -125,18 +115,7 @@ const defaultStyles = css`
   }
 `
 
-export type BoxProps = React.RefAttributes<HTMLElement> &
-  React.HTMLAttributes<HTMLElement> &
-  LayoutProps &
-  ColorProps &
-  SpaceProps &
-  PositionProps &
-  FlexboxProps &
-  ShadowProps &
-  BorderProps &
-  As
-
-const StyleReset: React.FC<BoxProps> = styled.div`
+const StyleReset: React.FC<BoxProps> = styled.div<BoxProps>`
   ${border}
   ${color}
   ${flexbox}

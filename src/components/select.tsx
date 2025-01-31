@@ -1,33 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
-import Box from './box'
+import { border, layout, space } from 'styled-system'
 import Stack from './stack'
 import Text from './text'
 import Skeleton from './skeleton'
+import { BoxProps } from './box'
 
 type Option = {
-  value: string
-  display: string
+  value: string | number
+  display: string | number
   disabled?: boolean
 }
 
-type SelectProps = {
+type SelectProps = BoxProps & {
   isLoading?: boolean
-  id: string
   label?: string
   selected?: string
   options: Option[]
   hint?: string
-  onChange: (string) => void
-  isEnabled?: boolean
+  value?: string | number
+  onChange: (x: string | number) => void
+  e?: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-const SelectComponent = styled(Box)`
+const SelectComponent = styled.select<SelectProps>`
+  display: flex;
   color: #000;
   background: transparent;
+
+  ${border}
+  ${space}
+  ${layout}
 `
 
-const Select = ({
+function Select({
   isLoading,
   id,
   options,
@@ -35,10 +41,10 @@ const Select = ({
   onChange,
   hint,
   selected,
-  isEnabled,
+  value,
   ...rest
-}: SelectProps) => {
-  const handleOnChange = e => {
+}: SelectProps) {
+  const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     onChange(e.target.value)
   }
 
@@ -54,7 +60,12 @@ const Select = ({
         >
           {label}
           {hint && (
-            <Text fontWeight="400" mb={1} textTransform="none" variant="micro">
+            <Text
+              fontWeight="regular"
+              mb={1}
+              textTransform="none"
+              variant="micro"
+            >
               {hint}
             </Text>
           )}
@@ -65,12 +76,16 @@ const Select = ({
         <Skeleton />
       ) : (
         <SelectComponent
-          as="select"
           border={2}
+          e={handleOnChange}
           id={id}
-          isEnabled={isEnabled}
-          onChange={handleOnChange}
+          onChange={e =>
+            handleOnChange(e as React.ChangeEvent<HTMLSelectElement>)
+          }
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           p="2px 2rem 2px 5px"
+          value={value}
           width="100%"
         >
           {options &&

@@ -1,19 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Text from './text'
+import Text, { TextProps } from './text'
 
-const propTypes = {
-  bg: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  color: PropTypes.string,
-}
-
-const defaultProps = {
-  bg: 'black',
-  color: 'white',
-}
-
-const Badge = ({ children, bg, color, ...rest }) => {
+export default function Badge({
+  children,
+  bg = 'black',
+  color = 'white',
+  ...rest
+}: TextProps) {
   return (
     <Text
       alignItems="center"
@@ -30,8 +23,3 @@ const Badge = ({ children, bg, color, ...rest }) => {
     </Text>
   )
 }
-
-Badge.propTypes = propTypes
-Badge.defaultProps = defaultProps
-
-export default Badge

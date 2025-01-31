@@ -1,13 +1,23 @@
-import React from 'react'
-import styled from 'styled-components'
-import { margin, typography, layout, system, alignSelf } from 'styled-system'
-import { buttonStyles } from '../styles/custom-utils'
+import React, { ComponentProps, Ref } from 'react'
+import styled, { DefaultTheme } from 'styled-components'
+import {
+  margin,
+  typography,
+  layout,
+  system,
+  alignSelf,
+  AlignSelfProps,
+  LayoutProps,
+  PositionProps,
+  SpaceProps,
+} from 'styled-system'
+import { ButtonSize, buttonStyles, ButtonVariant } from '../styles/custom-utils'
 
 const textDecoration = system({
   textDecoration: true,
 })
 
-const StyledLink = styled.a`
+const StyledLink = styled.a<LinkProps>`
   &:hover {
     text-decoration: underline;
     color: inherit;
@@ -21,56 +31,57 @@ const StyledLink = styled.a`
   ${textDecoration}
 `
 
-const defaultProps = {
-  as: 'a',
-  className: '',
-  display: 'inline-block',
-  href: null,
-  newTab: false,
-  onClick: null,
-  testId: '',
-  to: null,
-  variant: 'default',
-}
-
-type LinkProps = {
+interface LinkProps
+  extends SpaceProps,
+    LayoutProps,
+    PositionProps,
+    AlignSelfProps,
+    ComponentProps<'a'> {
   ariaLabel: string
-  as?: string
-  children: React.ReactNode
-  className?: string
-  display?: string
-  href: string
-  id: string
   to?: string
-  onClick?: Function
   testId?: string
-  variant?: string
+  variant?: ButtonVariant
   newTab?: boolean
+  size?: ButtonSize
+  color?: keyof DefaultTheme['colors']
+  ref: Ref<HTMLAnchorElement> | undefined
 }
 
-const Link = React.forwardRef<HTMLLinkElement, LinkProps>(
-  ({ onClick, children, ariaLabel, newTab, testId, ...rest }, ref) => {
-    if (!rest.href && !rest.to) {
-      console.warn('You must supply a `to` or `href` prop to Link!')
-    }
-
-    return (
-      <StyledLink
-        ref={ref}
-        aria-label={ariaLabel}
-        data-testid={testId}
-        onClick={onClick}
-        target={newTab ? '_blank' : null}
-        title={ariaLabel}
-        {...rest}
-      >
-        {children}
-      </StyledLink>
-    )
+function Link({
+  ariaLabel,
+  onClick,
+  variant = 'default',
+  newTab,
+  testId,
+  children,
+  to,
+  ...rest
+}: LinkProps) {
+  if (!rest.href && !to) {
+    // eslint-disable-next-line no-console
+    console.warn('You must supply a `to` or `href` prop to Link!')
   }
-)
 
-Link.defaultProps = defaultProps
+  if (!rest.href && to) {
+    rest.href = to
+  }
+
+  return (
+    <StyledLink
+      aria-label={ariaLabel}
+      ariaLabel={ariaLabel}
+      data-testid={testId}
+      onClick={onClick}
+      target={newTab ? '_blank' : ''}
+      title={ariaLabel}
+      variant={variant}
+      {...rest}
+    >
+      {children}
+    </StyledLink>
+  )
+}
+
 Link.displayName = 'Link'
 
 export default Link

@@ -1,21 +1,44 @@
 import { css, keyframes } from 'styled-components'
+import { Theme } from 'styled-system'
 
-/* eslint-disable prefer-destructuring */
 // Need to set value since styled-system no longer provides this in v5+
-const remify = n => `${n / 10}rem`
-const pixify = n => `${n}px`
+const remify = (n: number) => `${n / 10}rem`
+const pixify = (n: number) => `${n}px`
 
-const space = [0, 4, 8, 16, 32, 64, 128, 256, 512].map(remify)
+// ===== This section assigns properties to an array, which is terrible,
+// but it's how it was initially built and lots of spots on the
+// website utilize that so it's too much work to change
 
-const [none, quarter, half, regular, big, bigger, biggest] = space
+const spaceValues = [0, 4, 8, 16, 32, 64, 128, 256, 512] as const
+const spaceArray = spaceValues.map(remify) as string[]
 
-space.none = none
-space.quarter = quarter
-space.half = half
-space.regular = regular
-space.big = big
-space.bigger = bigger
-space.biggest = biggest
+const spaceObject = {
+  /** @deprecated Use {0} instead */
+  none: spaceArray[0],
+
+  /** @deprecated Use {1} instead */
+  quarter: spaceArray[1],
+
+  /** @deprecated Use {2} instead */
+  half: spaceArray[2],
+
+  /** @deprecated Use {3} instead */
+  regular: spaceArray[3],
+
+  /** @deprecated Use {4} instead */
+  big: spaceArray[4],
+
+  /** @deprecated Use {5} instead */
+  bigger: spaceArray[5],
+
+  /** @deprecated Use {6} instead */
+  biggest: spaceArray[6],
+} as const
+
+const space = Object.assign([...spaceArray], spaceObject) as typeof spaceArray &
+  typeof spaceObject
+
+// ========
 
 const sizes = {
   containers: {
@@ -38,6 +61,8 @@ const sizes = {
 // COLORS
 
 const colors = {
+  none: '',
+
   white: '#fff',
   whiteDark: '#f7f7f7',
   greyLightest: '#e7e7e7',
@@ -196,6 +221,82 @@ const colors = {
     '#EBEBEB',
     '#F7F7F7',
   ],
+
+  'primary-50': '#F7F6F9',
+  'primary-100': '#E6E4EE',
+  'primary-200': '#CDC9DD',
+  'primary-300': '#B4AFCD',
+  'primary-400': '#9B94BC',
+  'primary-500': '#453E63',
+  'primary-600': '#3F395B',
+  'primary-700': '#37314E',
+  'primary-800': '#2E2942',
+  'primary-900': '#201C2D',
+
+  'secondary-50': '#FFE6EE',
+  'secondary-100': '#FFABCA',
+  'secondary-200': '#FF82B4',
+  'secondary-300': '#F7579C',
+  'secondary-400': '#EB2D85',
+  'secondary-500': '#DF0772',
+  'secondary-600': '#B80062',
+  'secondary-700': '#910052',
+  'secondary-800': '#6B0040',
+  'secondary-900': '#45002C',
+
+  'neutral-50': '#F9FAFB',
+  'neutral-100': '#F3F4F6',
+  'neutral-200': '#E5E7EB',
+  'neutral-300': '#D1D5DB',
+  'neutral-400': '#9CA3AF',
+  'neutral-500': '#6B7280',
+  'neutral-600': '#4B5563',
+  'neutral-700': '#374151',
+  'neutral-800': '#1F2937',
+  'neutral-900': '#111827',
+
+  'success-50': '#F0FDF4',
+  'success-100': '#DCFCE7',
+  'success-200': '#BBF7D0',
+  'success-300': '#86EFAC',
+  'success-400': '#4ADE80',
+  'success-500': '#22C55E',
+  'success-600': '#16A34A',
+  'success-700': '#15803D',
+  'success-800': '#166534',
+  'success-900': '#14532D',
+
+  'destructive-50': '#FEF2F2',
+  'destructive-100': '#FEE2E2',
+  'destructive-200': '#FECACA',
+  'destructive-300': '#FCA5A5',
+  'destructive-400': '#F87171',
+  'destructive-500': '#EF4444',
+  'destructive-600': '#DC2626',
+  'destructive-700': '#B91C1C',
+  'destructive-800': '#991B1B',
+  'destructive-900': '#7F1D1D',
+
+  'warning-50': '#FFFBEB',
+  'warning-100': '#FEF3C7',
+  'warning-200': '#FDE68A',
+  'warning-300': '#FCD34D',
+  'warning-400': '#FBBF24',
+  'warning-500': '#F59E0B',
+  'warning-600': '#D97706',
+  'warning-700': '#B45309',
+  'warning-800': '#92400E',
+  'warning-900': '#78350F',
+
+  'supporting-aqua': '#0BFFE6',
+  'supporting-grapefruit': '#FE546F',
+  'supporting-sunflower': '#FFD080',
+  'supporting-strongCyan': '#36BFC6',
+  'supporting-orangePeel': '#FF9D00',
+  'supporting-haciendaBlue': '#00819E',
+
+  'shades-white': '#FFFFFF',
+  'shades-black': '#000000',
 }
 
 // TYPOGRAPHY
@@ -223,6 +324,7 @@ const lineHeights = {
 const fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 96].map(remify)
 
 const fontWeights = {
+  extraLight: 200,
   light: 300,
   regular: 400,
   semi: 600,
@@ -230,22 +332,28 @@ const fontWeights = {
 }
 
 const breakpoints = [600, 900, 1200].map(pixify)
-
-const borders = [
+const bordersArray = [
   'none',
   `1px solid ${colors.greyDark}`,
   `1px solid ${colors.greyLight}`,
   `1px solid ${colors.white}`,
   `1px solid ${colors.red}`,
   `1px solid ${colors.blackLighter}`,
-]
+] as const
 
-borders.none = borders[0]
-borders.light = borders[2]
-borders.dark = borders[5]
-borders.input = borders[2]
-borders.error = borders[4]
-borders.blackLighter = borders[5]
+const bordersObject = {
+  none: bordersArray[0],
+  light: bordersArray[2],
+  dark: bordersArray[5],
+  input: bordersArray[2],
+  error: bordersArray[4],
+  blackLighter: bordersArray[5],
+} as const
+
+const borders = Object.assign(
+  bordersArray,
+  bordersObject
+) as typeof bordersArray & typeof bordersObject
 
 // Example for shadows
 const shadows = [`0.5rem 0.5rem 1rem ${colors.black}44`]
@@ -254,10 +362,12 @@ const radii = {
   none: 0,
   small: '1px',
   large: '2px',
+  larger: '6px',
   rounded: '999px',
+  circle: '50%',
 }
 
-const textStyles = {
+const textStyles: Theme['textStyles'] = {
   caps: {
     textTransform: 'uppercase',
   },
@@ -471,60 +581,53 @@ const screen = {
   largeUp: '1201px',
 }
 
-// 1366x768
-// 1920x1080
-// 360x640
-// 1440x900
-// 1536x864
-// 1600x900
-
 const media = {
-  smallLaptop: (...args) => css`
+  smallLaptop: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: 700px) and (max-height: 400px) and (orientation: portrait) {
       ${css(...args)};
     }
   `,
-  smallAndDown: (...args) => css`
+  smallAndDown: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: ${screen.small}) {
       ${css(...args)};
     }
   `,
-  mediumOnly: (...args) => css`
+  mediumOnly: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.smallUp}) and (max-width: ${screen.medium}) {
       ${css(...args)};
     }
   `,
-  mediumAndDown: (...args) => css`
+  mediumAndDown: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: ${screen.medium}) {
       ${css(...args)};
     }
   `,
-  mediumAndUp: (...args) => css`
+  mediumAndUp: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.smallUp}) {
       ${css(...args)};
     }
   `,
-  largeAndDown: (...args) => css`
+  largeAndDown: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (max-width: ${screen.large}) {
       ${css(...args)};
     }
   `,
-  largeAndUp: (...args) => css`
+  largeAndUp: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.mediumUp}) {
       ${css(...args)};
     }
   `,
-  veryLarge: (...args) => css`
+  veryLarge: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (min-width: ${screen.largeUp}) {
       ${css(...args)};
     }
   `,
-  rotated: (...args) => css`
+  rotated: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media only screen and (orientation: landscape) {
       ${css(...args)};
     }
   `,
-  touch: (...args) => css`
+  touch: (...args: [TemplateStringsArray, ...string[]]) => css`
     @media (hover: none) {
       ${css(...args)};
     }

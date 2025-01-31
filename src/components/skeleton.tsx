@@ -1,42 +1,21 @@
 import React from 'react'
 import {
   space,
-  SpaceProps,
   color,
-  ColorProps,
   layout,
-  LayoutProps,
   flexbox,
-  FlexboxProps,
   position,
-  PositionProps,
   border,
-  BorderProps,
   shadow,
-  ShadowProps,
 } from 'styled-system'
 import styled from 'styled-components'
 
 import { theme } from '../styles/theme'
+import { BoxProps } from './box'
 
 const { colors, animations } = theme
 
-interface As {
-  as?: React.ElementType
-}
-
-export type BoxProps = React.RefAttributes<HTMLElement> &
-  React.HTMLAttributes<HTMLElement> &
-  LayoutProps &
-  ColorProps &
-  SpaceProps &
-  PositionProps &
-  FlexboxProps &
-  ShadowProps &
-  BorderProps &
-  As
-
-const SkeletonBlock: React.FC<BoxProps> = styled.div`
+const SkeletonBlock: React.FC<BoxProps> = styled.div<BoxProps>`
   ${border}
   ${color}
   ${flexbox}
@@ -58,6 +37,8 @@ const SkeletonBlock: React.FC<BoxProps> = styled.div`
   border-radius: 0.2rem;
 `
 
-const Skeleton = props => <SkeletonBlock {...props} />
+function Skeleton(props: BoxProps) {
+  return <SkeletonBlock {...props} />
+}
 
 export default Skeleton

@@ -1,9 +1,8 @@
 import React from 'react'
-import Box from './box'
+import Box, { BoxProps } from './box'
 
-type SectionProps = {
-  children: React.ReactNode
-  containerProps?: {}
+type SectionProps = BoxProps & {
+  containerProps?: BoxProps
 }
 
 const Section = React.forwardRef<HTMLDivElement, SectionProps>(

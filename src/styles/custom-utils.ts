@@ -1,6 +1,5 @@
+import { DefaultTheme } from 'styled-components'
 import { swiftTheme } from './swift-theme'
-
-const isEmpty = val => val == null || !(Object.keys(val) || val).length
 
 const defaultButtonStyles = `
   appearance: none;
@@ -18,12 +17,33 @@ const defaultButtonStyles = `
   border-style: solid;
 `
 
+export type ButtonVariant =
+  | 'rounded'
+  | 'rounded-inverse'
+  | 'solid'
+  | 'inverse'
+  | 'minimal'
+  | 'navbar'
+  | 'underlined'
+  | 'scroll-widget'
+  | 'link'
+  | 'basic'
+  | 'default'
+
+export type ButtonSize = 'small' | 'base' | 'large' | 'wide'
+interface ButtonStylesProps {
+  theme: DefaultTheme
+  color?: keyof DefaultTheme['colors']
+  variant?: ButtonVariant
+  size?: ButtonSize
+}
+
 export const buttonStyles = ({
-  color,
   theme,
-  variant = 'solid',
   size = 'base',
-}) => {
+  variant = 'solid',
+  color = 'greenDark',
+}: ButtonStylesProps): string => {
   const colors = {
     red: {
       bg: theme.colors.red,
@@ -154,8 +174,9 @@ export const buttonStyles = ({
     wide: `${theme.space.half} ${theme.space.bigger}`,
   }
 
-  const baseColor = isEmpty(color) ? 'greenDark' : color
-  const { text, hover, bg } = colors[baseColor]
+  const selectedColor =
+    color in colors ? (color as keyof typeof colors) : 'greenDark'
+  const { text, hover, bg } = colors[selectedColor]
   const { radii } = theme
 
   const padding = `padding: ${paddingVariants[size]};`
@@ -163,9 +184,6 @@ export const buttonStyles = ({
   switch (variant) {
     case 'rounded': {
       return `
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 12px;
         transition: all 0.2s;
         background: ${swiftTheme.colors.primary[900]};
@@ -185,9 +203,6 @@ export const buttonStyles = ({
     }
     case 'rounded-inverse': {
       return `
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 12px;
         transition: all 0.2s;
         background: white;
@@ -255,14 +270,14 @@ export const buttonStyles = ({
 
         &:hover,
         &:focus {
-          color: ${theme.black};
+          color: ${theme.colors.black};
           border-color: ${hover};
         }
 
         &,
         &:link,
         &:visited {
-          color: ${theme.black};
+          color: ${theme.colors.black};
         }
 
       `

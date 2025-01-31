@@ -24,7 +24,7 @@ type SelectorOptions = {
 }
 
 const SelectorOption = styled(Box)`
-  margin: ${space[1]};
+  margin: ${space.quarter};
   display: flex;
   flex: 1;
 
@@ -60,15 +60,15 @@ const OptionContent = styled(Box)`
   }
 `
 
-const Selector = ({
+function Selector({
   title,
   options,
   selected,
   onChange,
   hasRadio,
   ...rest
-}: SelectorOptions) => {
-  const onChangeHandler = id => {
+}: SelectorOptions) {
+  const onChangeHandler = (id: string) => {
     onChange(id)
   }
 
@@ -84,7 +84,7 @@ const Selector = ({
                 aria-label={id}
                 checked={isChecked}
                 id={id}
-                onChange={event => onChangeHandler(id)}
+                onChange={() => onChangeHandler(id)}
                 title={id}
                 type="radio"
               />
@@ -100,8 +100,8 @@ const Selector = ({
                     <p>{description}</p>
                     <Text
                       color="greenDark"
-                      fontSize="2rem"
-                      fontWeight="200"
+                      fontSize={4}
+                      fontWeight="extraLight"
                       textAlign="right"
                     >
                       {footer}
@@ -114,14 +114,14 @@ const Selector = ({
                       alignItems="center"
                       bg="white"
                       border="1px solid black"
-                      borderRadius="50%"
+                      borderRadius="circle"
                       height="12px"
                       justifyContent="center"
                       width="12px"
                     >
                       <Box
                         bg={isChecked ? 'black' : 'white'}
-                        borderRadius="50%"
+                        borderRadius="circle"
                         height="4px"
                         width="4px"
                       />

@@ -1,103 +1,64 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { InputHTMLAttributes, LegacyRef, useState } from 'react'
+import { FlexboxProps, LayoutProps, MarginProps } from 'styled-system'
+import { DefaultTheme } from 'styled-components'
 import Box from '../box'
 import Text from '../text'
 import Spinner from '../spinner'
 import * as S from './input.styles'
 import Icon from '../icon'
 
-const propTypes = {
-  ariaLabel: PropTypes.string,
-  autoComplete: PropTypes.string,
-  disabled: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  hasError: PropTypes.bool,
-  hint: PropTypes.string,
-  icon: PropTypes.node,
-  id: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool,
-  label: PropTypes.string,
-  max: PropTypes.number,
-  maxLength: PropTypes.number,
-  min: PropTypes.number,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onKeyPress: PropTypes.func,
-  placeholder: PropTypes.string,
-  required: PropTypes.bool,
-  rows: PropTypes.number,
-  suffix: PropTypes.string,
-  systemProps: PropTypes.shape({}),
-  textarea: PropTypes.bool,
-  type: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
+type InputProps = InputHTMLAttributes<HTMLInputElement> &
+  MarginProps<DefaultTheme> &
+  FlexboxProps<DefaultTheme> &
+  LayoutProps<DefaultTheme> & {
+    ariaLabel?: string
+    errorMessage?: string
+    hasError?: boolean
+    hint?: string | null
+    icon?: React.ReactNode
+    isLoading?: boolean
+    label?: string
+    suffix?: string
+    textarea?: boolean
+    rows?: number
+  }
 
-const defaultProps = {
-  ariaLabel: '',
-  autoComplete: 'on',
-  disabled: false,
-  errorMessage: '',
-  hasError: false,
-  hint: null,
-  icon: '',
-  isLoading: false,
-  label: '',
-  max: null,
-  maxLength: null,
-  min: null,
-  name: '',
-  onBlur: () => {},
-  onChange: () => {},
-  onKeyPress: () => {},
-  required: false,
-  rows: 5,
-  suffix: '',
-  systemProps: {},
-  textarea: false,
-  type: 'text',
-  value: null,
-}
-
-const Input = React.forwardRef<HTMLInputElement>(
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
-      ariaLabel,
-      autoComplete,
-      checked,
-      disabled,
-      errorMessage,
-      hasError,
-      hint,
-      icon,
+      ariaLabel = '',
+      autoComplete = 'on',
+      checked = false,
+      disabled = false,
+      errorMessage = '',
+      hasError = false,
+      hint = null,
+      icon = '',
       id,
-      isLoading,
-      label,
-      max,
-      maxLength,
-      min,
-      name,
-      onBlur,
-      onChange,
-      onKeyPress,
-      placeholder,
-      required,
-      rows,
-      suffix,
-      textarea,
-      type,
-      value,
+      isLoading = false,
+      label = '',
+      name = '',
+      onBlur = () => {},
+      onChange = () => {},
+      placeholder = '',
+      required = false,
+      rows = 5,
+      suffix = '',
+      textarea = false,
+      type = 'text',
+      value = undefined,
       ...rest
     },
     ref
   ) => {
-    const [showPassword, setShowPassword] = useState(type !== 'password')
+    const [showPassword, setShowPassword] = useState<boolean>(
+      type !== 'password'
+    )
 
     const renderSuffix = () => {
       if (!suffix) return null
 
-      return <S.InputSuffix position="absolute">{suffix}</S.InputSuffix>
+      return <S.InputSuffix>{suffix}</S.InputSuffix>
     }
 
     const renderIcon = () => {
@@ -123,7 +84,7 @@ const Input = React.forwardRef<HTMLInputElement>(
       return (
         <S.ShowPass
           id="showpassword"
-          onClick={e => {
+          onClick={() => {
             setShowPassword(!showPassword)
           }}
           title="Show/Hide password"
@@ -153,9 +114,6 @@ const Input = React.forwardRef<HTMLInputElement>(
             data-lpignore={autoComplete !== 'on'}
             disabled={disabled}
             id={id}
-            max={max}
-            maxLength={maxLength}
-            min={min}
             name={name}
             onBlur={onBlur}
             onChange={onChange}
@@ -174,15 +132,15 @@ const Input = React.forwardRef<HTMLInputElement>(
     const getTextArea = () => {
       return (
         <textarea
-          ref={ref}
+          ref={ref as LegacyRef<HTMLTextAreaElement>}
           disabled={disabled}
           id={id}
           name={name}
-          onChange={onChange}
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          onChange={e => onChange(e as any)}
           placeholder={placeholder}
           required={required}
           rows={rows}
-          type={type}
           value={value}
         />
       )
@@ -195,7 +153,7 @@ const Input = React.forwardRef<HTMLInputElement>(
     }
 
     return (
-      <S.InputContainer suffix={suffix} {...rest}>
+      <S.InputContainer {...rest}>
         <Text
           display="flex"
           flexDirection="column"
@@ -208,7 +166,7 @@ const Input = React.forwardRef<HTMLInputElement>(
             {label}
             {hint && (
               <Text
-                fontWeight="400"
+                fontWeight="regular"
                 mb={1}
                 textTransform="none"
                 variant="micro"
@@ -243,8 +201,5 @@ const Input = React.forwardRef<HTMLInputElement>(
 )
 
 Input.displayName = 'Input'
-
-Input.propTypes = propTypes
-Input.defaultProps = defaultProps
 
 export default Input

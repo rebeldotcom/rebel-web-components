@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components'
 
 import {
   margin,
@@ -41,7 +41,13 @@ const messageVariant = systemVariant({
   prop: 'variant',
 })
 
-const sizeStyles = ({ msgSize, theme }) => {
+const sizeStyles = ({
+  msgSize,
+  theme,
+}: {
+  msgSize: Sizes
+  theme: DefaultTheme
+}) => {
   const { space } = theme
 
   switch (msgSize) {
@@ -50,23 +56,24 @@ const sizeStyles = ({ msgSize, theme }) => {
       font-size: 1rem;
       font-weight: 600;
       padding: ${space.half};
-      
     `
     case 'medium':
       return `
         padding: ${space.half};
         font-size: 1.4rem;
         font-weight: 400;`
+
     case 'large':
       return 'font-size: 2.5rem;'
+
     default:
       return ''
   }
 }
 
-const baseStyles = ({ theme }) => {
+const baseStyles = ({ theme }: { theme: DefaultTheme }) => {
   return `
-    border-radius: ${theme.radii[2]};
+    border-radius: ${theme.radii.large};
     color: ${theme.colors.white};
     position: relative;
   `
@@ -76,13 +83,13 @@ interface As {
   as?: React.ElementType
 }
 
-export type BoxProps = React.RefAttributes<HTMLElement> &
+type MessageBoxProps = React.RefAttributes<HTMLElement> &
   React.HTMLAttributes<HTMLElement> &
-  MarginProps &
-  FlexboxProps &
-  As
+  MarginProps<DefaultTheme> &
+  FlexboxProps<DefaultTheme> &
+  As & { msgSize: Sizes; variant: Variants }
 
-const StyledMessage: React.FC<BoxProps> = styled.div`
+const StyledMessage: React.FC<MessageBoxProps> = styled.div`
   ${baseStyles}
   ${flexbox}
   ${margin}
@@ -96,16 +103,19 @@ type Sizes = 'small' | 'medium' | 'large'
 type MessageProps = {
   variant: Variants
   size: Sizes
+  containerProps?: {}
+  children?: React.ReactNode
+  dismissCallback?: () => void
 }
 
-const Message = ({
+function Message({
   size,
   variant,
   containerProps,
   children,
   dismissCallback,
   ...rest
-}: MessageProps) => {
+}: MessageProps) {
   return (
     <StyledMessage
       msgSize={size}
@@ -132,9 +142,7 @@ const Message = ({
             titleId="closeMsgIcon"
             viewBox="0 0 32 32"
             width={32}
-          >
-            close
-          </Icon>
+          />
         </Button>
       )}
     </StyledMessage>
