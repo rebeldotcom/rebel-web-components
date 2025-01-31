@@ -4,7 +4,10 @@ import Stack from './stack'
 import Text from './text'
 
 interface BreadCrumbProps<T extends string> {
+  /** Array of steps. Eg. ["Product", "Add-ons", "Check-out"] */
   steps: readonly T[]
+
+  /** Current step we are on. Must be included in 'steps' array. */
   current: T
 }
 
@@ -71,6 +74,9 @@ function Step({ state }: { state: State }) {
   }
 }
 
+/**
+ * Navigational breadcrumb component to indicate progression through a series of steps.
+ */
 function BreadCrumb<T extends string>({ steps, current }: BreadCrumbProps<T>) {
   return (
     <Stack alignItems="center" justifyContent="center" width="100%">
