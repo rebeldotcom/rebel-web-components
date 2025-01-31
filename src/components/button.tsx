@@ -9,6 +9,8 @@ import {
   LayoutProps,
   PositionProps,
   SpaceProps,
+  FlexboxProps,
+  flexbox,
 } from 'styled-system'
 import { ButtonSize, buttonStyles, ButtonVariant } from '../styles/custom-utils'
 
@@ -22,6 +24,7 @@ const StyledButton = styled.button<ButtonProps>`
 
   ${buttonStyles}
   ${space}
+  ${flexbox}
   ${layout}
   ${position}
   ${alignSelf}
@@ -35,6 +38,7 @@ const StyledButton = styled.button<ButtonProps>`
 `
 
 type ButtonProps = HTMLAttributes<HTMLButtonElement> &
+  FlexboxProps<DefaultTheme> &
   SpaceProps<DefaultTheme> &
   LayoutProps<DefaultTheme> &
   PositionProps<DefaultTheme> &

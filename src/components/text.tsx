@@ -40,7 +40,9 @@ export type TextProps = HTMLAttributes<HTMLDivElement> &
   TypographyProps<DefaultTheme> &
   TextStyleProps<DefaultTheme> & {
     textTransform?: string
-    variant?: keyof DefaultTheme['textVariants']
+    variant?:
+      | keyof DefaultTheme['textVariants']
+      | keyof DefaultTheme['textVariants'][]
     htmlFor?: string
     as?: ElementType
   }

@@ -10,15 +10,28 @@ const pixify = (n: number) => `${n}px`
 // website utilize that so it's too much work to change
 
 const spaceValues = [0, 4, 8, 16, 32, 64, 128, 256, 512] as const
-const spaceArray = spaceValues.map(remify) as `${number}rem`[]
+const spaceArray = spaceValues.map(remify) as string[]
 
 const spaceObject = {
+  /** @deprecated Use {0} instead */
   none: spaceArray[0],
+
+  /** @deprecated Use {1} instead */
   quarter: spaceArray[1],
+
+  /** @deprecated Use {2} instead */
   half: spaceArray[2],
+
+  /** @deprecated Use {3} instead */
   regular: spaceArray[3],
+
+  /** @deprecated Use {4} instead */
   big: spaceArray[4],
+
+  /** @deprecated Use {5} instead */
   bigger: spaceArray[5],
+
+  /** @deprecated Use {6} instead */
   biggest: spaceArray[6],
 } as const
 
@@ -217,6 +230,7 @@ const colors = {
   'primary-700': '#37314E',
   'primary-800': '#2E2942',
   'primary-900': '#201C2D',
+
   'secondary-50': '#FFE6EE',
   'secondary-100': '#FFABCA',
   'secondary-200': '#FF82B4',
@@ -227,6 +241,7 @@ const colors = {
   'secondary-700': '#910052',
   'secondary-800': '#6B0040',
   'secondary-900': '#45002C',
+
   'neutral-50': '#F9FAFB',
   'neutral-100': '#F3F4F6',
   'neutral-200': '#E5E7EB',
@@ -237,6 +252,7 @@ const colors = {
   'neutral-700': '#374151',
   'neutral-800': '#1F2937',
   'neutral-900': '#111827',
+
   'success-50': '#F0FDF4',
   'success-100': '#DCFCE7',
   'success-200': '#BBF7D0',
@@ -247,6 +263,7 @@ const colors = {
   'success-700': '#15803D',
   'success-800': '#166534',
   'success-900': '#14532D',
+
   'destructive-50': '#FEF2F2',
   'destructive-100': '#FEE2E2',
   'destructive-200': '#FECACA',
@@ -257,12 +274,7 @@ const colors = {
   'destructive-700': '#B91C1C',
   'destructive-800': '#991B1B',
   'destructive-900': '#7F1D1D',
-  'supporting-aqua': '#0BFFE6',
-  'supporting-grapefruit': '#FE546F',
-  'supporting-sunflower': '#FFD080',
-  'supporting-strongCyan': '#36BFC6',
-  'supporting-orangePeel': '#FF9D00',
-  'supporting-haciendaBlue': '#00819E',
+
   'warning-50': '#FFFBEB',
   'warning-100': '#FEF3C7',
   'warning-200': '#FDE68A',
@@ -273,6 +285,14 @@ const colors = {
   'warning-700': '#B45309',
   'warning-800': '#92400E',
   'warning-900': '#78350F',
+
+  'supporting-aqua': '#0BFFE6',
+  'supporting-grapefruit': '#FE546F',
+  'supporting-sunflower': '#FFD080',
+  'supporting-strongCyan': '#36BFC6',
+  'supporting-orangePeel': '#FF9D00',
+  'supporting-haciendaBlue': '#00819E',
+
   'shades-white': '#FFFFFF',
   'shades-black': '#000000',
 }
