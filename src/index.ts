@@ -31,6 +31,7 @@ import ProgressIndicator from './components/progress-indicator'
 import PasswordStrengthBar from './components/password-strength-bar'
 import AlertInline from './components/alert-inline'
 import IndeterminateLinearProgress from './components/indeterminate-progress-bar'
+import BreadCrumb from './components/breadcrumb'
 import { TableHeader, TableHeaderLabel, TableItem } from './components/table'
 import {
   ThemeProvider,
@@ -45,6 +46,7 @@ export {
   AlertInline,
   Badge,
   Box,
+  BreadCrumb,
   Button,
   DatePicker,
   Divider,

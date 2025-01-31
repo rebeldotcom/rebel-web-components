@@ -25,7 +25,11 @@ import {
 } from 'styled-system'
 import styled, {
   DefaultTheme,
+  FlattenInterpolation,
   FlattenSimpleInterpolation,
+  InterpolationFunction,
+  SimpleInterpolation,
+  ThemeProps,
 } from 'styled-components'
 import React, { ElementType, HTMLAttributes, RefAttributes } from 'react'
 
@@ -43,7 +47,11 @@ export type BoxProps = RefAttributes<HTMLDivElement> &
   TypographyProps<DefaultTheme> &
   GridProps<DefaultTheme> & {
     as?: ElementType
-    css?: FlattenSimpleInterpolation
+    css?:
+      | SimpleInterpolation
+      | FlattenSimpleInterpolation
+      | InterpolationFunction<ThemeProps<DefaultTheme>>
+      | FlattenInterpolation<ThemeProps<DefaultTheme>>
   }
 
 const transform = system({
