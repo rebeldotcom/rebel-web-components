@@ -83,13 +83,13 @@ interface As {
   as?: React.ElementType
 }
 
-export type BoxProps = React.RefAttributes<HTMLElement> &
+type MessageBoxProps = React.RefAttributes<HTMLElement> &
   React.HTMLAttributes<HTMLElement> &
-  MarginProps &
-  FlexboxProps &
+  MarginProps<DefaultTheme> &
+  FlexboxProps<DefaultTheme> &
   As & { msgSize: Sizes; variant: Variants }
 
-const StyledMessage: React.FC<BoxProps> = styled.div`
+const StyledMessage: React.FC<MessageBoxProps> = styled.div`
   ${baseStyles}
   ${flexbox}
   ${margin}

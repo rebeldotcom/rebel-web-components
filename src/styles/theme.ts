@@ -61,6 +61,8 @@ const sizes = {
 // COLORS
 
 const colors = {
+  none: '',
+
   white: '#fff',
   whiteDark: '#f7f7f7',
   greyLightest: '#e7e7e7',

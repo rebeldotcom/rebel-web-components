@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react'
 import styled, { DefaultTheme } from 'styled-components'
 import {
   space,
@@ -38,6 +38,7 @@ const StyledButton = styled.button<ButtonProps>`
 `
 
 type ButtonProps = HTMLAttributes<HTMLButtonElement> &
+  ButtonHTMLAttributes<HTMLButtonElement> &
   FlexboxProps<DefaultTheme> &
   SpaceProps<DefaultTheme> &
   LayoutProps<DefaultTheme> &

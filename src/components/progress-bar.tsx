@@ -2,45 +2,31 @@ import React from 'react'
 import styled, { DefaultTheme } from 'styled-components'
 import {
   color,
-  ColorProps,
   layout,
-  LayoutProps,
-  FlexboxProps,
   border,
-  BorderProps,
   flexbox,
   typography,
   space,
-  SpaceProps,
   variant,
-  TypographyProps,
 } from 'styled-system'
-import Box from './box'
+import Box, { BoxProps } from './box'
 
-type ProgressBarProps = {
-  decimal?: number
-  progress: number
-  maximum: number
+type ProgressProps = BoxProps & {
   variant: DefaultTheme['textVariants']
 }
 
-export type BoxProps = React.RefAttributes<HTMLElement> &
-  React.HTMLAttributes<HTMLElement> &
-  LayoutProps &
-  ColorProps &
-  SpaceProps &
-  FlexboxProps &
-  TypographyProps &
-  BorderProps & {
-    variant: DefaultTheme['textVariants']
-  }
+type ProgressBarProps = ProgressProps & {
+  decimal?: number
+  progress: number
+  maximum: number
+}
 
 const textVariants = variant({
   scale: 'textVariants',
   prop: 'variant',
 })
 
-const Progress: React.FC<BoxProps> = styled.div`
+const Progress: React.FC<ProgressProps> = styled.div<ProgressProps>`
   ${border}
   ${color}
   ${layout}
@@ -57,8 +43,8 @@ const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>(
         <Box bg="greyLight" borderRadius="rounded" width="100%">
           <Progress
             alignItems="center"
-            bg={progress === 0 ? 'none' : 'green'}
-            borderRadius="3rem"
+            bg={progress === 0 ? 'none' : 'success-500'}
+            borderRadius="rounded"
             color="white"
             py={1}
             textAlign="center"

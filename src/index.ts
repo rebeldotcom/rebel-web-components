@@ -1,3 +1,4 @@
+import './types/styled-components'
 import Box from './components/box'
 import Button from './components/button'
 import Popover from './components/popover'
