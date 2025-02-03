@@ -1,7 +1,7 @@
 const remify = (n: number) => `${n / 10}rem`
 const pixify = (n: number) => `${n}px`
 
-const COMMON_COLORS = {
+const colors = {
   white: '#ffffff',
   whiteDark: '#f7f7f7',
 
@@ -15,6 +15,28 @@ const COMMON_COLORS = {
   blackLighter: '#333444',
   blackLight: '#222328',
   black: '#000000',
+
+  'primary-50': '#F7F6F9',
+  'primary-100': '#E6E4EE',
+  'primary-200': '#CDC9DD',
+  'primary-300': '#B4AFCD',
+  'primary-400': '#9B94BC',
+  'primary-500': '#453E63',
+  'primary-600': '#3F395B',
+  'primary-700': '#37314E',
+  'primary-800': '#2E2942',
+  'primary-900': '#201C2D',
+
+  'secondary-50': '#FFE6EE',
+  'secondary-100': '#FFABCA',
+  'secondary-200': '#FF82B4',
+  'secondary-300': '#F7579C',
+  'secondary-400': '#EB2D85',
+  'secondary-500': '#DF0772',
+  'secondary-600': '#B80062',
+  'secondary-700': '#910052',
+  'secondary-800': '#6B0040',
+  'secondary-900': '#45002C',
 
   'neutral-50': '#F9FAFB',
   'neutral-100': '#F3F4F6',
@@ -113,10 +135,10 @@ const breakpoints = [600, 900, 1200].map(pixify)
 
 const borders = {
   none: 'none',
-  light: `1px solid ${COMMON_COLORS.greyDark}`,
-  dark: `1px solid ${COMMON_COLORS.blackLighter}`,
-  input: `1px solid ${COMMON_COLORS.greyLight}`,
-  error: `1px solid ${COMMON_COLORS['destructive-500']}`,
+  light: `1px solid ${colors.greyDark}`,
+  dark: `1px solid ${colors.blackLighter}`,
+  input: `1px solid ${colors.greyLight}`,
+  error: `1px solid ${colors['destructive-500']}`,
 }
 
 const radii = {
@@ -128,16 +150,16 @@ const radii = {
   circle: '50%',
 }
 
-export const BASE_THEME = {
+export const REBEL_THEME = {
   space,
   sizes,
   fonts,
   radii,
+  colors,
   borders,
   fontSizes,
   textStyles,
   lineHeights,
   fontWeights,
   breakpoints,
-  colors: COMMON_COLORS,
 }
