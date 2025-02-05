@@ -82,7 +82,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         display={display}
         id={id}
-        onClick={handleButtonClick}
+        onClick={onClick && handleButtonClick}
         title={title || ariaLabel}
         type="button"
         {...rest}
