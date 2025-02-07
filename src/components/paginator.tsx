@@ -208,7 +208,6 @@ function Paginator({
       {/* Display the number of results, and the range of data being shown */}
       {showResultCount && (
         <Text 
-        font-family= "Inter"
         font-size= "14px"
         font-weight= "500"
         line-height= "16.94px"
