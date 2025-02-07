@@ -183,6 +183,7 @@ function Paginator({
               key={`page-${page}-${idx}`}
               style={{ cursor: "pointer" }}
               bg={current === page ? "magenta" : "neutral-50"}
+              color={current === page ? "white" : "black"}
               mr={3}
               onClick={(e) => {
                   const pageNumber = parseInt(page.toString())
