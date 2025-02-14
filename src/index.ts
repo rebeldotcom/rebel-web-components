@@ -25,6 +25,7 @@ import Selector from './components/selector'
 import InputStepper from './components/input-stepper'
 import Select from './components/select'
 import Pagination from './components/pagination'
+import Paginator from './components/Paginator'
 import ProgressBar from './components/progress-bar'
 import ProgressIndicator from './components/progress-indicator'
 import PasswordStrengthBar from './components/password-strength-bar'
@@ -61,6 +62,7 @@ export {
   Message,
   ModalProvider,
   Pagination,
+  Paginator,
   Popover,
   ProgressBar,
   ProgressIndicator,
