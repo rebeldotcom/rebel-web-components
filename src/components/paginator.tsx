@@ -54,7 +54,7 @@ function Paginator({
 
   const getPaginationPages = () => {
     const pages = []
-    const expectedVisiblePagesCount = 6 //expect 6 total: start ... 4 inbetween ... end 
+    const expectedVisiblePagesCount = 5 //expect 5 total: start ... 3 inbetween ... end 
     const totalPages = Math.ceil(total / countPerPage)
 
     let forwardPages = 2
@@ -173,12 +173,13 @@ function Paginator({
         <Box>{/* might need to do something with length, grows and shrinks which is annoying */}
         {getPaginationPages().map((page, idx) =>
           page === "..." ? (
-            <span key={`ellipsis-${idx}`} style={{ margin: "0 8px" }}>
+            <span key={`ellipsis-${idx}`} style={{ margin: "0 8px 0 0" }}>
               ...
             </span>
           ) : (
             <PaginationButton
-              css={css`padding: 4px 10px 0 10px`}  
+              css={css`padding: 4px 10px 0 10px`} 
+              fontWeight="semi" 
               fontSize={12}
               key={`page-${page}-${idx}`}
               style={{ cursor: "pointer" }}
