@@ -14,10 +14,6 @@ const PaginationButton = styled(Box)`
   transition: 0.3s;
 `
 
-const PrevButton = styled(Icon)`
-  transform: rotate(180deg);
-`
-
 type PaginationProps = BoxProps & {
   onPageChange: (offset: number, limit?: number) => {}
   rowsPerPage: number
@@ -155,21 +151,23 @@ function Paginator({
       {...props}
     >
       {/* Primary Pagination logic  */}
-      <Box key="pagination" alignItems="center" justifyContent="center">
+      <Box key="pagination" alignItems="center" fontFamily="Inter" justifyContent="center">
           <Box
             style={{ gap: "8px", borderRadius: "1234px", cursor: "pointer", userSelect: "none" }}
             border-radius="1234px"
             pt={12} pr={20} pb={12} pl={20}
-            mr={2}        
+            fontWeight="semi"
+            mr={2}       
+            color="neutral-900" 
             opacity="0px"            
             onClick={prevButton}
             bg="neutral-50"
             border="1px solid #E5E7EB"
           >
-            <PrevButton
-              style={{userSelect: "none"}}
-              name="arrow-right"
-              mt={1}
+            <Icon
+              style={{userSelect: "none", marginTop:"1px"}}
+              name="chevron-left"
+              height={24} width={24}
             />Previous
           </Box>
         <Box>{/* might need to do something with length, grows and shrinks which is annoying */}
@@ -180,6 +178,8 @@ function Paginator({
             </span>
           ) : (
             <PaginationButton
+              css={css`padding: 4px 10px 0 10px`}  
+              fontSize={12}
               key={`page-${page}-${idx}`}
               style={{ cursor: "pointer" }}
               bg={current === page ? "magenta" : "neutral-50"}
@@ -200,22 +200,17 @@ function Paginator({
         pt={12} pr={20} pb={12} pl={20}  
         opacity="0px"
         bg="neutral-50"
+        color="neutral-900"
         border="1px solid #E5E7EB"
+        fontWeight="semi"
         onClick={nextButton}
         >
-          Next<Icon name="arrow-right" style={{userSelect: "none"}} mt={1} />
+          Next<Icon height={24} width={24} name="chevron-right" style={{userSelect: "none", marginTop: "1px"}} />
         </Box>
       </Box>
       {/* Display the number of results, and the range of data being shown */}
       {showResultCount && (
         <Text 
-        font-size= "14px"
-        font-weight= "500"
-        line-height= "16.94px"
-        letter-spacing= "-0.01em"
-        text-align= "left"
-        text-underline-position= "from-font"
-        text-decoration-skip-ink= "none"
         color="neutral-400"
         width={225}
         ml={2}
@@ -227,7 +222,7 @@ function Paginator({
       )}
       {/* Display a selector to choose number of rows to display */}
       {showRowSelector && (
-        <Box mr={4} mt={1}>
+        <Box mr={4} mt={1} color="neutral-400">
           <Text alignSelf="center" mr={2} variant="milliBold">
             Rows per page:
           </Text>
@@ -240,6 +235,7 @@ function Paginator({
                 margin-top:8px;
                 font-weight:600;
                 font-size:1.2rem;
+                color: #9CA3AF;
               }
               div{
                 padding-top:0;
