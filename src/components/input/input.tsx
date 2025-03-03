@@ -47,6 +47,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       textarea = false,
       type = 'text',
       value = undefined,
+      accept = '*',
       ...rest
     },
     ref
@@ -106,6 +107,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <>
           <input
             ref={ref}
+            accept={accept}
             aria-invalid={hasError}
             aria-label={ariaLabel}
             aria-required={required}
