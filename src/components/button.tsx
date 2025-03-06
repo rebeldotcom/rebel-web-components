@@ -1,5 +1,12 @@
 import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react'
-import styled, { DefaultTheme } from 'styled-components'
+import styled, {
+  DefaultTheme,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation,
+  InterpolationFunction,
+  SimpleInterpolation,
+  ThemeProps,
+} from 'styled-components'
 import {
   space,
   layout,
@@ -49,6 +56,11 @@ type ButtonProps = HTMLAttributes<HTMLButtonElement> &
     variant?: ButtonVariant
     size?: ButtonSize
     color?: keyof DefaultTheme['colors']
+    css?:
+      | SimpleInterpolation
+      | FlattenSimpleInterpolation
+      | InterpolationFunction<ThemeProps<DefaultTheme>>
+      | FlattenInterpolation<ThemeProps<DefaultTheme>>
   }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
