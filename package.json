@@ -4,11 +4,10 @@
   "description": "Rebel web components",
   "main": "build/index.js",
   "module": "build/index.es.js",
-  "types": "build/types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:types": "tsc --project tsconfig.json",
-    "build": "rollup -c && npm run build:types",
+    "build": "rollup -c",
     "start": "rollup -c -w",
     "version:patch": "npm version patch && git push",
     "version:minor": "npm version minor && git push",
