@@ -1,5 +1,12 @@
-import React, { HTMLAttributes } from 'react'
-import styled, { DefaultTheme } from 'styled-components'
+import React, { ButtonHTMLAttributes, HTMLAttributes } from 'react'
+import styled, {
+  DefaultTheme,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation,
+  InterpolationFunction,
+  SimpleInterpolation,
+  ThemeProps,
+} from 'styled-components'
 import {
   space,
   layout,
@@ -38,6 +45,7 @@ const StyledButton = styled.button<ButtonProps>`
 `
 
 type ButtonProps = HTMLAttributes<HTMLButtonElement> &
+  ButtonHTMLAttributes<HTMLButtonElement> &
   FlexboxProps<DefaultTheme> &
   SpaceProps<DefaultTheme> &
   LayoutProps<DefaultTheme> &
@@ -48,6 +56,11 @@ type ButtonProps = HTMLAttributes<HTMLButtonElement> &
     variant?: ButtonVariant
     size?: ButtonSize
     color?: keyof DefaultTheme['colors']
+    css?:
+      | SimpleInterpolation
+      | FlattenSimpleInterpolation
+      | InterpolationFunction<ThemeProps<DefaultTheme>>
+      | FlattenInterpolation<ThemeProps<DefaultTheme>>
   }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -81,7 +94,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         display={display}
         id={id}
-        onClick={handleButtonClick}
+        onClick={onClick && handleButtonClick}
         title={title || ariaLabel}
         type="button"
         {...rest}

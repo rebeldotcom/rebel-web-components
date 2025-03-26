@@ -1,39 +1,27 @@
-import React, {
-  HTMLAttributes,
-  InputHTMLAttributes,
-  LegacyRef,
-  useState,
-} from 'react'
+import React, { InputHTMLAttributes, LegacyRef, useState } from 'react'
+import { FlexboxProps, LayoutProps, MarginProps } from 'styled-system'
+import { DefaultTheme } from 'styled-components'
 import Box from '../box'
 import Text from '../text'
 import Spinner from '../spinner'
 import * as S from './input.styles'
 import Icon from '../icon'
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
-  ariaLabel?: string
-  autoComplete?: string
-  checked?: boolean
-  disabled?: boolean
-  errorMessage?: string
-  hasError?: boolean
-  hint?: string | null
-  icon?: React.ReactNode
-  id: string
-  min?: number | string
-  max?: number | string
-  maxValue?: number | string
-  placeholder?: string
-  isLoading?: boolean
-  label?: string
-  name?: string
-  required?: boolean
-  rows?: number
-  suffix?: string
-  textarea?: boolean
-  type?: InputHTMLAttributes<HTMLInputElement>['type']
-  value?: number | string
-}
+type InputProps = InputHTMLAttributes<HTMLInputElement> &
+  MarginProps<DefaultTheme> &
+  FlexboxProps<DefaultTheme> &
+  LayoutProps<DefaultTheme> & {
+    ariaLabel?: string
+    errorMessage?: string
+    hasError?: boolean
+    hint?: string | null
+    icon?: React.ReactNode
+    isLoading?: boolean
+    label?: string
+    suffix?: string
+    textarea?: boolean
+    rows?: number
+  }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
@@ -59,6 +47,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       textarea = false,
       type = 'text',
       value = undefined,
+      accept = '*',
       ...rest
     },
     ref
@@ -118,6 +107,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <>
           <input
             ref={ref}
+            accept={accept}
             aria-invalid={hasError}
             aria-label={ariaLabel}
             aria-required={required}

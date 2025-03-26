@@ -25,11 +25,13 @@ import Selector from './components/selector'
 import InputStepper from './components/input-stepper'
 import Select from './components/select'
 import Pagination from './components/pagination'
+import Paginator from './components/paginator'
 import ProgressBar from './components/progress-bar'
 import ProgressIndicator from './components/progress-indicator'
 import PasswordStrengthBar from './components/password-strength-bar'
 import AlertInline from './components/alert-inline'
 import IndeterminateLinearProgress from './components/indeterminate-progress-bar'
+import BreadCrumb from './components/breadcrumb'
 import { TableHeader, TableHeaderLabel, TableItem } from './components/table'
 import {
   ThemeProvider,
@@ -44,6 +46,7 @@ export {
   AlertInline,
   Badge,
   Box,
+  BreadCrumb,
   Button,
   DatePicker,
   Divider,
@@ -59,6 +62,7 @@ export {
   Message,
   ModalProvider,
   Pagination,
+  Paginator,
   Popover,
   ProgressBar,
   ProgressIndicator,

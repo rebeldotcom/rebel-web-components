@@ -7,16 +7,16 @@
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "noEmit": false, // Allow TypeScript to emit output
-    "emitDeclarationOnly": true, // Emit only declaration files, no JavaScript
-    "declaration": true, // Generate declaration files
-    "declarationDir": "build/types", // Output directory for declaration files
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "declarationDir": "build/types",
     "experimentalDecorators": true,
     "baseUrl": "./",
     "allowSyntheticDefaultImports": true,
     "noErrorTruncation": true,
     "allowJs": true
   },
-  "include": ["src/**/*", "@types/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

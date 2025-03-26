@@ -20,12 +20,21 @@ import {
   system,
   DisplayProps,
   display,
+  TypographyProps,
+  typography,
 } from 'styled-system'
-import styled, { DefaultTheme } from 'styled-components'
-import React from 'react'
+import styled, {
+  DefaultTheme,
+  FlattenInterpolation,
+  FlattenSimpleInterpolation,
+  InterpolationFunction,
+  SimpleInterpolation,
+  ThemeProps,
+} from 'styled-components'
+import React, { ElementType, HTMLAttributes, RefAttributes } from 'react'
 
-export type BoxProps = React.RefAttributes<HTMLDivElement> &
-  React.HTMLAttributes<HTMLDivElement> &
+export type BoxProps = RefAttributes<HTMLDivElement> &
+  HTMLAttributes<HTMLDivElement> &
   LayoutProps<DefaultTheme> &
   FlexboxProps<DefaultTheme> &
   ColorProps<DefaultTheme> &
@@ -35,8 +44,14 @@ export type BoxProps = React.RefAttributes<HTMLDivElement> &
   PositionProps<DefaultTheme> &
   ShadowProps<DefaultTheme> &
   BackgroundProps<DefaultTheme> &
+  TypographyProps<DefaultTheme> &
   GridProps<DefaultTheme> & {
-    as?: React.ElementType
+    as?: ElementType
+    css?:
+      | SimpleInterpolation
+      | FlattenSimpleInterpolation
+      | InterpolationFunction<ThemeProps<DefaultTheme>>
+      | FlattenInterpolation<ThemeProps<DefaultTheme>>
   }
 
 const transform = system({
@@ -50,6 +65,7 @@ const Box: React.FC<BoxProps> = styled.div<BoxProps>`
   ${flexbox}
   ${layout}
   ${position}
+  ${typography}
   ${space}
   ${shadow}
   ${background}

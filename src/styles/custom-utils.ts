@@ -18,6 +18,7 @@ const defaultButtonStyles = `
 `
 
 export type ButtonVariant =
+  | 'primary'
   | 'rounded'
   | 'rounded-inverse'
   | 'solid'
@@ -182,22 +183,41 @@ export const buttonStyles = ({
   const padding = `padding: ${paddingVariants[size]};`
 
   switch (variant) {
+    case 'primary': {
+      return `
+        gap: 12px;
+        transition: all 0.2s;
+        background: ${theme.colors['secondary-900']};
+        border-radius: ${radii.rounded};
+        padding: 12px 24px;
+        color: ${theme.colors['primary-800']};
+        white-space: nowrap;
+        font-size: 16px;
+        font-weight: 500;
+        width: fit-content;
+        border: none;
+
+        &:hover {
+          background: ${theme.colors['secondary-800']};
+        }
+      `
+    }
     case 'rounded': {
       return `
         gap: 12px;
         transition: all 0.2s;
-        background: ${swiftTheme.colors.primary[900]};
-        border: 0.8px solid ${swiftTheme.colors.primary[900]};
+        background: ${swiftTheme.colors.primary[600]};
         border-radius: ${radii.rounded};
-        padding: 10px;
+        padding: 12px 24px;
         color: white;
         white-space: nowrap;
-        font-size: 12px;
-        font-weight: 600;
+        font-size: 16px;
+        font-weight: 500;
+        width: fit-content;
+        border: none;
 
         &:hover {
-          background: ${swiftTheme.colors.primary[800]};
-          border: 0.8px solid ${swiftTheme.colors.primary[800]};
+          background: ${swiftTheme.colors.primary[700]};
         }
       `
     }
@@ -206,17 +226,17 @@ export const buttonStyles = ({
         gap: 12px;
         transition: all 0.2s;
         background: white;
-        border: 0.8px solid ${swiftTheme.colors.primary[500]};
         border-radius: ${radii.rounded};
-        padding: 10px;
+        padding: 12px 24px;
         color: ${swiftTheme.colors.neutral[900]};
         white-space: nowrap;
-        font-size: 12px;
-        font-weight: 600;
+        font-size: 16px;
+        font-weight: 500;
+        width: fit-content;
+        border: 1px solid ${swiftTheme.colors.neutral[900]};
 
         &:hover {
-          background: rgba(0, 0, 0, 0.05);
-          border: 1px solid ${swiftTheme.colors.primary[800]};
+          background: ${swiftTheme.colors.primary[100]};
         }
       `
     }
