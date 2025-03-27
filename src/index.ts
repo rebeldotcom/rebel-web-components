@@ -33,6 +33,7 @@ import AlertInline from './components/alert-inline'
 import IndeterminateLinearProgress from './components/indeterminate-progress-bar'
 import BreadCrumb from './components/breadcrumb'
 import { TableHeader, TableHeaderLabel, TableItem } from './components/table'
+import { VulcanThemeProvider } from './styles/vulcan-theme-provider'
 import {
   ThemeProvider,
   theme,
@@ -79,6 +80,7 @@ export {
   theme,
   redesignTheme,
   ThemeProvider,
+  VulcanThemeProvider,
   useModal,
   iconRepo,
   PasswordStrengthBar,
