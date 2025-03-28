@@ -1,9 +1,7 @@
 import React, { ElementType, HTMLAttributes } from 'react'
 import styled, {
-  css,
   DefaultTheme,
   FlattenInterpolation,
-  SimpleInterpolation,
   ThemeProps,
 } from 'styled-components'
 import {
@@ -72,11 +70,3 @@ const Text: React.FC<TextProps> = styled.div<TextProps>`
 `
 
 export default Text
-
-const test = () => (
-  <Text
-    css={css`
-      margin: 0;
-    `}
-  />
-)
