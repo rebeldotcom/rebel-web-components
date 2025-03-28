@@ -20,10 +20,9 @@ type SelectProps = BoxProps & {
   hint?: string
   value?: string | number
   onChange: (x: string | number) => void
-  e?: (e: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-const SelectComponent = styled.select<SelectProps>`
+const SelectComponent = styled.select<BoxProps>`
   display: flex;
   color: #000;
   background: transparent;
@@ -77,13 +76,10 @@ function Select({
       ) : (
         <SelectComponent
           border={2}
-          e={handleOnChange}
           id={id}
           onChange={e =>
             handleOnChange(e as React.ChangeEvent<HTMLSelectElement>)
           }
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           p="2px 2rem 2px 5px"
           value={value}
           width="100%"

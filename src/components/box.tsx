@@ -26,32 +26,25 @@ import {
 import styled, {
   DefaultTheme,
   FlattenInterpolation,
-  FlattenSimpleInterpolation,
-  InterpolationFunction,
-  SimpleInterpolation,
   ThemeProps,
 } from 'styled-components'
 import React, { ElementType, HTMLAttributes, RefAttributes } from 'react'
 
 export type BoxProps = RefAttributes<HTMLDivElement> &
   HTMLAttributes<HTMLDivElement> &
-  LayoutProps<DefaultTheme> &
-  FlexboxProps<DefaultTheme> &
-  ColorProps<DefaultTheme> &
-  BorderProps<DefaultTheme> &
-  DisplayProps<DefaultTheme> &
-  SpaceProps<DefaultTheme> &
-  PositionProps<DefaultTheme> &
-  ShadowProps<DefaultTheme> &
-  BackgroundProps<DefaultTheme> &
-  TypographyProps<DefaultTheme> &
-  GridProps<DefaultTheme> & {
+  LayoutProps &
+  FlexboxProps &
+  ColorProps &
+  BorderProps &
+  DisplayProps &
+  SpaceProps &
+  PositionProps &
+  ShadowProps &
+  BackgroundProps &
+  TypographyProps &
+  GridProps & {
     as?: ElementType
-    css?:
-      | SimpleInterpolation
-      | FlattenSimpleInterpolation
-      | InterpolationFunction<ThemeProps<DefaultTheme>>
-      | FlattenInterpolation<ThemeProps<DefaultTheme>>
+    css?: FlattenInterpolation<ThemeProps<DefaultTheme>>
   }
 
 const transform = system({
