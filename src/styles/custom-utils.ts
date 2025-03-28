@@ -1,5 +1,4 @@
 import { DefaultTheme } from 'styled-components'
-import { swiftTheme } from './swift-theme'
 
 const defaultButtonStyles = `
   appearance: none;
@@ -18,9 +17,6 @@ const defaultButtonStyles = `
 `
 
 export type ButtonVariant =
-  | 'primary'
-  | 'rounded'
-  | 'rounded-inverse'
   | 'solid'
   | 'inverse'
   | 'minimal'
@@ -183,63 +179,6 @@ export const buttonStyles = ({
   const padding = `padding: ${paddingVariants[size]};`
 
   switch (variant) {
-    case 'primary': {
-      return `
-        gap: 12px;
-        transition: all 0.2s;
-        background: ${theme.colors['secondary-900']};
-        border-radius: ${radii.rounded};
-        padding: 12px 24px;
-        color: ${theme.colors['primary-800']};
-        white-space: nowrap;
-        font-size: 16px;
-        font-weight: 500;
-        width: fit-content;
-        border: none;
-
-        &:hover {
-          background: ${theme.colors['secondary-800']};
-        }
-      `
-    }
-    case 'rounded': {
-      return `
-        gap: 12px;
-        transition: all 0.2s;
-        background: ${swiftTheme.colors.primary[600]};
-        border-radius: ${radii.rounded};
-        padding: 12px 24px;
-        color: white;
-        white-space: nowrap;
-        font-size: 16px;
-        font-weight: 500;
-        width: fit-content;
-        border: none;
-
-        &:hover {
-          background: ${swiftTheme.colors.primary[700]};
-        }
-      `
-    }
-    case 'rounded-inverse': {
-      return `
-        gap: 12px;
-        transition: all 0.2s;
-        background: white;
-        border-radius: ${radii.rounded};
-        padding: 12px 24px;
-        color: ${swiftTheme.colors.neutral[900]};
-        white-space: nowrap;
-        font-size: 16px;
-        font-weight: 500;
-        width: fit-content;
-        border: 1px solid ${swiftTheme.colors.neutral[900]};
-
-        &:hover {
-          background: ${swiftTheme.colors.primary[100]};
-        }
-      `
-    }
     case 'solid': {
       return `
         transition: all .2s;

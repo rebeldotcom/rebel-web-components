@@ -1,7 +1,7 @@
 import 'styled-components'
-import { THEME } from 'src/styles/themes'
+import { theme } from '../styles/redesignTheme'
 
-type Theme = typeof THEME
+type Theme = typeof theme
 
 declare module 'styled-components' {
   export interface DefaultTheme extends Theme {}

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { variant } from 'styled-system'
-import Text, { TextProps, typographyVariants } from './text'
+import Text, { TextProps } from './text'
 
 type HeadingProps = TextProps & {
   headingStyles?: number
@@ -15,7 +15,6 @@ const headingStyles = variant({
 const Heading: React.FC<HeadingProps> = styled(Text)`
   font-family: ${({ theme }) => theme.fonts.title};
   ${headingStyles}
-  ${typographyVariants}
 `
 
 Heading.defaultProps = {
