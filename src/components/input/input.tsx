@@ -8,9 +8,9 @@ import * as S from './input.styles'
 import Icon from '../icon'
 
 type InputProps = InputHTMLAttributes<HTMLInputElement> &
-  MarginProps<DefaultTheme> &
-  FlexboxProps<DefaultTheme> &
-  LayoutProps<DefaultTheme> & {
+  MarginProps &
+  FlexboxProps &
+  LayoutProps & {
     ariaLabel?: string
     errorMessage?: string
     hasError?: boolean

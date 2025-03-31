@@ -85,8 +85,8 @@ interface As {
 
 type MessageBoxProps = React.RefAttributes<HTMLElement> &
   React.HTMLAttributes<HTMLElement> &
-  MarginProps<DefaultTheme> &
-  FlexboxProps<DefaultTheme> &
+  MarginProps &
+  FlexboxProps &
   As & { msgSize: Sizes; variant: Variants }
 
 const StyledMessage: React.FC<MessageBoxProps> = styled.div`

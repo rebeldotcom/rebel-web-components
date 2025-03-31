@@ -1,7 +1,8 @@
-import { ElementType, HTMLAttributes } from 'react'
+import React, { ElementType, HTMLAttributes } from 'react'
 import styled, {
   DefaultTheme,
-  FlattenSimpleInterpolation,
+  FlattenInterpolation,
+  ThemeProps,
 } from 'styled-components'
 import {
   flexbox,
@@ -11,8 +12,8 @@ import {
   space,
   system,
   typography,
-  layout,
   textStyle,
+  layout,
   variant,
   FlexboxProps,
   ColorProps,
@@ -33,22 +34,26 @@ const textVariants = variant({
   prop: 'variant',
 })
 
+type TextVariant = {
+  variant?:
+    | keyof DefaultTheme['textVariants']
+    | keyof DefaultTheme['textVariants'][]
+}
+
 export type TextProps = HTMLAttributes<HTMLDivElement> &
-  LayoutProps<DefaultTheme> &
-  FlexboxProps<DefaultTheme> &
-  ColorProps<DefaultTheme> &
-  BorderProps<DefaultTheme> &
-  DisplayProps<DefaultTheme> &
-  SpaceProps<DefaultTheme> &
-  TypographyProps<DefaultTheme> &
-  TextStyleProps<DefaultTheme> & {
+  LayoutProps &
+  FlexboxProps &
+  ColorProps &
+  BorderProps &
+  DisplayProps &
+  SpaceProps &
+  TypographyProps &
+  TextStyleProps &
+  TextVariant & {
     textTransform?: string
-    variant?:
-      | keyof DefaultTheme['textVariants']
-      | keyof DefaultTheme['textVariants'][]
     htmlFor?: string
     as?: ElementType
-    css?: FlattenSimpleInterpolation
+    css?: FlattenInterpolation<ThemeProps<DefaultTheme>>
   }
 
 const Text: React.FC<TextProps> = styled.div<TextProps>`
